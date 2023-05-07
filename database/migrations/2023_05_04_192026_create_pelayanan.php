@@ -13,17 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('booking', function (Blueprint $table) {
-            $table->id('id_booking');
-            $table->string('nama');
-            $table->integer('no_telpon');
+        Schema::create('pelayanan', function (Blueprint $table) {
+            $table->id('id_pelayanan');
+            // foreign key
+            $table->foreignId('id_booking');
+            $table->foreign('id_booking')->references('id_booking')->on('booking');
+            $table->foreignId('id_karyawan');
+            $table->foreign('id_karyawan')->references('id_karyawan')->on('karyawan');
+
             $table->string('jenis_pelayanan');
             $table->string('harga');
-            $table->string('tanggal_booking');
-            $table->string('jam_booking');
-            $table->string('bukti_transfer');
-            $table->string('stats');
-
             $table->timestamps();
         });
     }
@@ -35,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('booking');
+        Schema::dropIfExists('pelayanan');
     }
 };

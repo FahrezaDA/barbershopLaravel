@@ -13,10 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pelayanan', function (Blueprint $table) {
-            $table->id('id_pelayanan');
+        Schema::create('pemesanan', function (Blueprint $table) {
+            $table->id('id_pemesanan');
+            // foreign key
+            $table->foreignId('id_customer');
+            $table->foreign('id_customer')->references('id_customer')->on('customers');
+            
+            $table->string('nama_customer');
             $table->string('jenis_pelayanan');
             $table->string('harga');
+            $table->string('no_antrian');
+            $table->string('tanggal_pemesanan');
             $table->timestamps();
         });
     }
@@ -28,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pelayanan');
+        Schema::dropIfExists('pemesanan');
     }
 };

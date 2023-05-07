@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('kasir', function (Blueprint $table) {
             $table->id('id_kasir');
+            //foreign key
+            $table->foreignId('id_booking');
+            $table->foreign('id_booking')->references('id_booking')->on('booking');
+            $table->foreignId('id_customer');
+            $table->foreign('id_customer')->references('id_customer')->on('customers');
+
             $table->string('username');
             $table->string('password');
             $table->string('email');

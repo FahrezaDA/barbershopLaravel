@@ -13,16 +13,31 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
+     * Token Akses
+     */
+    public function createToken($name)
+    {
+        $token = $this->createToken($name, ['BarberShop']);
+        return $token;
+    }
+
+    // Daftarkan table yang mau diinputkan
+
+    protected $table =  'user';
+    protected $guarded = ['id'];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    // protected $fillable = [
+    //     'name',
+    //     'email',
+    //     'password',
+    // ];
 
+    
     /**
      * The attributes that should be hidden for serialization.
      *

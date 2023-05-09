@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\landingPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,6 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/', [LoginController::class, 'Login']);
+Route::get('/login', [LoginController::class, 'Login']);
+Route::get('/', [landingPageController::class, 'index']);
 

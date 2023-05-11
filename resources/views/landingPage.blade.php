@@ -229,6 +229,8 @@
       </div>
     </section><!-- End kelebihan -->
 
+    "{{ asset('image/model-5.jpg') }}"
+
     <!-- ======= Our Projects Section ======= -->
     <section id="projects" class="projects">
       <div class="container" data-aos="fade-up">
@@ -262,154 +264,154 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
               <div class="portfolio-content h-100">
-                <img src="assets/img/projects/pelayanan-1.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('image/model-2.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Pelayanan Creambath</h4>
                   <p>Dengan pegawai yang kompeten akan membuat anda nyaman.</p>
-                  <a href="assets/img/projects/pelayanan-1.jpg" title="Pelayanan Creambath" data-gallery="portfolio-gallery-repairs" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('image/model-2.jpg') }}" title="Pelayanan Creambath" data-gallery="portfolio-gallery-repairs" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 </div>
               </div>
             </div><!-- End Projects Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
               <div class="portfolio-content h-100">
-                <img src="assets/img/projects/coloring-1.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('image/model-3.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Contoh Coloring</h4>
                   <p>Dengan rambut berwarna hidupmu akan lebih berwarna</p>
-                  <a href="assets/img/projects/coloring-1.jpg" title="Coloring" data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('image/model-3.jpg') }}" title="Coloring" data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 </div>
               </div>
             </div><!-- End Projects Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item filter-design">
               <div class="portfolio-content h-100">
-                <img src="assets/img/projects/style-2.png" class="img-fluid" alt="">
+                <img src="{{ asset('image/model-7.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Style</h4>
                   <p>Dengan Style yang rapi akan membuat anda lebih tampan</p>
-                  <a href="assets/img/projects/style-2.png" title="Style" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('image/model-7.jpg') }}" title="Style" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 </div>
               </div>
             </div><!-- End Projects Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
               <div class="portfolio-content h-100">
-                <img src="assets/img/projects/model-10.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('image/model-4.png') }}"class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Gaya Rambut</h4>
                   <p>Gaya Rambut yang keren akan membuat anda semakin percaya diri</p>
-                  <a href="assets/img/projects/model-10.jpg" title="Gaya Rambut" data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('image/model-4.png') }}" title="Gaya Rambut" data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 </div>
               </div>
             </div><!-- End Projects Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item filter-design">
               <div class="portfolio-content h-100">
-                <img src="assets/img/projects/style-5.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('image/model-6.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Style</h4>
                   <p>Dengan Style yang rapi akan membuat anda lebih tampan</p>
-                  <a href="assets/img/projects/style-5.jpg" title="Style" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('image/model-6.jpg') }}" title="Style" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 </div>
               </div>
             </div><!-- End Projects Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
               <div class="portfolio-content h-100">
-                <img src="assets/img/projects/coloring-3.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('image/model-8.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Contoh Coloring</h4>
                   <p>Dengan rambut berwarna hidupmu akan lebih berwarna</p>
-                  <a href="assets/img/projects/coloring-3.jpg" title="Coloring" data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('image/model-8.jpg') }}" title="Coloring" data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 </div>
               </div>
             </div><!-- End Projects Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
               <div class="portfolio-content h-100">
-                <img src="assets/img/projects/pelayanan-2.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('image/model-9.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Pelayanan Creambath</h4>
                   <p>Dengan pegawai yang kompeten akan membuat anda nyaman.</p>
-                  <a href="assets/img/projects/pelayanan-2.jpg" title="Pelayanan Creambath" data-gallery="portfolio-gallery-repairs" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('image/model-9.jpg') }}" title="Pelayanan Creambath" data-gallery="portfolio-gallery-repairs" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 </div>
               </div>
             </div><!-- End Projects Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
               <div class="portfolio-content h-100">
-                <img src="assets/img/projects/model-9.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('image/model-10.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Gaya Rambut</h4>
                   <p>Gaya Rambut yang keren akan membuat anda semakin percaya diri</p>
-                  <a href="assets/img/projects/model-9.jpg" title="Gaya Rambut" data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('image/model-10.jpg') }}" title="Gaya Rambut" data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 </div>
               </div>
             </div><!-- End Projects Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
               <div class="portfolio-content h-100">
-                <img src="assets/img/projects/coloring-6.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('image/model-16.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Contoh Coloring</h4>
                   <p>Dengan rambut berwarna hidupmu akan lebih berwarna</p>
-                  <a href="assets/img/projects/coloring-6.jpg" title="Coloring" data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('image/model-16.jpg') }}" title="Coloring" data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 </div>
               </div>
             </div><!-- End Projects Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item filter-design">
               <div class="portfolio-content h-100">
-                <img src="assets/img/projects/style-6.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('image/model-11.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Style</h4>
                   <p>Dengan Style yang rapi akan membuat anda lebih tampan</p>
-                  <a href="assets/img/projects/style-6.jpg" title="Style" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('image/model-11.jpg') }}"title="Style" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 </div>
               </div>
             </div><!-- End Projects Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
               <div class="portfolio-content h-100">
-                <img src="assets/img/projects/pelayanan-7.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('image/model-17.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Pelayanan Creambath</h4>
                   <p>Dengan pegawai yang kompeten akan membuat anda nyaman.</p>
-                  <a href="assets/img/projects/pelayanan-7.jpg" title="Pelayanan Creambath" data-gallery="portfolio-gallery-repairs" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('image/model-17.jpg') }}" title="Pelayanan Creambath" data-gallery="portfolio-gallery-repairs" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 </div>
               </div>
             </div><!-- End Projects Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
               <div class="portfolio-content h-100">
-                <img src="assets/img/projects/model-14.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('image/model-15.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Gaya Rambut</h4>
                   <p>Gaya Rambut yang keren akan membuat anda semakin percaya diri</p>
-                  <a href="assets/img/projects/model-14.jpg" title="Gaya Rambut" data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('image/model-15.jpg') }}" title="Gaya Rambut" data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 </div>
               </div>
             </div><!-- End Projects Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
               <div class="portfolio-content h-100">
-                <img src="assets/img/projects/model-15.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('image/model-12.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Gaya Rambut</h4>
                   <p>Gaya Rambut yang keren akan membuat anda semakin percaya diri</p>
-                  <a href="assets/img/projects/model-15.jpg" title="Gaya Rambut" data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('image/model-12.jpg') }}" title="Gaya Rambut" data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 </div>
               </div>
             </div><!-- End Projects Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
               <div class="portfolio-content h-100">
-                <img src="assets/img/projects/model-3.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('image/model-14.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Gaya Rambut</h4>
                   <p>Gaya Rambut yang keren akan membuat anda semakin percaya diri</p>
-                  <a href="assets/img/projects/model-3.jpg" title="Gaya Rambut" data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('image/model-14.jpg') }}" title="Gaya Rambut" data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 </div>
               </div>
             </div><!-- End Projects Item -->

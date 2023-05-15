@@ -53,7 +53,7 @@
       <nav id="navbar" class="navbar" >
         <ul>
           <li><a href="index.php" class="active">Utama</a></li>
-          <li><a href="pelayanan.php">Pelayanan </a></li>
+          <li><a href="pelayanan">Pelayanan </a></li>
           <li><a href="tentangKami.php">Tentang Kami </a></li>
           <li><a href="galeri.php">Galeri </a></li>
           <li><a href="kontak.php">Kontak</a></li>

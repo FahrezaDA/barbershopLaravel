@@ -3,7 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
-
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\pemesananController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,10 +21,13 @@ use App\Http\Controllers\Api\UserController;
 //});
 
 Route::post('/register', [AuthController::class, 'register']);
+Route::post('/postPemesanan', [pemesananController::class, 'postPemesanan']);
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
    return $request->user();});
 
-Route::post('login', [UserController::class,'login']);
-Route::post('loginUser', [UserController::class,'user']);
+// Route::post('login', [UserController::class,'login']);
+// Route::post('loginUser', [UserController::class,'user']);
+
+Route::get('/getPemesanan', [pemesananController::class, 'get']);

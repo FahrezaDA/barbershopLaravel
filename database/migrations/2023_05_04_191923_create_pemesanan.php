@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pemesanan', function (Blueprint $table) {
+        Schema::create('pemesanans', function (Blueprint $table) {
             $table->id('id_pemesanan');
             // foreign key
             $table->foreignId('id_customer');
             $table->foreign('id_customer')->references('id_customer')->on('customers');
-            
             $table->string('nama_customer');
             $table->string('jenis_pelayanan');
             $table->string('harga');

@@ -1,12 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
+
 use App\Http\Controllers\landingPageController;
 use App\Http\Controllers\pelayananController;
 use App\Http\Controllers\tentangkamiController;
 use App\Http\Controllers\kontakController;
 use App\Http\Controllers\pembayaranController;
+use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\galeriController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +21,22 @@ use App\Http\Controllers\pembayaranController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/login', [LoginController::class, 'Login']);
-Route::get('/landingPage', [landingPageController::class, 'index']);
+Route::post('/register', [AuthController::class, 'register']);
+Route::get('/login', [AuthController::class, 'login']);
+Route::get('/', [landingPageController::class, 'index']);
 Route::get('/pelayanan', [pelayananController::class, 'pelayanan']);
-Route::get('/', [pembayaranController::class, 'index']);
+Route::get('/pending', [pembayaranController::class, 'index']);
+
+
+
+Route::get('/', [landingPageController::class, 'index']);
+Route::get('/pelayanan', [pelayananController::class, 'pelayanan']);
+Route::get('/tentangkami', [tentangkamiController::class, 'tentangkami']);
+Route::get('/kontak', [kontakController::class, 'kontak']);
+Route::get('/sfsfsfsf', [pembayaranController::class, 'index']);
+Route::get('/galeri', [galeriController::class, 'galeri']);
+
+
 
 
 //PEMBAYARAN
@@ -41,4 +55,5 @@ Route::get('/register', function () {
 })->name('register');
 
 Route::post('/register', [AuthController::class, 'register']);
+
 

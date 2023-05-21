@@ -4,8 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\landingPageController;
 use App\Http\Controllers\pelayananController;
+use App\Http\Controllers\tentangkamiController;
+use App\Http\Controllers\kontakController;
 use App\Http\Controllers\pembayaranController;
-use App\Http\Controllers\API\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +18,11 @@ use App\Http\Controllers\API\AuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::post('/register', [AuthController::class, 'register']);
-Route::get('/login', [AuthController::class, 'login']);
-Route::get('/', [landingPageController::class, 'index']);
+
+Route::get('/login', [LoginController::class, 'Login']);
+Route::get('/landingPage', [landingPageController::class, 'index']);
 Route::get('/pelayanan', [pelayananController::class, 'pelayanan']);
-Route::get('/pending', [pembayaranController::class, 'index']);
+Route::get('/', [pembayaranController::class, 'index']);
 
 
 //PEMBAYARAN

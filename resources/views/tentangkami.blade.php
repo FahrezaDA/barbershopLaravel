@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Barbershop - Pelayanan</title>
+  <title>Barbershop - Tentang Kami</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -13,19 +13,18 @@
   <link href="{{ asset('image/iconatas.png') }}" rel="icon">
 
   <!-- Google Fonts -->
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <!-- <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
@@ -52,16 +51,15 @@
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="/">Utama</a></li>
+        <li><a href="/" >Utama</a></li>
           <li><a href="/pelayanan">Pelayanan </a></li>
-          <li><a href="/tentangkami">Tentang Kami </a></li>
-          <li><a href="galeri.php">Galeri </a></li>
-          <li><a href="/kontak">Kontak</a></li>
+          <li><a href="/tentangkami" class="active">Tentang Kami </a></li>
+          <li><a href="/galeri">Galeri </a></li>
+          <li><a href="/kontak">Kontak </a></li>
           <li><a href="dashboardPemesanan.php">Dashboard </a></li>
-          <li><a href="login.php">Login</a></li>
+          <li><a href="login.php">Login </a></li>
         </ul>
       </nav><!-- .navbar -->
-<!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
@@ -72,133 +70,128 @@
     <div class="breadcrumbs d-flex align-items-center" style="background-image: url('image/background.jpg');">
       <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
-        <h2>Pelayanan</h2>
+        <h2>Tentang Kami</h2>
         <ol>
-          <li><a href="landingPage">Utama</a></li>
-          <li>Pelayanan</li>
+          <li><a href="/">Utama</a></li>
+          <li>Tentang Kami</li>
         </ol>
 
       </div>
     </div><!-- End Breadcrumbs -->
 
-    <!-- ======= Constructions Section ======= -->
-    <section id="constructions" class="constructions">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row position-relative">
+
+          <div class="col-lg-7 about-img" style="background-image: url('image/cutlucklogo.jpeg');"></div>
+
+          <div class="col-lg-7">
+            <h2>Selamat Datang di CutLuck Barber Shop</h2>
+            <div class="our-story">
+              <h3>CutLuck</h3>
+              <p>Adalah tempat potong rambut / pangkas rambut yang melayani berbagai model atau syle rambut dengan fasilitas terbaik dan ditangani oleh pegawai yang kompeten kepada pelanggan sehingga tingakt kenyamanan yang tinggi dapat dirasakan oleh pelanggan.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- End About Section -->
+
+    <!-- ======= Our Team Section ======= -->
+    <section id="team" class="team">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Pelayanan</h2>
-          <p>Pelayanan yang kami berikan sangat bervariasi sesuai kebutuhan konsumen</p>
+          <h2>Team A5
+          </h2>
         </div>
 
-        <div class="row gy-4">
+        <div class="row gy-5">
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="card-item">
-              <div class="row">
-                <div class="col-xl-5">
-                <img src="{{ asset('image/gentlemencut.jpg') }}" alt="" width="240">
-                </div>
-                <div class="col-xl-7 d-flex align-items-center">
-                  <div class="card-body">
-                    <h4 class="card-title">Gentlement Cut</h4>
-                    <p>Potong rambut tanpa keramas dan diakhiri dengan pemakaian tonic atau pomade</p>
-                    <a href="service-details.php" class="readmore stretched-link">Selengkapnya <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
+
+          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="400">
+            <div class="member-img">
+              <img src="{{ asset('image/timfahreza.png') }}" class="img-fluid" alt="">
+
+
             </div>
-          </div><!-- End Card Item -->
+            <div class="member-info text-center">
+              <h4>Fahreza Daffa Assefy</h4>
 
-          <div class="col-lg-6" dnavata-aos="fade-up" data-aos-delay="200">
-            <div class="card-item">
-              <div class="row">
-                <div class="col-xl-5">
-                <img src="{{ asset('image/kidshaircut.jpg') }}" alt="" width="265">
-                </div>
-                <div class="col-xl-7 d-flex align-items-center">
-                  <div class="card-body">
-                    <h4 class="card-title">Kids Haircut</h4>
-                    <p>Pengalaman potong rambut yang ramah dan nyaman untuk si kecil.</p>
-                    <a href="service-details1.php" class="readmore stretched-link">Selengkapnya <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
+              <p>E31210039
+                <br> Manajemen Informatika
+              </p>
             </div>
-          </div><!-- End Card Item -->
+          </div><!-- End Team Member -->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-item">
-              <div class="row">
-                <div class="col-xl-5">
-                <img src="{{ asset('image/groominghairtato.jpg') }}" alt="" width="260">
-                </div>
-                <div class="col-xl-7 d-flex align-items-center">
-                  <div class="card-body">
-                    <h4 class="card-title">Grooming And Hair Tato</h4>
-                    <p>Biarkan barberman kami yang terampil untuk membentuk dan merancang gaya rambut-mu seperti hasil mahakaryanya.</p>
-                    <a href="service-details2.php" class="readmore stretched-link">Selengkapnya <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
+          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="500">
+            <div class="member-img">
+              <img src="{{ asset('image/timnia.jpg') }}" class="img-fluid" alt="">
+
             </div>
-          </div><!-- End Card Item -->
+            <div class="member-info text-center">
+              <h4>Khoiyimatul Hosniah</h4>
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="card-item">
-              <div class="row">
-                <div class="col-xl-5">
-                <img src="{{ asset('image/blackhair.jpg') }}" alt="" width="260">
-                </div>
-                <div class="col-xl-7 d-flex align-items-center">
-                  <div class="card-body">
-                    <h4 class="card-title">Black Hair Coloring</h4>
-                    <p>Ubah rambut ubanmu menjadi rambut hitam berkilau</p>
-                    <a href="service-detail3.php" class="readmore stretched-link">Selengkapnya <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
+              <p>E31210400
+                <br> Manajemen Informatika
+              </p>
             </div>
-          </div><!-- End Card Item -->
+          </div><!-- End Team Member -->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="card-item">
-              <div class="row">
-                <div class="col-xl-5">
-                <img src="{{ asset('image/smoothing.jpg') }}" alt="" width="260">
-                </div>
-                <div class="col-xl-7 d-flex align-items-center">
-                  <div class="card-body">
-                    <h4 class="card-title">Smoothing</h4>
-                    <p>Pelurusan rambut dengan hasil yang natural</p>
-                    <a href="service-details4.php" class="readmore stretched-link">Selengkapnya <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
+          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="600">
+            <div class="member-img">
+              <img src="{{ asset('image/timlucky.jpeg') }}" class="img-fluid" alt="">
+
             </div>
-          </div><!-- End Card Item -->
+            <div class="member-info text-center">
+              <h4>Lucky Wahyu Maulana</h4>
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="card-item">
-              <div class="row">
-                <div class="col-xl-5">
-                <img src="{{ asset('image/permhair.jpg') }}" alt="" width="220">
-                </div>
-                <div class="col-xl-7 d-flex align-items-center">
-                  <div class="card-body">
-                    <h4 class="card-title">Perm Hair Treatment</h4>
-                    <p>Pengeritingan rambut dengan hasil yang natural dan trendy</p>
-                    <a href="service-details5.php" class="readmore stretched-link">Selengkapnya <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
+              <p>E31210164
+                <br> Manajemen Informatika
+              </p>
             </div>
-          </div><!-- End Card Item -->
+          </div><!-- End Team Member -->
 
+          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="600">
+            <div class="member-img">
+              <img src="{{ asset('image/timwulan.jpeg') }}" class="img-fluid" alt="">
+
+            </div>
+            <div class="member-info text-center">
+              <h4>Retno Ayu Nawang Wulan</h4>
+
+              <p>E31210538
+                <br> Manajemen Informatika
+              </p>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="600"></div>
+
+          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="600">
+            <div class="member-img">
+              <img src="{{ asset('image/timsuci.jpeg') }}" class="img-fluid" alt="">
+
+            </div>
+            <div class="member-info text-center">
+              <h4>Suci Nur Kholisah</h4>
+
+              <p>E31210549
+                <br> Manajemen Informatika
+              </p>
+            </div>
+          </div><!-- End Team Member -->
 
         </div>
 
       </div>
-    </section><!-- End Constructions Section -->
+    </section><!-- End Our Team Section -->
+
+
+
 
   </main><!-- End #main -->
 

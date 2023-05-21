@@ -9,7 +9,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/Icon-atas.png" rel="icon">
+  <link href="{{ asset('image/iconatas.png') }}" rel="icon">
+
 
 
   <!-- Google Fonts -->
@@ -52,11 +53,11 @@
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar" >
         <ul>
-          <li><a href="index.php" class="active">Utama</a></li>
-          <li><a href="pelayanan">Pelayanan </a></li>
-          <li><a href="tentangKami.php">Tentang Kami </a></li>
-          <li><a href="galeri.php">Galeri </a></li>
-          <li><a href="kontak.php">Kontak</a></li>
+          <li><a href="/" class="active">Utama</a></li>
+          <li><a href="/pelayanan">Pelayanan </a></li>
+          <li><a href="/tentangkami">Tentang Kami </a></li>
+          <li><a href="/galeri">Galeri </a></li>
+          <li><a href="/kontak">Kontak</a></li>
           <li><a href="bookingCustomer.php">Dashboard</a></li>
           <li><a href="login.php">Login</a></li>
         </ul>
@@ -422,7 +423,7 @@
 
       </div>
     </section><!-- End Our Projects Section -->
-  
+
       <!-- ======= Get Started Section ======= -->
     <section id="get-started" class="get-started section-bg">
       <div class="container">
@@ -534,11 +535,11 @@
       <div class="copyright">
         &copy; Copyright <strong><span>CutLuck BarberShop</span></strong>. Manajemen Informatika
       </div>
-      
+
     </div>
   </footer><!-- End Footer -->
-                            
-                            
+
+
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 
@@ -560,5 +561,5 @@
 
 
 
-    
+
 

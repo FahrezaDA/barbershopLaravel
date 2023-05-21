@@ -1,16 +1,13 @@
 <?php
 
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\landingPageController;
 use App\Http\Controllers\pelayananController;
-<<<<<<< HEAD
 use App\Http\Controllers\tentangkamiController;
 use App\Http\Controllers\kontakController;
-=======
 use App\Http\Controllers\pembayaranController;
->>>>>>> e03dc21e48926a06da88257be0e00ae93d99bffc
+use App\Http\Controllers\galeriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,16 +21,12 @@ use App\Http\Controllers\pembayaranController;
 */
 
 Route::get('/login', [LoginController::class, 'Login']);
-Route::get('/landingPage', [landingPageController::class, 'index']);
+Route::get('/', [landingPageController::class, 'index']);
 Route::get('/pelayanan', [pelayananController::class, 'pelayanan']);
-<<<<<<< HEAD
 Route::get('/tentangkami', [tentangkamiController::class, 'tentangkami']);
 Route::get('/kontak', [kontakController::class, 'kontak']);
+Route::get('/sfsfsfsf', [pembayaranController::class, 'index']);
+Route::get('/galeri', [galeriController::class, 'galeri']);
 
-
-
-=======
-Route::get('/', [pembayaranController::class, 'index']);
->>>>>>> e03dc21e48926a06da88257be0e00ae93d99bffc
 
 

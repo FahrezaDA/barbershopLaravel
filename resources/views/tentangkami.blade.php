@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/Icon-atas.png" rel="icon">
+  <link href="{{ asset('image/iconatas.png') }}" rel="icon">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,7 +54,7 @@
         <li><a href="/" >Utama</a></li>
           <li><a href="/pelayanan">Pelayanan </a></li>
           <li><a href="/tentangkami" class="active">Tentang Kami </a></li>
-          <li><a href="galeri.php">Galeri </a></li>
+          <li><a href="/galeri">Galeri </a></li>
           <li><a href="/kontak">Kontak </a></li>
           <li><a href="dashboardPemesanan.php">Dashboard </a></li>
           <li><a href="login.php">Login </a></li>

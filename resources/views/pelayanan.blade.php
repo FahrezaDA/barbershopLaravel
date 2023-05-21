@@ -10,14 +10,16 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  
+
 
   <!-- Google Fonts -->
-  
+
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -50,11 +52,11 @@
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="landingPage">Utama</a></li>
-          <li><a href="pelayanan">Pelayanan </a></li>
-          <li><a href="tentangKami.php">Tentang Kami </a></li>
+          <li><a href="/">Utama</a></li>
+          <li><a href="/pelayanan">Pelayanan </a></li>
+          <li><a href="/tentangkami">Tentang Kami </a></li>
           <li><a href="galeri.php">Galeri </a></li>
-          <li><a href="kontak.php">Kontak</a></li>
+          <li><a href="/kontak">Kontak</a></li>
           <li><a href="dashboardPemesanan.php">Dashboard </a></li>
           <li><a href="login.php">Login</a></li>
         </ul>
@@ -257,7 +259,7 @@
       <div class="copyright">
         &copy; Copyright <strong><span>CutLuck BarberShop</span></strong>. Manajemen Informatika
       </div>
-      
+
     </div>
   </footer><!-- End Footer -->
 

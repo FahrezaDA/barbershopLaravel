@@ -59,7 +59,7 @@
           <li><a href="/galeri">Galeri </a></li>
           <li><a href="/kontak">Kontak</a></li>
           <li><a href="bookingCustomer.php">Dashboard</a></li>
-          <li><a href="login.php">Login</a></li>
+          <li><a href="/login">Login</a></li>
         </ul>
       </nav><!-- .navbar -->
 

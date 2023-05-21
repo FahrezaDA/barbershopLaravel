@@ -8,6 +8,30 @@ use App\Models\User;
 use Validator;
 use Auth;
 
+// class AuthController extends Controller
+// {
+//     public function login(Request $request)
+//     {
+//         $credentials = $request->only('email', 'password');
+
+//         if (Auth::attempt($credentials)) {
+//             $user = Auth::user();
+
+//             if ($user->lvl == '1') {
+//                 return redirect()->route('dashboardPemesanan');
+//             } elseif ($user->lvl == '2') {
+//                 return redirect()->route('dashboardPemesanan');
+//             } elseif ($user->lvl == '3') {
+//                 return redirect()->route('bookingCustomer');
+//             } else {
+//                 return redirect()->route('login')->with('pesan', 'Login gagal');
+//             }
+//         } else {
+//             return redirect()->route('login')->with('pesan', 'Login gagal');
+//         }
+//     }
+// }
+
 class AuthController extends Controller
 {
     public function register(Request $request)

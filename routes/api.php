@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\pemesananController;
+use App\Http\Controllers\pembayaranController;
+use App\Http\Controllers\bookingController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,7 +24,9 @@ use App\Http\Controllers\pemesananController;
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/postPemesanan', [pemesananController::class, 'postPemesanan']);
+Route::post('/pembayaran', [pembayaranController::class, 'pembayaran']);
 Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/postBooking', [bookingController::class, 'postBooking']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
    return $request->user();});

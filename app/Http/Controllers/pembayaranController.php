@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class pembayaranController extends Controller
 {
-    public function index(Request $request){
+public function pembayaran(Request $request){
 // Set your Merchant Server Key
 \Midtrans\Config::$serverKey = 'SB-Mid-server-zwmy3_xrTquuCESo7qay5B3j';
 // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
@@ -26,12 +26,13 @@ $params = array(
         'last_name' => 'pratama',
         'email' => 'budi.pra@example.com',
         'phone' => '08111222333',
+        'alamat' => 'jember'
     ),
 );
 
 $snapToken = \Midtrans\Snap::getSnapToken($params);
-return $snapToken;
-return view('welcome',['snap_token'=>$snapToken]);
+
+return view('pembayaran',['snap_token'=>$snapToken]);
 
     }
 }

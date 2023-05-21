@@ -1,9 +1,12 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\landingPageController;
 use App\Http\Controllers\pelayananController;
+use App\Http\Controllers\tentangkamiController;
+use App\Http\Controllers\kontakController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +22,10 @@ use App\Http\Controllers\pelayananController;
 Route::get('/login', [LoginController::class, 'Login']);
 Route::get('/', [landingPageController::class, 'index']);
 Route::get('/pelayanan', [pelayananController::class, 'pelayanan']);
+Route::get('/tentangkami', [tentangkamiController::class, 'tentangkami']);
+Route::get('/kontak', [kontakController::class, 'kontak']);
+
+
+
 
 

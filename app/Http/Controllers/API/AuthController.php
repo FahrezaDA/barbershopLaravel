@@ -76,11 +76,15 @@ class AuthController extends Controller
             $success['email'] = $auth->email;
             $success['password'] = $auth->password;
 
+            return redirect('/login');
             return response()->json([
                 'success' => true,
                 'message' => 'Login sukses',
                 'data' => $success
             ]);
+
+
+
         } else {
             return response()->json([
                 'success' => false,

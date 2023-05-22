@@ -1,15 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+// use App\Http\Controllers\LoginController;
 use App\Http\Controllers\landingPageController;
 use App\Http\Controllers\pelayananController;
-use App\Http\Controllers\tentangkamiController;
-use App\Http\Controllers\kontakController;
 use App\Http\Controllers\pembayaranController;
-use App\Http\Controllers\API\AuthController;
-use App\Http\Controllers\galeriController;
-
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,22 +17,12 @@ use App\Http\Controllers\galeriController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::post('/register', [AuthController::class, 'register']);
-Route::get('/login', [AuthController::class, 'login']);
+Route::post('/register', [LoginController::class, 'register']);
+Route::post('/login', [LoginController::class, 'login'])->name('login');
+// Route::get('/login', [LoginController::class, 'Login']);
 Route::get('/', [landingPageController::class, 'index']);
 Route::get('/pelayanan', [pelayananController::class, 'pelayanan']);
-Route::get('/pending', [pembayaranController::class, 'index']);
-
-
-
-Route::get('/', [landingPageController::class, 'index']);
-Route::get('/pelayanan', [pelayananController::class, 'pelayanan']);
-Route::get('/tentangkami', [tentangkamiController::class, 'tentangkami']);
-Route::get('/kontak', [kontakController::class, 'kontak']);
-Route::get('/sfsfsfsf', [pembayaranController::class, 'index']);
-Route::get('/galeri', [galeriController::class, 'galeri']);
-
-
+Route::get('/adada', [pembayaranController::class, 'index']);
 
 
 //PEMBAYARAN
@@ -48,12 +34,9 @@ Route::get('/pembayaran', [pembayaranController::class, 'pembayaran']);
 Route::get('/login', function () {
     return view('login');
 })->name('login');
-
-Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', function () {
     return view('register');
 })->name('register');
 
 Route::post('/register', [AuthController::class, 'register']);
-
 

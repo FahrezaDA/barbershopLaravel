@@ -6,6 +6,12 @@ use App\Http\Controllers\landingPageController;
 use App\Http\Controllers\pelayananController;
 use App\Http\Controllers\pembayaranController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\servicedetails1Controller;
+use App\Http\Controllers\servicedetails2Controller;
+use App\Http\Controllers\servicedetails3Controller;
+use App\Http\Controllers\servicedetails4Controller;
+use App\Http\Controllers\servicedetails5Controller;
+use App\Http\Controllers\servicedetailsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +29,15 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/', [landingPageController::class, 'index']);
 Route::get('/pelayanan', [pelayananController::class, 'pelayanan']);
 Route::get('/adada', [pembayaranController::class, 'index']);
+
+//servicedetails
+Route::get('/servicedetails', [servicedetailsController::class, 'servicedetails']);
+Route::get('/servicedetails1', [servicedetails1Controller::class, 'servicedetails1']);
+Route::get('/servicedetails2', [servicedetails2Controller::class, 'servicedetails2']);
+Route::get('/servicedetails3', [servicedetails3Controller::class, 'servicedetails3']);
+Route::get('/servicedetails4', [servicedetails4Controller::class, 'servicedetails4']);
+Route::get('/servicedetails5', [servicedetails5Controller::class, 'servicedetails5']);
+
 
 
 //PEMBAYARAN

@@ -8,6 +8,12 @@ use Carbon\Carbon;
 
 class pemesananController extends Controller
 {
+    public function pemesanan()
+    {
+        return view('pemesanan');
+    }
+
+
     public function get(){
     $data = pemesanan::all();
 
@@ -17,10 +23,10 @@ class pemesananController extends Controller
         "data"=> $data
 
         ]);
-}
+    }
 
-public function postPemesanan(Request $request)
-{
+    public function postPemesanan(Request $request)
+    {
     // Generate unique id_pemesanan (contoh: menggunakan timestamp)
 
 
@@ -48,4 +54,45 @@ public function postPemesanan(Request $request)
         "data" => $pemesanan
     ]);
 }
+
+
+    public function index()
+    {
+        $pemesanan = Pemesanan::all();
+        return response()->json($pemesanan);
+    }
+
+    public function show($id)
+    {
+        //mendapatkan name
+        $id = pemesanan::all('id_pemesanan');
+
+        $pemesanan = Pemesanan::find($id);
+        return response()->json($pemesanan);
+    }
+    public function store(Request $request)
+    {
+        $pemesanan = Pemesanan::create($request->all());
+        return response()->json($pemesanan, 201);
+    }
+
+    public function update(Request $request, $id)
+    {
+        //mendapatkan ID
+        $id = pemesanan::all('id_pemesanan');
+
+        $pemesanan = Pemesanan::findOrFail($id);
+        $pemesanan->update($request->all());
+        return response()->json($pemesanan, 200);
+    }
+
+    public function destroy($name)
+    {
+        //mendapatkan ID
+        $id = pemesanan::all('id_pemesanan');
+
+        Pemesanan::findOrFail($id)->delete();
+        return response()->json(['message' => 'Pemesanan berhasil dihapus'], 200);
+    }
 }
+

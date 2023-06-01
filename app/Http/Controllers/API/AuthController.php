@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Validator;
 use Auth;
@@ -40,8 +41,7 @@ class AuthController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required',
-            'alamat'=>'required',
-
+            'alamat' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -54,7 +54,12 @@ class AuthController extends Controller
 
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
-        $user = User::create($input);
+        $user = User::create([
+            'name' => $input['name'],
+            'email' => $input['email'],
+            'password' => $input['password'],
+            'lvl' => 3,
+        ]);
 
         $success['token'] = $user->createToken('auth_token')->plainTextToken;
         $success['name'] = $user->name;
@@ -64,33 +69,40 @@ class AuthController extends Controller
             'message' => 'Sukses register',
             'data' => $success
         ]);
-
     }
 
-    public function login(Request $request)
-    {
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            $auth = Auth::user();
-            $success['token'] = $auth->createToken('auth_token')->plainTextToken;
-            $success['name'] = $auth->name;
-            $success['email'] = $auth->email;
-            $success['password'] = $auth->password;
-
-            return redirect('/login');
-            return response()->json([
-                'success' => true,
-                'message' => 'Login sukses',
-                'data' => $success
-            ]);
 
 
 
-        } else {
-            return response()->json([
-                'success' => false,
-                'message' => 'Cek email dan password lagi',
-                'data' => null
-            ]);
+
+
+        public function login(Request $request)
+        {
+            $credentials = $request->only('email', 'password');
+
+            if (Auth::attempt($credentials)) {
+                $user = Auth::user();
+
+                // Simpan data login ke dalam session
+                Session::put('id_user', $user->id);
+                Session::put('email', $user->email);
+
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Login sukses',
+                    'data' => [
+                        'id_user' => $user->id,
+                        'email' => $user->email
+                    ]
+                ]);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Cek email dan password lagi',
+                    'data' => null
+                ]);
+            }
         }
     }
-}
+
+

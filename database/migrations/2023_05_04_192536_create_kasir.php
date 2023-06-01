@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('id_kasir');
             //foreign key
             $table->foreignId('id_booking');
-            $table->foreign('id_booking')->references('id_booking')->on('booking');
+            $table->foreign('id_booking')->references('id_booking')->on('bookings');
             $table->foreignId('id_customer');
             $table->foreign('id_customer')->references('id_customer')->on('customers');
 

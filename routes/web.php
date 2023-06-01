@@ -6,6 +6,8 @@ use App\Http\Controllers\landingPageController;
 use App\Http\Controllers\pelayananController;
 use App\Http\Controllers\pembayaranController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\pemesananController;
+use App\Http\Controllers\bookingController;
 use App\Http\Controllers\servicedetails1Controller;
 use App\Http\Controllers\servicedetails2Controller;
 use App\Http\Controllers\servicedetails3Controller;
@@ -38,11 +40,18 @@ Route::get('/servicedetails3', [servicedetails3Controller::class, 'servicedetail
 Route::get('/servicedetails4', [servicedetails4Controller::class, 'servicedetails4']);
 Route::get('/servicedetails5', [servicedetails5Controller::class, 'servicedetails5']);
 
-
+//PEMESANAN
+Route::get('/pemesanan', [PemesananController::class, 'index']);
+Route::post('/pemesanan', [PemesananController::class, 'store']);
+Route::get('/pemesanan/{id}', [PemesananController::class, 'show']);
+Route::put('/pemesanan/{id}', [PemesananController::class, 'update']);
+Route::delete('/pemesanan/{id}', [PemesananController::class, 'destroy']);
 
 //PEMBAYARAN
 Route::get('/pembayaran', [pembayaranController::class, 'pembayaran']);
 
+Route::get('/pemesanan', [pemesananController::class, 'pemesanan']);
+Route::get('/booking', [bookingController::class, 'booking']);
 
 
 //LOGIN REGISTER

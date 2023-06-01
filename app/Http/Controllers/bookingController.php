@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 class bookingController extends Controller
 {
 
+    public function booking() {
+        return view ('booking');
+    }
+
     public function getBooking()
     {
         $data = booking::select('id_booking', 'jenis_pelayanan', 'tanggal_booking', 'jam_booking', 'stats')->get();

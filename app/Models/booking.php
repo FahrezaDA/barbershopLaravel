@@ -5,7 +5,31 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class booking extends Model
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Booking extends Model
 {
-    use HasFactory;
+    protected $table = 'bookings';
+    protected $primaryKey = 'id_booking';
+    protected $fillable = [
+        'id_booking',
+        'id_customer',
+        'id_karyawan',
+        'nama',
+        'no_telpon',
+        'jenis_pelayanan',
+        'harga',
+        'tanggal_booking',
+        'jam_booking',
+        'bukti_transfer',
+        'stats',
+    ];
+
+    // Inisialisasi nilai default untuk stats
+    protected $attributes = [
+        'stats' => 'pending',
+    ];
 }

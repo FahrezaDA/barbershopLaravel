@@ -57,7 +57,7 @@
             <li><a href="/tentangkami">Tentang Kami </a></li>
             <li><a href="/galeri">Galeri </a></li>
             <li><a href="/kontak">Kontak</a></li>
-            <li><a href="dashboardPemesanan.php">Dashboard </a></li>
+            <li><a href="dashboardPemesanan">Dashboard </a></li>
             <li><a href="/login">Login</a></li>
         </ul>
       </nav><!-- .navbar -->

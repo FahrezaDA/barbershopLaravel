@@ -5,8 +5,7 @@ if (!isset($_SESSION['email'])) {
     $_SESSION['msg'] = 'anda harus login untuk mengakses halaman ini';
     header('Location: login.php');
 }
-$sesMail = $_SESSION['email'];
-$sesPass = $_SESSION['pass'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,16 +18,15 @@ $sesPass = $_SESSION['pass'];
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('assets2/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets2/DataTables/DataTables-1.13.1/css/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets2/DataTables/Buttons-2.3.3/css/buttons.bootstrap4.min.css') }}">
-
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="{{ asset('assets2/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets2/DataTables/DataTables-1.13.1/css/dataTables.bootstrap4.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets2/DataTables/Buttons-2.3.3/css/buttons.bootstrap4.min.css') }}">
 
     <title>DASHBOARD</title>
 
     <!-- Custom fonts for this template -->
-    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css')" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -37,7 +35,7 @@ $sesPass = $_SESSION['pass'];
     <link href="{{ asset('/css/sb-admin-2.css') }}" rel="stylesheet">
 
     <!-- Custom styles for this page -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="{{ asset('/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
 </head>
 
@@ -490,6 +488,14 @@ $sesPass = $_SESSION['pass'];
     <script src="{{ asset('assets2/DataTables/Buttons-2.3.3/js/buttons.colVis.min.js') }}"></script>
 
 
+    <script>
+        $('#dataTable').DataTable( {
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'print', 'excel', 'pdf'
+             ]
+            } );
+    </script>
 
 
     <!-- Bootstrap core JavaScript-->
@@ -509,7 +515,6 @@ $sesPass = $_SESSION['pass'];
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
-
 </body>
 
 </html>

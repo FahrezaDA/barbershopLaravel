@@ -28,7 +28,7 @@ if (!isset($_SESSION['email'])) {
     <title>DASHBOARD</title>
 
     <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
@@ -113,11 +113,11 @@ if (!isset($_SESSION['email'])) {
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">admin</h6>
-                        <a class="collapse-item" href="dashboardKaryawan.php">Karyawan</a>
-                        <a class="collapse-item" href="dashboardUser.php">User</a>
-                        <a class="collapse-item" href="dashboardPemesanan.php">Pemesanan</a>
-                        <a class="collapse-item" href="dashboardPengeluaran.php">Pengeluaran</a>
-                        <a class="collapse-item" href="dashboardBooking.php">Booking</a>
+                        <a class="collapse-item" href="dashboardKaryawan">Karyawan</a>
+                        <a class="collapse-item" href="dashboardUser">User</a>
+                        <a class="collapse-item" href="dashboardPemesanan">Pemesanan</a>
+                        <a class="collapse-item" href="dashboardPengeluaran">Pengeluaran</a>
+                        <a class="collapse-item" href="dashboardBooking">Booking</a>
                     </div>
                 </div>
             </li>
@@ -299,8 +299,13 @@ if (!isset($_SESSION['email'])) {
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
-                        <button onclick="window.location='http://cutluck.wsmif3a.id/loginAdmin.php' "style="background-color: #4E73DF; color: white; height: 40px; width: 100px; margin: 10px 10px 10px 10px;">
-                        <b>Logout</b>
+                        @php
+                        
+                        $route = route('landingpage');
+                        
+                        @endphp
+                        <button onclick="window.location='{{ $route }}'" style="background-color: #4E73DF; color: white; height: 40px; width: 100px; margin: 10px 10px 10px 10px;">
+                        <b>Logout</b> </button>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
@@ -353,7 +358,8 @@ if (!isset($_SESSION['email'])) {
                                     </thead>
                                     
                                 </table>
-                                <a href="pemesanan.php" type="submit" name="register" class="btn btn-primary">Tambah</a>
+
+                                <a href="{{ route('pemesanan') }}" type="submit" class="btn btn-primary">Tambah</a>
                             </div>
                         </div>
                     </div>

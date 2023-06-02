@@ -39,7 +39,9 @@ Route::get('/landingpage', function () {
 })->name('landingpage');
 
 //Button tambah
-Route::get('/pemesanan', 'PemesananController@pemesanan')->name('pemesanan');
+Route::get('/pemesananDetail', function () {
+    return view('pemesananDetail');
+})->name('pemesananDetail');
 
 
 //servicedetails
@@ -54,7 +56,7 @@ Route::get('/servicedetails5', [servicedetails5Controller::class, 'servicedetail
 Route::get('/pemesanan', [PemesananController::class, 'pemesanan']);
 
 Route::get('/pemesanan', [PemesananController::class, 'index']);
-Route::post('/pemesanan', [PemesananController::class, 'store'])->name('pemesanan');
+Route::post('/pemesanan', [PemesananController::class, 'store']);
 Route::get('/pemesanan/{id}', [PemesananController::class, 'show']);
 Route::put('/pemesanan/{id}', [PemesananController::class, 'update']);
 Route::delete('/pemesanan/{id}', [PemesananController::class, 'destroy']);

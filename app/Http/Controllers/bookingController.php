@@ -8,7 +8,7 @@ class bookingController extends Controller
 {
 
     public function booking() {
-        return view ('booking');
+        return view ('bookingCustomer');
     }
 
     public function getBooking()

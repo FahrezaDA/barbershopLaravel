@@ -113,7 +113,7 @@ if (!isset($_SESSION['email'])) {
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">admin</h6>
-                        <a class="collapse-item" href="dashboardKaryawan">Karyawan</a>
+                        <a class="collapse-item" href="{{ route('dashboardKaryawan') }}">Karyawan</a>
                         <a class="collapse-item" href="dashboardUser">User</a>
                         <a class="collapse-item" href="dashboardPemesanan">Pemesanan</a>
                         <a class="collapse-item" href="dashboardPengeluaran">Pengeluaran</a>
@@ -359,7 +359,7 @@ if (!isset($_SESSION['email'])) {
                                     
                                 </table>
 
-                                <a href="{{ route('pemesanan') }}" type="submit" class="btn btn-primary">Tambah</a>
+                                <a href="{{ route('pemesananDetail') }}" type="submit" class="btn btn-primary">Tambah</a>
                             </div>
                         </div>
                     </div>

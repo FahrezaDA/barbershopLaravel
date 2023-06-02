@@ -10,11 +10,11 @@ class pemesananController extends Controller
 {
     public function pemesanan()
     {
-        return view('pemesanan');
+        return view ('pemesanan');
     }
 
-
-    public function get(){
+    public function get()
+    {
     $data = pemesanan::all();
 
     return response()->json(
@@ -57,7 +57,8 @@ class pemesananController extends Controller
 
 
     public function index()
-    {
+    {    
+
         $pemesanan = Pemesanan::all();
         return response()->json($pemesanan);
     }

@@ -8,6 +8,7 @@ use App\Http\Controllers\pembayaranController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\pemesananController;
 use App\Http\Controllers\bookingController;
+use App\Http\Controllers\dashboardBookingController;
 use App\Http\Controllers\servicedetails1Controller;
 use App\Http\Controllers\servicedetails2Controller;
 use App\Http\Controllers\servicedetails3Controller;
@@ -32,6 +33,15 @@ Route::get('/', [landingPageController::class, 'index']);
 Route::get('/pelayanan', [pelayananController::class, 'pelayanan']);
 Route::get('/adada', [pembayaranController::class, 'index']);
 
+//Button logout
+Route::get('/landingpage', function () {
+    return view('landingpage');
+})->name('landingpage');
+
+//Button tambah
+Route::get('/pemesanan', 'PemesananController@pemesanan')->name('pemesanan');
+
+
 //servicedetails
 Route::get('/servicedetails', [servicedetailsController::class, 'servicedetails']);
 Route::get('/servicedetails1', [servicedetails1Controller::class, 'servicedetails1']);
@@ -41,8 +51,10 @@ Route::get('/servicedetails4', [servicedetails4Controller::class, 'servicedetail
 Route::get('/servicedetails5', [servicedetails5Controller::class, 'servicedetails5']);
 
 //PEMESANAN
+Route::get('/pemesanan', [PemesananController::class, 'pemesanan']);
+
 Route::get('/pemesanan', [PemesananController::class, 'index']);
-Route::post('/pemesanan', [PemesananController::class, 'store']);
+Route::post('/pemesanan', [PemesananController::class, 'store'])->name('pemesanan');
 Route::get('/pemesanan/{id}', [PemesananController::class, 'show']);
 Route::put('/pemesanan/{id}', [PemesananController::class, 'update']);
 Route::delete('/pemesanan/{id}', [PemesananController::class, 'destroy']);

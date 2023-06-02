@@ -3,12 +3,15 @@
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\LoginController;
 use App\Http\Controllers\landingPageController;
+use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\pelayananController;
 use App\Http\Controllers\pembayaranController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\pemesananController;
 use App\Http\Controllers\bookingController;
+use App\Http\Controllers\karyawanController;
 use App\Http\Controllers\dashboardBookingController;
+use App\Http\Controllers\dashboardUserController;
 use App\Http\Controllers\servicedetails1Controller;
 use App\Http\Controllers\servicedetails2Controller;
 use App\Http\Controllers\servicedetails3Controller;
@@ -32,6 +35,11 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/', [landingPageController::class, 'index']);
 Route::get('/pelayanan', [pelayananController::class, 'pelayanan']);
 Route::get('/adada', [pembayaranController::class, 'index']);
+Route::get('/karyawan', [karyawanController::class, 'karyawan'])->name('dashboardKaryawan');
+Route::get('/booking', [bookingController::class, 'booking'])->name('dashboardBooking');
+Route::get('/dashboardUser', [dashboardUserController::class, 'dashboardUser'])->name('dashboardUser');
+
+
 
 //Button logout
 Route::get('/landingpage', function () {

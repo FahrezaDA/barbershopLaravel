@@ -7,6 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class pemesanan extends Model
 {
-    protected $hidden =['created_at','update_at'];
     use HasFactory;
+
+    protected $hidden =['created_at','update_at'];
+    protected $table = 'pemesanans';
+    protected $primaryKey = 'id_pemesanan';
+
+    protected $fillable = [
+        'nama',
+        'jenis_pelayanan',
+        'harga',
+        'no_antrian',
+        'tanggal_pesan',
+        'id_kasir',
+    ];
 }

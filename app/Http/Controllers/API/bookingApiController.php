@@ -40,7 +40,7 @@ class bookingApiController extends Controller
       $booking->jam_booking = $request -> jam_booking;
       $booking->bukti_transfer = $filename;
     //   $booking->bukti_transfer = $request -> bukti_transfer;
-      $booking->stats = "pending";
+       $booking->stats = "pending";
 
 
 

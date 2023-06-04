@@ -7,6 +7,10 @@ use App\Models\pengeluaran;
 
 class pengeluaranController extends Controller
 {
+    public function pengeluaran()
+    {
+        return view ('pengeluaran');
+    }
     public function postPengeluaran(Request $request) {
         $pengeluaran = new Pengeluaran();
         $pengeluaran->jenis_pengeluaran = $request->jenis_pengeluaran;

@@ -26,7 +26,7 @@ if (!isset($_SESSION['email'])) {
     <title>DASHBOARD</title>
 
     <!-- Custom fonts for this template -->
-    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css')" rel="stylesheet" type="text/css">
+    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -64,7 +64,7 @@ if (!isset($_SESSION['email'])) {
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Hal Utama</span></a>
             </li>
@@ -115,11 +115,11 @@ if (!isset($_SESSION['email'])) {
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">admin</h6>
-                        <a class="collapse-item" href="dashboardKaryawan.php">Karyawan</a>
-                        <a class="collapse-item" href="dashboardUser.php">User</a>
-                        <a class="collapse-item" href="dashboardPemesanan.php">Pemesanan</a>
-                        <a class="collapse-item" href="dashboardPengeluaran.php">Pengeluaran</a>
-                        <a class="collapse-item" href="dashboardBooking.php">Booking</a>
+                        <a class="collapse-item" href="/karyawan">Karyawan</a>
+                        <a class="collapse-item" href="/dashboardUser">User</a>
+                        <a class="collapse-item" href="/pemesanan">Pemesanan</a>
+                        <a class="collapse-item" href="/dashboardPengeluaran">Pengeluaran</a>
+                        <a class="collapse-item" href="/dashboardBooking">Booking</a>
                     </div>
                 </div>
             </li>
@@ -301,8 +301,14 @@ if (!isset($_SESSION['email'])) {
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
-                        <button onclick="window.location='http://cutluck.wsmif3a.id/bookingCustomer.php' "style="background-color: #4E73DF; color: white; height: 40px; width: 100px; margin: 10px 10px 10px 10px;">
-                        <b>Logout</b>
+                        @php
+                        
+                        $route = route('landingpage');
+                        
+                        @endphp
+                        <button onclick="window.location='{{ $route }}'" style="background-color: #4E73DF; color: white; height: 40px; width: 100px; margin: 10px 10px 10px 10px;">
+                        <b>Logout</b> </button>
+                        
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
@@ -356,76 +362,9 @@ if (!isset($_SESSION['email'])) {
 
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <?php
-                                            $query = "SELECT*FROM booking";
-                                            $result = mysqli_query($koneksi, $query); 
-                                            $no = 1; 
-                                            $postt ="admin";        
-                                            while ($row = mysqli_fetch_array($result)){
-                                                $id = $row['id_booking'];
-                                                $userName = $row['nama'];
-                                                $userNoTelpon = $row['no_telpon'];
-                                                $userJenisPelayanan = $row['jenis_pelayanan'];
-                                                $userHarga = $row['harga'];
-                                                $userTanggalBooking = $row['tanggal_booking'];
-                                                $userJam = $row['jam_booking'];
-                                                $userBukti = $row['bukti_transfer'];
-                                                $userStatus = $row['stats'];
-                        
-                                        ?>
-                                        <tr>
-                                            <td><?php echo $no; ?></td>
-                                            <td><?php echo $userName; ?></td>
-                                            <td><?php echo $userNoTelpon; ?></td>
-                                            <td><?php echo $userJenisPelayanan; ?></td>
-                                            <td><?php echo $userHarga; ?></td>
-                                            <td><?php echo $userTanggalBooking; ?></td>
-                                            <td><?php echo $userJam; ?></td>
-                                          
-                                            <td><button  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal<?php echo $id; ?>">
-                                                Lihat</button></td>
-	
-                                            <td><?php echo $userStatus ;?></td>
-                                           
-                                            <td>
-                                            <!-- Modal -->
-                                            
-	<div class="modal fade" id="myModal<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-          <h4 class="modal-title" id="myModalLabel" align="center">BUKTI TRANSFER</h4>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        
-	      </div>
-	      <div class="modal-body" >
-	      	<center>	
-              <img src="img/fileBooking/<?php echo $userBukti;?>"  width="100%" height="650px" class="img-responsive">
-	        </center>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>	
-	      </div>
-	    </div>
-	  </div>
-	</div>
-
-                                            
-                                            <a href="editBooking.php?id=<?php echo $row['id_booking']; ?>" class="btn btn-primary btn-circle" <?php echo " "; ?>"><i class="fas fa-pen"></i></a>
-                                            <a href="hapusBooking.php?id=<?php echo $row['id_booking']; ?>" class="btn btn-danger btn-circle" <?php echo" ";?>  onClick="confirmModal('hapusPemesanan.php?&id=<?php echo $row['id_booking']; ?>');"><i class="fas fa-trash"></i></a>
-                                            </td>
-                                            
-                                        </tr>
-                                        <?php
-                                            $no++;
-                                            }
-                                        ?>
-                                        
-                                    </tbody>
-                                    
                                 </table>
-                                <a href="booking.php" type="submit" name="register" class="btn btn-primary">Tambah</a>
+
+                                <a href="/booking" type="submit" name="register" class="btn btn-primary">Tambah</a>
                             </div>
                         </div>
                     </div>

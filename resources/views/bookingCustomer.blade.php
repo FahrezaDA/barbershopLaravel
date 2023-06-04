@@ -63,7 +63,7 @@ if (!isset($_SESSION['email'])) {
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Hal Utama</span></a>
             </li>
@@ -171,8 +171,13 @@ if (!isset($_SESSION['email'])) {
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                             </div>
                         </li>
-                        <button onclick="window.location='http://cutluck.wsmif3a.id/loginAdmin.php' "style="background-color: #4E73DF; color: white; height: 40px; width: 120px; margin: 10px 10px 10px 10px;">
-                        <b>Login Admin</b>
+                        @php
+                        
+                        $route = route('showLoginForm');
+                        
+                        @endphp
+                        <button onclick="window.location='{{ $route }}'" style="background-color: #4E73DF; color: white; height: 40px; width: 120px; margin: 10px 10px 10px 10px;">
+                        <b>Login Admin</b> </button>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">

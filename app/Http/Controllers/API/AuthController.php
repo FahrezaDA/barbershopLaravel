@@ -1,47 +1,23 @@
 <?php
-
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use App\Models\User;
-use Validator;
-use Auth;
-
-// class AuthController extends Controller
-// {
-//     public function login(Request $request)
-//     {
-//         $credentials = $request->only('email', 'password');
-
-//         if (Auth::attempt($credentials)) {
-//             $user = Auth::user();
-
-//             if ($user->lvl == '1') {
-//                 return redirect()->route('dashboardPemesanan');
-//             } elseif ($user->lvl == '2') {
-//                 return redirect()->route('dashboardPemesanan');
-//             } elseif ($user->lvl == '3') {
-//                 return redirect()->route('bookingCustomer');
-//             } else {
-//                 return redirect()->route('login')->with('pesan', 'Login gagal');
-//             }
-//         } else {
-//             return redirect()->route('login')->with('pesan', 'Login gagal');
-//         }
-//     }
-// }
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
+use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'email' => 'required|email',
+            'nama' => 'required',
+            'email' => 'required|email|unique:users',
             'password' => 'required',
-            'alamat' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -49,60 +25,81 @@ class AuthController extends Controller
                 'success' => false,
                 'message' => 'Ada kesalahan',
                 'data' => $validator->errors()
-            ]);
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
-        $user = User::create([
-            'name' => $input['name'],
-            'email' => $input['email'],
-            'password' => $input['password'],
-            'lvl' => 3,
-        ]);
+        $user = User::create($input);
 
-        $success['token'] = $user->createToken('auth_token')->plainTextToken;
-        $success['name'] = $user->name;
+        // Set session data for the logged-in user
+        Session::put('user_id', $user->id);
+        Session::put('nama', $user->nama);
 
         return response()->json([
             'success' => true,
             'message' => 'Sukses register',
-            'data' => $success
-        ]);
+            'data' => $user
+        ], Response::HTTP_CREATED);
     }
 
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
+        if (Auth::attempt($credentials)) {
+            $auth = Auth::user();
 
+            // Set session data for the logged-in user
+            Session::put('user_id', $auth->id);
+            Session::put('nama', $auth->nama);
 
-
-
-        public function login(Request $request)
-        {
-            $credentials = $request->only('email', 'password');
-
-            if (Auth::attempt($credentials)) {
-                $user = Auth::user();
-
-                // Simpan data login ke dalam session
-                Session::put('id_user', $user->id);
-                Session::put('email', $user->email);
-
-                return response()->json([
-                    'success' => true,
-                    'message' => 'Login sukses',
-                    'data' => [
-                        'id_user' => $user->id,
-                        'email' => $user->email
-                    ]
-                ]);
-            } else {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Cek email dan password lagi',
-                    'data' => null
-                ]);
-            }
+            return response()->json([
+                'success' => true,
+                'message' => 'Login sukses',
+                'data' => $auth
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Cek email dan password lagi',
+                'data' => null
+            ], Response::HTTP_UNAUTHORIZED);
         }
     }
 
+    public function getUserProfile(Request $request)
+    {
+        if (Session::has('user_id')) {
+            $userId = Session::get('user_id');
+            $user = User::find($userId);
 
+            return response()->json([
+                'success' => true,
+                'message' => 'User profile retrieved',
+                'data' => $user
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'User not authenticated',
+                'data' => null
+            ], Response::HTTP_UNAUTHORIZED);
+        }
+    }
+
+    public function logout(Request $request)
+    {
+        Session::flush();
+        Auth::logout();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Logout successful',
+            'data' => null
+        ]);
+    }
+}

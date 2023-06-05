@@ -11,35 +11,68 @@ use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
-    public function login(Request $request)
+    public function searchByName(Request $request)
     {
-        $login = Auth::Attempt($request->all());
-        if ($login) {
-            $user = Auth::user();
-            $user->api_token = Str::random(100);
-            $user->save();
-            // $user->makeVisible('api_token');
+        $email = $request->input('email');
 
-            return response()->json([
-                'response_code' => 200,
-                'message' => 'Login Berhasil',
-                'conntent' => $user
-            ]);
-        }else{
-            return response()->json([
-                'response_code' => 404,
-                'message' => 'Username atau Password Tidak Ditemukan!'
-            ]);
+        $users = User::where('email', 'like', "%{$email}%")->get();
+
+        // Mengubah format data pengguna
+        $formattedUsers = [];
+        foreach ($users as $user) {
+            $formattedUsers[] = [
+                'nama' => $user->nama, // Atur nilai "nama" dari objek $user
+                'no_telepon' => $user->no_telepon,
+                'alamat' => $user->alamat
+            ];
         }
-    }
-    
 
-    public function user(Request $request)
-    {
-        $user = User::findOrFail($request->id);
-        
-        return response()->json($user);
-    }  
-    
+        return response()->json([
+            'success' => true,
+            'message' => 'Data ditemukan',
+            'data' => $formattedUsers, // Menggunakan $formattedUsers dalam respons JSON
+        ]);
+    }
+
+    public function update(Request $request)
+{
+    $email = $request->input('email');
+
+    // Mencari pengguna berdasarkan email
+    $user = User::where('email', $email)->first();
+
+    if (!$user) {
+        return response()->json([
+            'success' => false,
+            'message' => 'User not found',
+        ], 404);
+    }
+
+    // Mengambil data pembaruan dari permintaan
+    $nama = $request->input('nama');
+    $no_telepon = $request->input('no_telepon');
+    $alamat = $request->input('alamat');
+
+    // Memperbarui data pengguna jika ada
+    if ($nama) {
+        $user->nama = $nama;
+    }
+    if ($no_telepon) {
+        $user->no_telepon = $no_telepon;
+    }
+    if ($alamat) {
+        $user->alamat = $alamat;
+    }
+
+    // Menyimpan perubahan pada pengguna
+    $user->save();
+
+    return response()->json([
+        'success' => true,
+        'message' => 'Data updated successfully',
+        'data' => $user,
+    ]);
+}
+
 }
 

@@ -67,6 +67,10 @@ Route::get('/pemesananDetail', function () {
     return view('pemesananDetail');
 })->name('pemesananDetail');
 
+Route::get('/booking', function () {
+    return view('booking');
+})->name('booking');
+
 
 
 
@@ -82,6 +86,7 @@ Route::get('/servicedetails5', [servicedetails5Controller::class, 'servicedetail
 Route::get('/pemesanan', [PemesananController::class, 'pemesanan']);
 
 Route::get('/pemesanan', [PemesananController::class, 'index']);
+Route::get('/pemesanan', [pemesananController::class, 'allData']);
 Route::post('/pemesanan', [PemesananController::class, 'store']);
 Route::get('/pemesanan/{id}', [PemesananController::class, 'show']);
 Route::put('/pemesanan/{id}', [PemesananController::class, 'update']);
@@ -92,6 +97,8 @@ Route::get('/pembayaran', [pembayaranController::class, 'pembayaran']);
 
 Route::get('/pemesanan', [pemesananController::class, 'pemesanan']);
 Route::get('/booking', [bookingController::class, 'booking']);
+Route::get('/booking', [bookingCustomerController::class, 'index']);
+
 
 
 //LOGIN REGISTER

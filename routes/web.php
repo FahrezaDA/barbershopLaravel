@@ -67,10 +67,6 @@ Route::get('/pemesananDetail', function () {
     return view('pemesananDetail');
 })->name('pemesananDetail');
 
-Route::get('/booking', function () {
-    return view('booking');
-})->name('booking');
-
 
 
 
@@ -83,22 +79,19 @@ Route::get('/servicedetails4', [servicedetails4Controller::class, 'servicedetail
 Route::get('/servicedetails5', [servicedetails5Controller::class, 'servicedetails5']);
 
 //PEMESANAN
-Route::get('/pemesanan', [PemesananController::class, 'pemesanan']);
-
-Route::get('/pemesanan', [PemesananController::class, 'index']);
-Route::get('/pemesanan', [pemesananController::class, 'allData']);
-Route::post('/pemesanan', [PemesananController::class, 'store']);
-Route::get('/pemesanan/{id}', [PemesananController::class, 'show']);
-Route::put('/pemesanan/{id}', [PemesananController::class, 'update']);
-Route::delete('/pemesanan/{id}', [PemesananController::class, 'destroy']);
+Route::resource('pemesanan', PemesananController::class);
+Route::get('/pemesanan/create', [PemesananController::class, 'create'])->name('pemesanan.create');
+Route::post('/pemesanan', [PemesananController::class, 'store'])->name('pemesanan.store');
+Route::get('/pemesanan/{id}', [PemesananController::class, 'show'])->name('pemesanan.show');
+Route::get('/pemesanan/{id}/edit', [PemesananController::class, 'edit'])->name('pemesanan.edit');
+Route::put('/pemesanan/{id}', [PemesananController::class, 'update'])->name('pemesanan.update');
+Route::delete('/pemesanan/{id}', [PemesananController::class, 'destroy'])->name('pemesanan.destroy');
 
 //PEMBAYARAN
 Route::get('/pembayaran', [pembayaranController::class, 'pembayaran']);
 
 Route::get('/pemesanan', [pemesananController::class, 'pemesanan']);
 Route::get('/booking', [bookingController::class, 'booking']);
-Route::get('/booking', [bookingCustomerController::class, 'index']);
-
 
 
 //LOGIN REGISTER

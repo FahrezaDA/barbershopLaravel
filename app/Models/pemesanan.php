@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class pemesanan extends Model
+class Pemesanan extends Model
 {
     use HasFactory;
 
@@ -15,10 +15,10 @@ class pemesanan extends Model
 
     protected $fillable = [
         'nama_customer',
-        'jenis_pelayanan',
-        'harga',
-        'no_antrian',
-        'tanggal_pemesanan',
-        'kasirID',
-    ];
+         'jenis_pelayanan',
+         'harga',
+         'no_antrian',
+         'tanggal_pemesanan',
+         'kasirID',
+     ];
 }

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use App\Models\pemesanan;
+use App\Models\Pemesanan;
 use Carbon\Carbon;
+use App\Http\Controllers\Controller;
 
-class pemesananController extends Controller
+class PemesananController extends Controller
 {
     public function pemesanan()
     {
@@ -27,10 +28,11 @@ class pemesananController extends Controller
 
     public function allData()
     {
-        $data = pemesanan::all();
+        $data = Pemesanan::all();
+
         return view('pemesanan', compact('data'));
     }
-    
+
     public function postPemesanan(Request $request)
     {
     // Generate unique id_pemesanan (contoh: menggunakan timestamp)
@@ -63,7 +65,7 @@ class pemesananController extends Controller
 
 
     public function index()
-    {    
+    {
 
         $pemesanan = Pemesanan::all();
         return response()->json($pemesanan);

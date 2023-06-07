@@ -355,8 +355,22 @@ if (!isset($_SESSION['email'])) {
                                             <th>Aksi</th>
 
                                         </tr>
+
+                                        @foreach($data as $item)
+                                        
+                                        <tr>
+                                            <td>{{$loop->iteration}}</td>
+                                            <td>{{$item->nama_customer}}</td>
+                                            <td>{{$item->jenis_pelayanan}}</td>
+                                            <td>{{$item->harga}}</td>
+                                            <td>{{$item->no_antrian}}</td>
+                                            <td>{{$item->tanggal_pemesanan}}</td>
+                                            <td>{{$item->kasirID}}</td>
+                                            <td>edit</td> 
+                                        </tr>
+                                        @endforeach
+                                        
                                     </thead>
-                                    
                                 </table>
 
                                 <a href="{{ route('pemesananDetail') }}" type="submit" class="btn btn-primary">Tambah</a>

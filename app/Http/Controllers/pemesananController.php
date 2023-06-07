@@ -25,6 +25,12 @@ class pemesananController extends Controller
         ]);
     }
 
+    public function allData()
+    {
+        $data = pemesanan::all();
+        return view('pemesanan', compact('data'));
+    }
+    
     public function postPemesanan(Request $request)
     {
     // Generate unique id_pemesanan (contoh: menggunakan timestamp)

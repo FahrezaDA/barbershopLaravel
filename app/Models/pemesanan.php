@@ -14,11 +14,11 @@ class pemesanan extends Model
     protected $primaryKey = 'id_pemesanan';
 
     protected $fillable = [
-        'nama',
+        'nama_customer',
         'jenis_pelayanan',
         'harga',
         'no_antrian',
-        'tanggal_pesan',
-        'id_kasir',
+        'tanggal_pemesanan',
+        'kasirID',
     ];
 }

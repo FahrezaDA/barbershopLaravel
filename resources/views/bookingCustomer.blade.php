@@ -173,7 +173,7 @@ if (!isset($_SESSION['email'])) {
                         </li>
                         @php
                         
-                        $route = route('showLoginForm');
+                        $route = route('login');
                         
                         @endphp
                         <button onclick="window.location='{{ $route }}'" style="background-color: #4E73DF; color: white; height: 40px; width: 120px; margin: 10px 10px 10px 10px;">
@@ -218,21 +218,24 @@ if (!isset($_SESSION['email'])) {
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                          
-                                           
                                             <th>Tanggal Booking</th>
                                             <th>Jam Booking</th>
-                                        
                                             <th>Status</th>
-                                           
-                                           
-
                                         </tr>
+
+                                        @foreach($data as $item)
+                                            <tr>
+                                                <td>{{$loop->iteration}}</td>
+                                                <td>{{ $item->tanggal_booking }}</td>
+                                                <td>{{ $item->jam_booking }}</td>
+                                                <td>{{ $item->stats }}</td>
+                                            </tr>
+                                        @endforeach
+
                                     </thead>
-                                    
-                                    
                                 </table>
-                                <a href="booking.php" type="submit" name="register" class="btn btn-primary">Tambah</a>
+
+                                <a href="/booking" type="submit" name="register" class="btn btn-primary">Tambah</a>
                             </div>
                         </div>
                     </div>

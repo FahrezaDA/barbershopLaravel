@@ -52,13 +52,13 @@
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.php">Utama</a></li>
-          <li><a href="pelayanan.php">Pelayanan </a></li>
-          <li><a href="tentangKami.php">Tentang Kami </a></li>
-          <li><a href="galeri.php">Galeri </a></li>
-          <li><a href="kontak.php">Kontak</a></li>
-          <li><a href="dashboardPemesanan.php">Dashboard</a></li>
-          <li><a href="login.php">Login</a></li>
+            <li><a href="/">Utama</a></li>
+            <li><a href="/pelayanan">Pelayanan </a></li>
+            <li><a href="/tentangkami">Tentang Kami </a></li>
+            <li><a href="/galeri">Galeri </a></li>
+            <li><a href="/kontak">Kontak</a></li>
+            <li><a href="dashboardPemesanan">Dashboard </a></li>
+            <li><a href="/login">Login</a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -68,12 +68,12 @@
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('gambar/background\ \(4\).jpg');">
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('image/background (4).jpg');">
       <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
         <h2>Pelayanan Detail</h2>
         <ol>
-          <li><a href="index.php">Utama</a></li>
+          <li><a href="/">Utama</a></li>
           <li>Pelayanan Detail</li>
         </ol>
 
@@ -91,7 +91,7 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="Pelayanan/grooming and hair tatto2.jpg" alt="" width="350">
+                  <img src="{{ asset('image/servicedetails2.jpg') }}" alt="" width="350">
                 </div>
               </div>
             </div>

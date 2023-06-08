@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use App\Models\booking;
+
 
 class bookingCustomerController extends Controller
 {
@@ -10,6 +12,17 @@ class bookingCustomerController extends Controller
     public function bookingCustomer() {
         return view ('bookingCustomer');
     }
+   
+
+
+    public function index() 
+    {
+        $data = booking::all(); // Mengambil semua data pengguna dari tabel users
+
+        return view ('booking', compact('data'));
+    }
+
+
 
     public function getBooking()
     {

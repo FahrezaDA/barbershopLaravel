@@ -85,16 +85,14 @@ Route::get('/servicedetails4', [servicedetails4Controller::class, 'servicedetail
 Route::get('/servicedetails5', [servicedetails5Controller::class, 'servicedetails5']);
 
 //PEMESANAN
-<<<<<<< HEAD
 Route::get('/pemesanan', [PemesananController::class, 'pemesanan']);
-
 Route::get('/pemesanan', [PemesananController::class, 'index']);
 Route::get('/pemesananData', [PemesananController::class, 'allData']);
 Route::post('/pemesanan', [PemesananController::class, 'store']);
 Route::get('/pemesanan/{id}', [PemesananController::class, 'show']);
 Route::put('/pemesanan/{id}', [PemesananController::class, 'update']);
 Route::delete('/pemesanan/{id}', [PemesananController::class, 'destroy']);
-=======
+
 Route::resource('pemesanan', PemesananController::class);
 Route::get('/pemesanan/create', [PemesananController::class, 'create'])->name('pemesanan.create');
 Route::post('/pemesanan', [PemesananController::class, 'store'])->name('pemesanan.store');
@@ -102,7 +100,7 @@ Route::get('/pemesanan/{id}', [PemesananController::class, 'show'])->name('pemes
 Route::get('/pemesanan/{id}/edit', [PemesananController::class, 'edit'])->name('pemesanan.edit');
 Route::put('/pemesanan/{id}', [PemesananController::class, 'update'])->name('pemesanan.update');
 Route::delete('/pemesanan/{id}', [PemesananController::class, 'destroy'])->name('pemesanan.destroy');
->>>>>>> 6746a240e0388dc04e38e5b6d12e45852247f4d1
+
 
 //PEMBAYARAN
 Route::get('/pembayaran', [pembayaranController::class, 'pembayaran']);

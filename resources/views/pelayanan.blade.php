@@ -13,19 +13,12 @@
   <link href="{{ asset('image/iconatas.png') }}" rel="icon">
 
   <!-- Google Fonts -->
-
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
   <!-- Vendor CSS Files -->
   <!-- <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
@@ -102,7 +95,7 @@
                   <div class="card-body">
                     <h4 class="card-title">Gentlement Cut</h4>
                     <p>Potong rambut tanpa keramas dan diakhiri dengan pemakaian tonic atau pomade</p>
-                    <a href="/servicedetails" class="readmore stretched-link">Selengkapnya <i class="bi bi-arrow-right"></i></a>
+                    <a href="/servicedetails" class="readmore stretched-link">Selengkapnya <i class='bx bx-right-arrow-alt'></i></a>
                   </div>
                 </div>
               </div>
@@ -119,7 +112,7 @@
                   <div class="card-body">
                     <h4 class="card-title">Kids Haircut</h4>
                     <p>Pengalaman potong rambut yang ramah dan nyaman untuk si kecil.</p>
-                    <a href="/servicedetails1" class="readmore stretched-link">Selengkapnya <i class="bi bi-arrow-right"></i></a>
+                    <a href="/servicedetails1" class="readmore stretched-link">Selengkapnya <i class='bx bx-right-arrow-alt'></i></a>
                   </div>
                 </div>
               </div>
@@ -136,7 +129,7 @@
                   <div class="card-body">
                     <h4 class="card-title">Grooming And Hair Tato</h4>
                     <p>Biarkan barberman kami yang terampil untuk membentuk dan merancang gaya rambut-mu seperti hasil mahakaryanya.</p>
-                    <a href="/servicedetails2"  class="readmore stretched-link">Selengkapnya <i class="bi bi-arrow-right"></i></a>
+                    <a href="/servicedetails2"  class="readmore stretched-link">Selengkapnya <i class='bx bx-right-arrow-alt'></i></a>
                   </div>
                 </div>
               </div>
@@ -153,7 +146,7 @@
                   <div class="card-body">
                     <h4 class="card-title">Black Hair Coloring</h4>
                     <p>Ubah rambut ubanmu menjadi rambut hitam berkilau</p>
-                    <a href="/servicedetails3"  class="readmore stretched-link">Selengkapnya <i class="bi bi-arrow-right"></i></a>
+                    <a href="/servicedetails3"  class="readmore stretched-link">Selengkapnya <i class='bx bx-right-arrow-alt'></i></a>
                   </div>
                 </div>
               </div>
@@ -170,7 +163,7 @@
                   <div class="card-body">
                     <h4 class="card-title">Smoothing</h4>
                     <p>Pelurusan rambut dengan hasil yang natural</p>
-                    <a href="/servicedetails4"  class="readmore stretched-link">Selengkapnya <i class="bi bi-arrow-right"></i></a>
+                    <a href="/servicedetails4"  class="readmore stretched-link">Selengkapnya <i class='bx bx-right-arrow-alt'></i></a>
                   </div>
                 </div>
               </div>
@@ -187,7 +180,7 @@
                   <div class="card-body">
                     <h4 class="card-title">Perm Hair Treatment</h4>
                     <p>Pengeritingan rambut dengan hasil yang natural dan trendy</p>
-                    <a href="/servicedetails5"  class="readmore stretched-link">Selengkapnya <i class="bi bi-arrow-right"></i></a>
+                    <a href="/servicedetails5"  class="readmore stretched-link">Selengkapnya <i class='bx bx-right-arrow-alt'></i></a>
                   </div>
                 </div>
               </div>
@@ -244,10 +237,10 @@
             <h4>Sosial Media</h4>
             <p>Anda dapat menghubungi kami dengan</p>
             <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+              <a href="#" class="twitter"><i class='bx bxl-twitter' ></i></a>
+              <a href="#" class="facebook"><i class='bx bxl-facebook' ></i></a>
+              <a href="#" class="instagram"><i class='bx bxl-instagram-alt' ></i></a>
+              <a href="#" class="whatsapp"><i class='bx bxl-whatsapp' ></i></a>
             </div>
           </div>
 

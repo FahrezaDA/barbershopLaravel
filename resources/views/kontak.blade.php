@@ -15,16 +15,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   {{-- <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> --}}
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
@@ -85,7 +80,7 @@
       <div class="row gy-4">
           <div class="col-lg-6">
             <div class="info-item  d-flex flex-column justify-content-center align-items-center">
-              <i class="bi bi-map"></i>
+                <i class='bx bx-map'></i>
               <h3>Lokasi</h3>
               <p>Jl. Mastrip, Krajan Timur, Sumbersari,<br> Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68121</p>
             </div>
@@ -93,7 +88,7 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="info-item d-flex flex-column justify-content-center align-items-center">
-              <i class="bi bi-envelope"></i>
+                <i class='bx bx-envelope' ></i>
               <h3>Email</h3>
               <p>https://polije.ac.id/</p>
             </div>
@@ -101,7 +96,7 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="info-item  d-flex flex-column justify-content-center align-items-center">
-              <i class="bi bi-telephone"></i>
+              <i class='bx bx-phone-call'></i>
               <h3>Telephone</h3>
               <p>0331333532</p>
             </div>
@@ -165,10 +160,10 @@
             <h4>Sosial Media</h4>
             <p>Anda dapat menghubungi kami dengan</p>
             <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+                <a href="#" class="twitter"><i class='bx bxl-twitter' ></i></a>
+                <a href="#" class="facebook"><i class='bx bxl-facebook' ></i></a>
+                <a href="#" class="instagram"><i class='bx bxl-instagram-alt' ></i></a>
+                <a href="#" class="whatsapp"><i class='bx bxl-whatsapp' ></i></a>
             </div>
           </div>
 

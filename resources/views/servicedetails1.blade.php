@@ -45,7 +45,7 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <div id="logo">
-        <a href="index.php"><img src="assets/img/projects/gambar.png" alt="image" height="60" width="200"></a>
+        <a href="index.php"><img src="{{ asset('image/logo.png') }}" alt="image" height="60" width="200"></a>
         </div>
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -57,7 +57,7 @@
             <li><a href="/tentangkami">Tentang Kami </a></li>
             <li><a href="/galeri">Galeri </a></li>
             <li><a href="/kontak">Kontak</a></li>
-            <li><a href="dashboardPemesanan.php">Dashboard </a></li>
+            <li><a href="dashboardPemesanan">Dashboard </a></li>
             <li><a href="/login">Login</a></li>
         </ul>
       </nav><!-- .navbar -->
@@ -68,12 +68,12 @@
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('gambar/background\ \(4\).jpg');">
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('image/background (4).jpg');">
       <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
         <h2>Pelayanan Detail</h2>
         <ol>
-          <li><a href="index.php">Utama</a></li>
+          <li><a href="/">Utama</a></li>
           <li>Pelayanan Detail</li>
         </ol>
 
@@ -91,7 +91,7 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="Pelayanan/kids-haircut2.jpg" alt="" width="350">
+                  <img src="{{ asset('image/servicedetails1.jpg') }}" alt="" width="350">
                 </div>
               </div>
             </div>

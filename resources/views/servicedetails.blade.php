@@ -45,7 +45,7 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <div id="logo">
-        <a href="index.php"><img src="assets/img/projects/gambar.png" alt="image" height="60" width="200"></a>
+        <a href="index.php"><img src="{{ asset('image/logo.png') }}" alt="image" height="60" width="200"></a>
         </div>
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -68,7 +68,7 @@
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('gambar/background\ \(4\).jpg');">
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('image/background.jpg');">
       <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
         <h2>Pelayanan Detail</h2>
@@ -91,7 +91,7 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="Pelayanan/gentlemen-cut2.jpg" alt="" width="350">
+                  <img src="{{ asset('image/servicedetails.jpg') }}" alt="" width="350">
                 </div>
               </div>
             </div>
@@ -148,11 +148,11 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Halaman</h4>
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="index.php">Utama</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="pelayanan.php">Pelayanan</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="tentangKami.php">Tentang Kami</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="projects.php">Galeri</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="kontak.php">Kontak</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/">Utama</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/pelayanan">Pelayanan</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/tentangkami">Tentang Kami</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/galeri">Galeri</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="/kontak">Kontak</a></li>
             </ul>
           </div>
 

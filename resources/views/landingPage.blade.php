@@ -11,12 +11,11 @@
   <!-- Favicons -->
   <link href="{{ asset('image/iconatas.png') }}" rel="icon">
 
-
-
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
   <!-- Vendor CSS Files -->
   <!-- <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -91,12 +90,13 @@
       <div class="carousel-item" style="background-image: url(https://furnizing.com/files/img/5f79bda1226e6.jpeg)"></div>
 
       <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        <span class="carousel-control-prev-icon bx bxs-chevrons-left" aria-hidden="true"></span>
       </a>
 
       <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        <span class="carousel-control-next-icon bx bxs-chevrons-right" aria-hidden="true"></span>
       </a>
+
 
     </div>
 
@@ -119,7 +119,7 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="service-item  position-relative">
               <div class="icon">
-                <i class="fa-solid fa-mountain-city"></i>
+                <i class='bx bxs-business'></i>
               </div>
               <h3>Ruangan Ber-AC</h3>
               <p>Barbershop kami menggunakan air conditioner agar suasana selalu terasa lebih dingin supaya bisa dirasakan oleh pelangan.</p>
@@ -129,7 +129,7 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item position-relative">
               <div class="icon">
-                <i class="fa-solid fa-wifi"></i>
+                <i class='bx bx-wifi'></i>s
               </div>
               <h3>Free Wi-Fi</h3>
               <p>Untuk ke stabilan dan kenyamanan berinternet kami memasang wifi dan bisa bisa digunakan oleh pelanggan.</p>
@@ -139,7 +139,7 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="service-item position-relative">
               <div class="icon">
-                <i class="fa-solid fa-tv"></i>
+                <i class='bx bx-desktop'></i>
               </div>
               <h3>Hiburan Diruang Tunggu</h3>
               <p>Nah sembari pelanggann menunggu antrian, kami menyediakan tv, majalah dan buku yang bisa anda nikmati.</p>
@@ -149,7 +149,7 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <div class="service-item position-relative">
               <div class="icon">
-                <i class="fa-solid fa-hamburger"></i>
+                <i class='bx bx-bowl-hot'></i>
               </div>
               <h3>Minuman & Snack</h3>
               <p>Untuk menunda lapar pada saat menunggu antrian, pelanggan bisa mengganjal lapar dan haus saat di barbershop.</p>
@@ -159,7 +159,7 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
             <div class="service-item position-relative">
               <div class="icon">
-                <i class="fa-solid fa-couch"></i>
+                <i class='bx bx-chair'></i>
               </div>
               <h3>Kursi Barber</h3>
               <p>Barbershop memiliki kursi yang empuk dan tentunya berkualitas, agar pelanggan bisa duduk dengan nyaman pada saat potong rambut.</p>
@@ -169,7 +169,7 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="service-item position-relative">
               <div class="icon">
-                <i class="fa-solid fa-toilet"></i>
+                <i class='bx bxs-bath'></i>
               </div>
               <h3>Toilet</h3>
               <p>Kami menyediakan toilet bagi pelanggan barbershop yang bersih dan rapi tentunya agar pelanggan tidak merasa risih.</p>
@@ -192,8 +192,8 @@
             <h3>Kelebihan</h3>
             <p>barbershop CutLuck memiliki kelebihan dari pangkas rambut dan barbershop lainya, kelebihan - kelebihan tersebut sebagai berikut </p>
 
-            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
-              <i class="bi bi-people-fill flex-shrink-0"></i>
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="600">
+                <i class='bx bxs-group'></i>
               <div>
                 <h4><a href="" class="stretched-link">Karyawan Profesional</a></h4>
                 <p>Karyawan memiliki keahlian untuk memotong rambut, karyawan juga bisa memotong cambang dan kumis.aryawan memiliki keahlian untuk memotong rambut, karyawan juga bisa memotong cambang dan kumis.</p>
@@ -201,7 +201,7 @@
             </div><!-- End Icon Box -->
 
             <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
-              <i class="bi bi-scissors flex-shrink-0"></i>
+                <i class='bx bx-cut' ></i>
               <div>
                 <h4><a href="" class="stretched-link">Peralatan Lengkap</a></h4>
                 <p>Alat yang dipakai baberman yaitu clipper yang memang sangat cocok untuk memotong rambut pria.</p>
@@ -209,7 +209,7 @@
             </div><!-- End Icon Box -->
 
             <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-emoji-heart-eyes flex-shrink-0"></i>
+                <i class='bx bx-happy-heart-eyes'></i>
               <div>
                 <h4><a href="" class="stretched-link">Pelayanan Memuaskan</a></h4>
                 <p>Pelayanan habis potong rambut mendapatkan pijatan dibagian pundak, kepala dan punggung supaya relax.</p>
@@ -217,7 +217,7 @@
             </div><!-- End Icon Box -->
 
             <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-broadcast-pin flex-shrink-0"></i>
+                <i class='bx bx-broadcast' ></i>
               <div>
                 <h4><a href="" class="stretched-link">Suasana Nyaman</a></h4>
                 <p>Barbershop menggunakan ac dan koneksi internet yang cepat agar pelanggan merasakan kenyamanan.</p>
@@ -229,8 +229,6 @@
 
       </div>
     </section><!-- End kelebihan -->
-
-    "{{ asset('image/model-5.jpg') }}"
 
     <!-- ======= Our Projects Section ======= -->
     <section id="projects" class="projects">
@@ -520,10 +518,10 @@
             <h4>Sosial Media</h4>
             <p>Anda dapat menghubungi kami dengan</p>
             <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+              <a href="#" class="twitter"><i class='bx bxl-twitter' ></i></a>
+              <a href="#" class="facebook"><i class='bx bxl-facebook' ></i></a>
+              <a href="#" class="instagram"><i class='bx bxl-instagram-alt' ></i></a>
+              <a href="#" class="whatsapp"><i class='bx bxl-whatsapp' ></i></a>
             </div>
           </div>
 

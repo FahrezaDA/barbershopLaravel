@@ -129,12 +129,7 @@
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item position-relative">
-              <div class="icon">
-<<<<<<< Updated upstream
-                <i class='bx bx-wifi'></i>s
-=======
-                <i class='bx bx-wifi'></i>
->>>>>>> Stashed changes
+              <div class="icon"><i class='bx bx-wifi'></i>s
               </div>
               <h3>Free Wi-Fi</h3>
               <p>Untuk ke stabilan dan kenyamanan berinternet kami memasang wifi dan bisa bisa digunakan oleh pelanggan.</p>
@@ -543,7 +538,7 @@
   </footer><!-- End Footer -->
 
 
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class='bx bx-chevron-up-circle'></i></a>
 
 
   <!-- Vendor JS Files -->

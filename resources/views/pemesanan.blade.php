@@ -23,7 +23,7 @@ if (!isset($_SESSION['email'])) {
   <link rel="stylesheet" href="{{ asset('assets2/DataTables/DataTables-1.13.1/css/dataTables.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets2/DataTables/Buttons-2.3.3/css/buttons.bootstrap4.min.css') }}">
 
-  
+
 
     <title>DASHBOARD</title>
 
@@ -42,6 +42,10 @@ if (!isset($_SESSION['email'])) {
 </head>
 
 <body id="page-top">
+@php
+    $data = \App\Models\Pemesanan::all();
+@endphp
+
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -71,12 +75,12 @@ if (!isset($_SESSION['email'])) {
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-          
+
 
             <!-- Nav Item - Pages Collapse Menu -->
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -102,8 +106,8 @@ if (!isset($_SESSION['email'])) {
             <!-- Nav Item - Charts -->
 
             <!-- Nav Item - Tables -->
-                    
-            </li>  
+
+            </li>
             <li class="nav-item active">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -300,9 +304,9 @@ if (!isset($_SESSION['email'])) {
 
                         <!-- Nav Item - User Information -->
                         @php
-                        
+
                         $route = route('landingpage');
-                        
+
                         @endphp
                         <button onclick="window.location='{{ $route }}'" style="background-color: #4E73DF; color: white; height: 40px; width: 100px; margin: 10px 10px 10px 10px;">
                         <b>Logout</b> </button>
@@ -339,30 +343,40 @@ if (!isset($_SESSION['email'])) {
 
                     <!-- DataTales Example -->
                     <div class="container">
-                        <div class="card mt-5">
-                            <div class="card-body">
-                                <h3 class="display-7">Data Pemesanan</h3>
-                                <table id="dataTable" class="table table-bordered" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nama</th>
-                                            <th>Jenis Pelayanan</th>
-                                            <th>Harga</th>
-                                            <th>No Antrian</th>
-                                            <th>Tanggal Pemesanan</th>
-                                            <th>ID Kasir</th>
-                                            <th>Aksi</th>
-
-                                        </tr>
-                                    </thead>
-                                    
-                                </table>
-
-                                <a href="{{ route('pemesananDetail') }}" type="submit" class="btn btn-primary">Tambah</a>
-                            </div>
-                        </div>
-                    </div>
+        <div class="card mt-5">
+            <div class="card-body">
+                <h3 class="display-7">Data Pemesanan</h3>
+                <table id="dataTable" class="table table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Jenis Pelayanan</th>
+                            <th>Harga</th>
+                            <th>No Antrian</th>
+                            <th>Tanggal Pemesanan</th>
+                            <th>ID Kasir</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($data as $item)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $item->nama_customer }}</td>
+                            <td>{{ $item->jenis_pelayanan }}</td>
+                            <td>{{ $item->harga }}</td>
+                            <td>{{ $item->no_antrian }}</td>
+                            <td>{{ $item->tanggal_pemesanan }}</td>
+                            <td>{{ $item->kasirID }}</td>
+                            <td>edit</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
                 </div>
                 <!-- /.container-fluid -->

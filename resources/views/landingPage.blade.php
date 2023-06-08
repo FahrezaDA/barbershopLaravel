@@ -27,6 +27,7 @@
 
   <!-- cdn boostrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
   <!-- Template Main CSS File -->
 
   <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
@@ -129,7 +130,11 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item position-relative">
               <div class="icon">
+<<<<<<< Updated upstream
                 <i class='bx bx-wifi'></i>s
+=======
+                <i class='bx bx-wifi'></i>
+>>>>>>> Stashed changes
               </div>
               <h3>Free Wi-Fi</h3>
               <p>Untuk ke stabilan dan kenyamanan berinternet kami memasang wifi dan bisa bisa digunakan oleh pelanggan.</p>

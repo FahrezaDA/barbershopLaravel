@@ -15,6 +15,8 @@ use App\Http\Controllers\dashboardUserController;
 use App\Http\Controllers\dashboardBookingController;
 use App\Http\Controllers\registerUserController;
 use App\Http\Controllers\dashboardPengeluaranController;
+use App\Http\Controllers\galeriController;
+use App\Http\Controllers\kontakController;
 use App\Http\Controllers\pengeluaranController;
 use App\Http\Controllers\servicedetails1Controller;
 use App\Http\Controllers\servicedetails2Controller;
@@ -22,6 +24,7 @@ use App\Http\Controllers\servicedetails3Controller;
 use App\Http\Controllers\servicedetails4Controller;
 use App\Http\Controllers\servicedetails5Controller;
 use App\Http\Controllers\servicedetailsController;
+use App\Http\Controllers\tentangkamiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +41,8 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 // Route::get('/login', [LoginController::class, 'Login']);
 Route::get('/', [landingPageController::class, 'index']);
 Route::get('/pelayanan', [pelayananController::class, 'pelayanan']);
+Route::get('/tentangkami', [tentangkamiController::class, 'tentangkami']);
+Route::get('/galeri', [galeriController::class, 'galeri']);Route::get('/kontak', [kontakController::class, 'kontak']);
 Route::get('/adada', [pembayaranController::class, 'index']);
 Route::get('/karyawan', [karyawanController::class, 'karyawan'])->name('dashboardKaryawan');
 Route::get('/bookingCustomer', [bookingCustomerController::class, 'bookingCustomer'])->name('bookingCustomer');
@@ -82,6 +87,7 @@ Route::get('/servicedetails5', [servicedetails5Controller::class, 'servicedetail
 Route::get('/pemesanan', [PemesananController::class, 'pemesanan']);
 
 Route::get('/pemesanan', [PemesananController::class, 'index']);
+Route::get('/pemesananData', [PemesananController::class, 'allData']);
 Route::post('/pemesanan', [PemesananController::class, 'store']);
 Route::get('/pemesanan/{id}', [PemesananController::class, 'show']);
 Route::put('/pemesanan/{id}', [PemesananController::class, 'update']);

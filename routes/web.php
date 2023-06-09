@@ -4,10 +4,11 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\LoginController;
 use App\Http\Controllers\landingPageController;
 use App\Http\Controllers\API\AuthController;
-use App\Http\Controllers\pelayananController;
+use App\Http\Controllers\PelayananController;
 use App\Http\Controllers\pembayaranController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\pemesananController;
+use App\Http\Controllers\PemesananController;
+use App\Http\Controllers\PemesananDetailController;
 use App\Http\Controllers\bookingController;
 use App\Http\Controllers\karyawanController;
 use App\Http\Controllers\bookingCustomerController;
@@ -80,12 +81,18 @@ Route::get('/servicedetails5', [servicedetails5Controller::class, 'servicedetail
 
 //PEMESANAN
 Route::resource('pemesanan', PemesananController::class);
-Route::get('/pemesanan/create', [PemesananController::class, 'create'])->name('pemesanan.create');
+Route::get('/pemesanan', [PemesananController::class, 'create'])->name('pemesanan.create');
 Route::post('/pemesanan', [PemesananController::class, 'store'])->name('pemesanan.store');
 Route::get('/pemesanan/{id}', [PemesananController::class, 'show'])->name('pemesanan.show');
 Route::get('/pemesanan/{id}/edit', [PemesananController::class, 'edit'])->name('pemesanan.edit');
 Route::put('/pemesanan/{id}', [PemesananController::class, 'update'])->name('pemesanan.update');
 Route::delete('/pemesanan/{id}', [PemesananController::class, 'destroy'])->name('pemesanan.destroy');
+
+
+//PEMESANAN DETAIL
+Route::get('/pemesananDetail', [PemesananDetailController::class, 'create'])->name('pemesananDetail.create');
+Route::get('/pemesananDetail', [PemesananDetailController::class, 'dataKasir'])->name('pemesananDetail.dataKasir');
+
 
 //PEMBAYARAN
 Route::get('/pembayaran', [pembayaranController::class, 'pembayaran']);

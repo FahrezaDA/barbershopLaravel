@@ -53,7 +53,7 @@
 
                             </div>
                             <div>
-                                <p class="mb-0">Belum Punya Akun? <a href="{{ route('register') }}" class=" btn btn-link  fw-bold">Daftar</a></p>
+                                <p class="mb-0">Belum Punya Akun? <a href="{{ route('registerUser') }}" class=" btn btn-link  fw-bold">Daftar</a></p>
                             </div>
                         </div>
                     </div>

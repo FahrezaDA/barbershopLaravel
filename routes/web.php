@@ -49,7 +49,11 @@ Route::get('/adada', [pembayaranController::class, 'index']);
 Route::get('/bookingCustomer', [bookingCustomerController::class, 'bookingCustomer'])->name('bookingCustomer');
 Route::get('/dashboardUser', [dashboardUserController::class, 'dashboardUser'])->name('dashboardUser');
 Route::get('/dashboardBooking', [dashboardBookingController::class, 'dashboardBooking'])->name('dashboardBooking');
+
+
 Route::get('/registerUser', [registerUserController::class, 'registerUser'])->name('registerUser');
+Route::post('/registerUser/store', [registerUserController::class, 'store'])->name('registerUser.store');
+
 Route::get('/dashboardPengeluaran', [dashboardPengeluaranController::class, 'dashboardPengeluaran'])->name('dashboardPengeluaran');
 Route::get('/pengeluaran', [pengeluaranController::class, 'pengeluaran'])->name('pengeluaran');
 
@@ -143,9 +147,9 @@ Route::get('dashboardUser/{id}/hapus', [dashboardUserController::class, 'hapus']
 Route::get('/login', function () {
     return view('login');
 })->name('login');
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
+// Route::get('/register', function () {
+//     return view('register');
+// })->name('register');
 
-Route::post('/register', [AuthController::class, 'register']);
+// Route::post('/register', [AuthController::class, 'register']);
 

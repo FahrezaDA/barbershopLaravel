@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\User;
 class registerUserController extends Controller
 {
     /**
@@ -34,7 +34,24 @@ class registerUserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'alamat' => 'required',
+            'no_telpon' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required',
+        ]);
+
+        $user = new User();
+        $user->nama = $request->nama;
+        $user->alamat = $request->alamat;
+        $user->no_telepon = $request->no_telpon;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->lvl = 3; // Nilai lvl diisi otomatis dengan 3
+        $user->save();
+
+        return redirect('/login')->with('success', 'Registrasi berhasil. Silakan login.');
     }
 
     /**

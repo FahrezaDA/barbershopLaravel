@@ -66,11 +66,10 @@ if (!isset($_SESSION['email'])) {
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="landingPage">
+                <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Hal Utama</span></a>
             </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -369,11 +368,22 @@ if (!isset($_SESSION['email'])) {
                             <td>{{ $item->no_antrian }}</td>
                             <td>{{ $item->tanggal_pemesanan }}</td>
                             <td>{{ $item->kasirID }}</td>
-                            <td>edit</td>
+                            <td>
+                                <a href="{{ route('pemesanan.edit', ['id' => $item['id_pemesanan']]) }}" class="btn btn-primary btn-circle">
+                                    <i class="fas fa-pen"></i>
+                                </a>
+                                <a href="{{ route('pemesanan.hapus', ['id' => $item['id_pemesanan']]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('pemesanan.hapus', ['id' => $item['id_pemesanan']]) }}'))">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                                <a href="{{ route('pemesanan.cetak', ['id' => $item['id_pemesanan']]) }}" class="btn btn-success btn-circle">
+                                    <i class="fas fa-print"></i>
+                                </a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
+                <a href="/pemesananDetail" type="submit" name="register" class="btn btn-primary">Tambah</a>
             </div>
         </div>
     </div>

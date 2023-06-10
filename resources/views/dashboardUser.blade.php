@@ -65,6 +65,10 @@ if (!isset($_SESSION['email'])) {
 
 <body id="page-top">
 
+    @php
+        $data = \App\Models\User::all();
+    @endphp
+
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -84,7 +88,7 @@ if (!isset($_SESSION['email'])) {
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Hal Utama</span></a>
             </li>
@@ -380,6 +384,25 @@ if (!isset($_SESSION['email'])) {
                                            
                                             <th>Aksi</th>
                                         </tr>
+                                        <tbody>
+                                            @foreach($data as $item)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $item->nama_user }}</td>
+                                                <td>{{ $item->alamat }}</td>
+                                                <td>{{ $item->no_telpon }}</td>
+                                                <td>{{ $item->email }}</td>
+                                                <td>{{ $item->pass }}</td>
+                                                <td>{{ $item->jabatan }}</td>
+                                                <td>{{ $item->lvl }}</td>
+                                                <td>
+                                                    <a href="{{ route('user.edit', ['id' => $item['id_user']]) }}" class="btn btn-primary btn-circle"><i class="fas fa-pen"></i></a>
+
+                                                    <a href="{{ route('user.hapus', ['id' => $item['id_user']]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('user.hapus', ['id' => $item['id_user']]) }}'))"><i class="fas fa-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
                                     </thead>
                                     
                                    

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use App\Models\booking;
+use App\Models\Booking;
 
 
 class bookingCustomerController extends Controller
@@ -17,7 +17,7 @@ class bookingCustomerController extends Controller
 
     public function index() 
     {
-        $data = booking::all(); // Mengambil semua data pengguna dari tabel users
+        $data = booking::all(); // Mengambil semua data pengguna dari tabel booking
 
         return view ('booking', compact('data'));
     }

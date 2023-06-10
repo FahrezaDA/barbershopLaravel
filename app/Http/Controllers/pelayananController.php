@@ -4,17 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class pelayananController extends Controller
+class PelayananController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function pelayanan()
     {
         return view('pelayanan');
     }
+
+
 
     /**
      * Show the form for creating a new resource.

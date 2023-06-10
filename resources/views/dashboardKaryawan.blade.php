@@ -67,6 +67,10 @@ if (!isset($_SESSION['email'])) {
 
 <body id="page-top">
 
+    @php
+        $data = \App\Models\karyawan::all();
+    @endphp
+
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -86,7 +90,7 @@ if (!isset($_SESSION['email'])) {
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Hal Utama</span></a>
             </li>
@@ -139,7 +143,7 @@ if (!isset($_SESSION['email'])) {
                         <h6 class="collapse-header">admin</h6>
                         <a class="collapse-item" href="{{ route('dashboardKaryawan') }}">Karyawan</a>
                         <a class="collapse-item" href="dashboardUser">User</a>
-                        <a class="collapse-item" href="dashboardPemesanan">Pemesanan</a>
+                        <a class="collapse-item" href="pemesanan">Pemesanan</a>
                         <a class="collapse-item" href="dashboardPengeluaran">Pengeluaran</a>
                         <a class="collapse-item" href="dashboardBooking">Booking</a>
                     </div>
@@ -347,7 +351,7 @@ if (!isset($_SESSION['email'])) {
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="index.php" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="landingPage" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -380,6 +384,25 @@ if (!isset($_SESSION['email'])) {
                                             <th>Gaji</th>
                                             <th>Aksi</th>
                                         </tr>
+                                        <tbody>
+                                            @foreach($data as $item)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $item->karyawanID }}</td>
+                                                <td>{{ $item->nama_karyawan }}</td>
+                                                <td>{{ $item->alamat }}</td>
+                                                <td>{{ $item->no_telpon }}</td>
+                                                <td>{{ $item->email }}</td>
+                                                <td>{{ $item->posisi }}</td>
+                                                <td>{{ $item->gaji }}</td>
+                                                <td>
+                                                    <a href="{{ route('karyawan.edit', ['id' => $item['karyawanID']]) }}" class="btn btn-primary btn-circle"><i class="fas fa-pen"></i></a>
+
+                                                    <a href="{{ route('karyawan.hapus', ['id' => $item['karyawanID']]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('karyawan.hapus', ['id' => $item['karyawanID']]) }}'))"><i class="fas fa-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
                                     </thead>
                                     
                                     

@@ -14,12 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pelayanans', function (Blueprint $table) {
-            $table->id('jenis_pelayanan');
+            $table->id('id_pelayanan');
+            $table->string('jenis_pelayanan');
             // foreign key
             $table->foreignId('id_booking');
             $table->foreign('id_booking')->references('id_booking')->on('bookings');
-            $table->foreignId('karyawanID');
-            $table->foreign('karyawanID')->references('karyawanID')->on('karyawan');
+            $table->foreignId('id_karyawan');
+            $table->foreign('id_karyawan')->references('id_karyawan')->on('karyawans');
 
 
             $table->string('harga');

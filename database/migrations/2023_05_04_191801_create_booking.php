@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('id_user');
             $table->foreign('id_user')->references('id_user')->on('users');
             $table->foreignId('id_karyawan');
-            $table->foreign('id_karyawan')->references('id_karyawan')->on('karyawan');
+            $table->foreign('id_karyawan')->references('id_karyawan')->on('karyawans');
             $table->string('nama');
             $table->integer('no_telpon');
             $table->string('jenis_pelayanan');

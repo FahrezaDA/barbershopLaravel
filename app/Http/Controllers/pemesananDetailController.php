@@ -11,11 +11,12 @@ class PemesananDetailController extends Controller
 {
     public function create()
     {
-        $pelayanan = Pelayanan::all();
+        $pelayanan = \App\Models\Pelayanan::all();
+        $kasir = \App\Models\Kasir::all();
 
-        return view('pemesananDetail.create', compact('pelayanan'));
+        return view('pemesananDetail', compact('pelayanan', 'kasir'));
+
     }
-
 
     public function kasirData()
     {
@@ -25,25 +26,34 @@ class PemesananDetailController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'txt_nama_customer' => 'required',
-            'txt_jenis_pelayanan' => 'required',
-            'txt_harga' => 'required',
-            'txt_no_antrian' => 'required',
-            'txt_tanggal_pemesanan' => 'required',
-            'txt_id_kasir' => 'required',
-        ]);
+{
+    // Mendapatkan nomor antrian terakhir
+    $lastNoAntrian = Pemesanan::max('no_antrian');
 
-        $pemesanan = new Pemesanan();
-        $pemesanan->nama_customer = $request->txt_nama_customer;
-        $pemesanan->jenis_pelayanan = $request->txt_jenis_pelayanan;
-        $pemesanan->harga = $request->txt_harga;
-        $pemesanan->no_antrian = $request->txt_no_antrian;
-        $pemesanan->tanggal_pemesanan = $request->txt_tanggal_pemesanan;
-        $pemesanan->kasirID = $request->txt_id_kasir;
-        $pemesanan->save();
+    // Menambahkan 1 ke nomor antrian
+    $noAntrian = $lastNoAntrian + 1;
 
-        return redirect()->route('pemesanan.create')->with('alert', 'Pemesanan berhasil ditambahkan');
-    }
+    // Validasi data
+    $this->validate($request, [
+        'nama_customer' => 'required',
+        'jenis_pelayanan' => 'required',
+        'harga' => 'required',
+        'tanggal_pemesanan' => 'required',
+    ]);
+
+    // Membuat objek Pemesanan baru
+    $pemesanan = new Pemesanan();
+    $pemesanan->nama_customer = $request->nama_customer;
+    $pemesanan->jenis_pelayanan = $request->jenis_pelayanan;
+    $pemesanan->harga = $request->harga;
+    $pemesanan->no_antrian = $noAntrian;
+    $pemesanan->tanggal_pemesanan = $request->tanggal_pemesanan;
+    $pemesanan->save();
+
+    return view('pemesanan')->with('message', 'Data customer berhasil ditambahkan.');
 }
+
+}
+
+
+

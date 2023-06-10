@@ -93,6 +93,7 @@ Route::get('/pemesanan', [PemesananController::class, 'pemesanan']);
 Route::get('/pemesanan', [PemesananController::class, 'index']);
 Route::get('/pemesananData', [PemesananController::class, 'allData']);
 Route::post('/pemesanan', [PemesananController::class, 'store']);
+Route::post('/postPemesanan',[pemesananController::class, 'postPemesanan']);
 Route::get('/pemesanan/{id}', [PemesananController::class, 'show']);
 Route::put('/pemesanan/{id}', [PemesananController::class, 'update']);
 Route::delete('/pemesanan/{id}', [PemesananController::class, 'destroy']);
@@ -110,7 +111,8 @@ Route::get('/pemesanan/{id}/cetak', [PemesananController::class, 'cetak'])->name
 //PEMESANAN DETAIL
 Route::get('/pemesanan/create', [PemesananDetailController::class, 'create'])->name('pemesanan.create');
 Route::post('/pemesanan/store', [PemesananDetailController::class, 'store'])->name('pemesanan.store');
-
+Route::get('/pemesananDetail', [PemesananDetailController::class,'create'])->name('pemesanan.create');
+Route::post('/pemesananDetail/store', [pemesananDetailController::class, 'store'])->name('pemesananDetail.store');
 
 //PEMBAYARAN
 Route::get('/pembayaran', [pembayaranController::class, 'pembayaran']);
@@ -150,6 +152,7 @@ Route::get('/login', function () {
 // Route::get('/register', function () {
 //     return view('register');
 // })->name('register');
+Route::view('/error', 'error')->name('error');
 
 // Route::post('/register', [AuthController::class, 'register']);
 

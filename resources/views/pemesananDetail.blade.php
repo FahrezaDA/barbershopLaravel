@@ -8,11 +8,11 @@ if( isset($_POST['register']) ){
     $tanggal_pemesanan= $_POST['txt_tanggal_pemesanan'];
     $kasir = $_POST['txt_id_kasir'];
 
-    
+
     $q = mysqli_query($koneksi, "SELECT*FROM pemesanan WHERE nama_customer='$nama_customer' ");
     $cek = mysqli_num_rows($q);
 
-    // query memasukkan data 
+    // query memasukkan data
     if ($cek == 0) {
         $query = "INSERT INTO pemesanan VALUES(null, '$nama_customer', '$jenis_pelayanan', '$harga','$no_antrian','$tanggal_pemesanan','$kasir')";
         $result = mysqli_query($koneksi, $query);
@@ -73,24 +73,48 @@ if( isset($_POST['register']) ){
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">PEMESANAN</h1>
                             </div>
-                            <form class="user" action="{{ route('pemesanan.create') }}" method="GET">
+                            <form class="user" action="{{ route('pemesananDetail.store') }}" method="POST">
+                                @csrf
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="exampleInputUsername" placeholder="Nama" name="nama_customer">
+                                </div>
+                                <div class="form-group">
+                                    <select type="text" placeholder="Pilih Daftar Sebagai"
+                                        class="form-control form-select" name="jenis_pelayanan" id="OptionLevel">
+                                        <option>Pilih Pelayanan</option>
+                                        @foreach($pelayanan as $item)
+                                            <option value="{{ $item->jenis_pelayanan }}">{{ $item->jenis_pelayanan }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="exampleInputUsername" placeholder="harga" name="harga">
+                                </div>
+
+                                <div class="form-group">
+                                <input type="text" class="form-control form-control-user" id="exampleInputUsername"
+                                    placeholder="{{ date('d-m-Y') }}" value="{{ date('d-m-Y') }}"
+                                    name="tanggal_pemesanan" readonly><br></div>
+                                <div class="form-group">
+                                <button type="submit" name="submit" class="btn btn-primary btn-user btn-block">Tambah Pemesanan</button>
+                            </form>
+                            <!-- <form class="user" action="{{ route('pemesananDetail.store') }}" method="POST">
                                 @csrf
                                 @if(isset($alert))
                                 <div class="alert alert-success">{{ $alert }}</div>
                                 @endif
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" id="exampleInputUsername"
-                                        placeholder="Nama" name="txt_nama_customer">
+                                        placeholder="Nama" name="nama_customer">
                                 </div>
                                 <div class="form-group">
                                     <input type="number" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="No Antrian" name="txt_no_antrian"
-                                        value="{{ $row['no_antrian'] ?? '' }}">
+                                        placeholder="No Antrian" name="no_antrian">
                                 </div>
                                 </br>
                                 <div class="form-group">
                                     <select type="text" placeholder="Pilih Daftar Sebagai"
-                                        class="form-control form-select" name="txt_jenis_pelayanan" id="OptionLevel">
+                                        class="form-control form-select" name="jenis_pelayanan" id="OptionLevel">
                                         <option>Pilih Pelayanan</option>
                                         @foreach($pelayanan as $item)
                                             <option value="{{ $item->jenis_pelayanan }}">{{ $item->jenis_pelayanan }}</option>
@@ -99,23 +123,25 @@ if( isset($_POST['register']) ){
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" id="exampleInputUsername"
-                                        placeholder="Harga" name="txt_harga">
+                                        placeholder="Harga" name="harga">
                                 </div>
+
+                                <div class="form-group">
                                 <input type="text" class="form-control form-control-user" id="exampleInputUsername"
                                     placeholder="{{ date('d-m-Y') }}" value="{{ date('d-m-Y') }}"
-                                    name="txt_tanggal_pemesanan" readonly><br>
-                                <div class="form-group">
+                                    name="tanggal_pemesanan" readonly><br></div>
+                                <!-- <div class="form-group">
                                     <select type="text" placeholder="Pilih Daftar Sebagai"
-                                        class="form-control form-select" name="txt_id_kasir" id="OptionLevel">
+                                        class="form-control form-select" name="id_kasir" id="OptionLevel">
                                         <option>Pilih Kasir</option>
                                         @foreach($kasir as $item)
                                         <option value="{{ $item->kasirID }}">{{ $item->username }}</option>
                                         @endforeach
                                     </select>
-                                </div>
-                                <button type="submit" name="register"
-                                    class="btn btn-primary btn-user btn-block">TAMBAHKAN</button>
-                            </form>
+                                </div> -->
+                                <!-- <button type="submit" name="register"
+                                    class="btn btn-primary btn-user btn-block">TAMBAHKAN</button> -->
+                            <!-- </form> -->
                             <hr>
                             <div class="text-center">
                                 <a class="small" href="login"></a>

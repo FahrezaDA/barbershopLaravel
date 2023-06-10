@@ -44,6 +44,10 @@ if (!isset($_SESSION['email'])) {
 
 <body id="page-top">
 
+    @php
+        $data = \App\Models\Booking::all();
+    @endphp
+
     <!-- Page Wrapper -->
     <div id="wrapper">
 

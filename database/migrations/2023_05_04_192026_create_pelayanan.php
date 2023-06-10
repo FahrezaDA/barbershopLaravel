@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pelayanan', function (Blueprint $table) {
+        Schema::create('pelayanans', function (Blueprint $table) {
             $table->id('jenis_pelayanan');
             // foreign key
             $table->foreignId('id_booking');
             $table->foreign('id_booking')->references('id_booking')->on('bookings');
-            $table->foreignId('id_karyawan');
-            $table->foreign('id_karyawan')->references('id_karyawan')->on('karyawan');
+            $table->foreignId('karyawanID');
+            $table->foreign('karyawanID')->references('karyawanID')->on('karyawan');
 
 
             $table->string('harga');
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pelayanan');
+        Schema::dropIfExists('pelayanans');
     }
 };

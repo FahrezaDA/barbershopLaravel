@@ -3,82 +3,47 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pelayanan;
+use App\Models\Kasir;
+use App\Models\Pemesanan;
 
-class pemesananDetailController extends Controller
+class PemesananDetailController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function pemesananDetail()
-    {
-        return view('pemesananDetail');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $pelayanan = Pelayanan::all();
+
+        return view('pemesananDetail.create', compact('pelayanan'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
+    public function kasirData()
+    {
+        $kasir = Kasir::all();
+
+        return view('pemesananDetail.kasirData', compact('kasir'));
+    }
+
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'txt_nama_customer' => 'required',
+            'txt_jenis_pelayanan' => 'required',
+            'txt_harga' => 'required',
+            'txt_no_antrian' => 'required',
+            'txt_tanggal_pemesanan' => 'required',
+            'txt_id_kasir' => 'required',
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        $pemesanan = new Pemesanan();
+        $pemesanan->nama_customer = $request->txt_nama_customer;
+        $pemesanan->jenis_pelayanan = $request->txt_jenis_pelayanan;
+        $pemesanan->harga = $request->txt_harga;
+        $pemesanan->no_antrian = $request->txt_no_antrian;
+        $pemesanan->tanggal_pemesanan = $request->txt_tanggal_pemesanan;
+        $pemesanan->kasirID = $request->txt_id_kasir;
+        $pemesanan->save();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect()->route('pemesanan.create')->with('alert', 'Pemesanan berhasil ditambahkan');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\pengeluaran;
+use App\Models\Fasilitas;
 
 class pengeluaranController extends Controller
 {
@@ -11,6 +12,7 @@ class pengeluaranController extends Controller
     {
         return view ('pengeluaran');
     }
+
     public function postPengeluaran(Request $request) {
         $pengeluaran = new Pengeluaran();
         $pengeluaran->jenis_pengeluaran = $request->jenis_pengeluaran;
@@ -29,4 +31,19 @@ class pengeluaranController extends Controller
     }
 
 
+    public function dataFasilitas()
+    {
+        $fasilitas = Fasilitas::all();
+
+        return view('pengeluaran', compact('fasilitas'));
+    }
+
+
+    public function kasirData()
+    {
+        $kasir = Kasir::all();
+
+        return view('pemesananDetail.kasirData', compact('kasir'));
+    }
+    
 }

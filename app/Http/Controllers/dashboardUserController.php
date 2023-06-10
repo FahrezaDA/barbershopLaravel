@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+
 
 class dashboardUserController extends Controller
 {
@@ -21,9 +23,11 @@ class dashboardUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function index()
     {
-        //
+        $data = User::all(); // Mengambil semua data pengguna dari tabel user
+
+        return view ('dashboardUser', compact('data'));
     }
 
     /**
@@ -77,8 +81,14 @@ class dashboardUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function hapus($id)
     {
-        //
+        $user = User::find($id);
+            if ($user) {
+            $user->delete();
+            return redirect()->back()->with('success', 'Berhasil dihapus.');
+        } else {
+            return redirect()->back()->with('error', 'Booking not found.');
+        }
     }
 }

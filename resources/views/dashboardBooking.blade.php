@@ -40,6 +40,11 @@ if (!isset($_SESSION['email'])) {
 </head>
 
 <body id="page-top">
+
+@php
+    $data = \App\Models\Booking::all();
+@endphp
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -152,7 +157,7 @@ if (!isset($_SESSION['email'])) {
 
                     <!-- Topbar Search -->
                     <div id="logo">
-                    <a href="index.php"><img src="assets/img/projects/gambar.png" alt="image" height="60" width="200"></a>
+                    <a href="landingPage"><img src="{{ asset('image/BarbershopLogo.png') }}" alt="image" height="60" width="200"></a>
                     </div>
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -357,13 +362,30 @@ if (!isset($_SESSION['email'])) {
                                             <th>Jam Booking</th>
                                             <th>Bukti Transfer</th>
                                             <th>Status</th>
-                                           
                                             <th>Aksi</th>
-
                                         </tr>
+                                        <tbody>
+                                            @foreach($data as $item)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $item->nama }}</td>
+                                                <td>{{ $item->jenis_pelayanan }}</td>
+                                                <td>{{ $item->no_telpon }}</td>
+                                                <td>{{ $item->harga }}</td>
+                                                <td>{{ $item->tanggal_booking }}</td>
+                                                <td>{{ $item->jam_booking }}</td>
+                                                <td>{{ $item->bukti_tranfer }}</td>
+                                                <td>{{ $item->stast }}</td>
+                                                <td>
+                                                    <a href="{{ route('booking.edit', ['id' => $item['id_booking']]) }}" class="btn btn-primary btn-circle"><i class="fas fa-pen"></i></a>
+
+                                                    <a href="{{ route('booking.hapus', ['id' => $item['id_booking']]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('booking.hapus', ['id' => $item['id_booking']]) }}'))"><i class="fas fa-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
                                     </thead>
                                 </table>
-
                                 <a href="/booking" type="submit" name="register" class="btn btn-primary">Tambah</a>
                             </div>
                         </div>
@@ -400,7 +422,7 @@ if (!isset($_SESSION['email'])) {
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.php">Logout</a>
+                    <a class="btn btn-primary" href="login">Logout</a>
                 </div>
             </div>
         </div>

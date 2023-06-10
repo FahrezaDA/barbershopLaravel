@@ -42,6 +42,10 @@ if (!isset($_SESSION['email'])) {
 
 <body id="page-top">
 
+    @php
+        $data = \App\Models\pengeluaran::all();
+    @endphp
+
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -61,7 +65,7 @@ if (!isset($_SESSION['email'])) {
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Hal Utama</span></a>
             </li>
@@ -359,23 +363,24 @@ if (!isset($_SESSION['email'])) {
                                     </thead>
                                     
                                     <tbody>
-                                        <?php
-                                        /*
-                                            $query = "SELECT*FROM pengeluaran";
-                                            $result = mysqli_query($koneksi, $query); 
-                                            $no = 1; 
-                                            $postt ="admin";        
-                                            while ($row = mysqli_fetch_array($result)){
-                                                $id = $row['id_pengeluaran'];
-                                                $userJenisPengeluaran = $row['jenis_pengeluaran'];
-                                                $userIdFasilitas = $row['id_fasilitas'];
-                                                $userJumlah = $row['jumlah'];
-                                                $userBiaya = $row['biaya'];
-                                                $userBuktiNota = $row['bukti_nota'];
-                                                $userTanggalPengeluaran = $row['tanggal_pengeluaran'];
-                                                $userIdUser = $row['id_kasir'];
-                                                */
-                                        ?>
+                                        @foreach($data as $item)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $item->jenis_pengeluaran }}</td>
+                                                <td>{{ $item->id_fasilitas }}</td>
+                                                <td>{{ $item->jumlah }}</td>
+                                                <td>{{ $item->biaya }}</td>
+                                                <td>{{ $item-> bukti_nota}}</td>
+                                                <td>{{ $item->tanggal_pengeluaran }}</td>
+                                                <td>{{ $item->id_kasir}}</td>
+                                                <td>
+                                                    <a href="{{ route('pengeluaran.edit', ['id' => $item['id_pengeluaran']]) }}" class="btn btn-primary btn-circle"><i class="fas fa-pen"></i></a>
+
+                                                    <a href="{{ route('pengeluaran.hapus', ['id' => $item['id_pengeluaran']]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('pengeluaran.hapus', ['id' => $item['id_pengeluaran']]) }}'))"><i class="fas fa-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
                                             
                                     
                                 </table>

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\karyawan;
 
-class karyawanController extends Controller
+class KaryawanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +15,14 @@ class karyawanController extends Controller
     public function karyawan()
     {
         return view('dashboardKaryawan');
+    }
+
+
+    public function index()
+    {
+        $data = Karyawan::all();
+
+        return view('dashboardKaryawan', compact('data'));
     }
 
     /**
@@ -77,8 +86,14 @@ class karyawanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function hapus($id)
     {
-        //
+        $karyawan = Karyawan::find($id);
+            if ($karyawan) {
+            $karyawan->delete();
+            return redirect()->back()->with('success', 'Berhasil dihapus.');
+        } else {
+            return redirect()->back()->with('error', 'Booking not found.');
+        }
     }
 }

@@ -11,19 +11,22 @@ class User extends Authenticatable
 {
     use HasFactory, HasApiTokens;
 
+    protected $table = 'users';
+    protected $primaryKey = 'id_user';
+
     protected $fillable = [
-        'nama',
-        'email',
-        'password',
+        'nama_user',
         'alamat',
-        'noTelpon',
+        'no_telpon',
+        'email',
+        'pass',
+        'lvl'
     ];
 
     protected $hidden = [
         'password',
         'remember_token',
     ];
-    protected $primaryKey = 'id_user';
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];

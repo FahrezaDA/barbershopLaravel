@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\pengeluaran;
+
 
 class dashboardPengeluaranController extends Controller
 {
@@ -14,6 +16,13 @@ class dashboardPengeluaranController extends Controller
     public function dashboardPengeluaran()
     {
         return view('dashboardPengeluaran');
+    }
+
+    public function index()
+    {
+        $data = pengeluaran::all(); // Mengambil semua data pengguna dari tabel pengeluaran
+
+        return view ('dashboardPengeluaran', compact('data'));
     }
 
     /**
@@ -77,8 +86,14 @@ class dashboardPengeluaranController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function hapus($id)
     {
-        //
+        $pengeluaran = Pengeluaran::find($id);
+            if ($pengeluaran) {
+            $pengeluaran->delete();
+            return redirect()->back()->with('success', 'Berhasil dihapus.');
+        } else {
+            return redirect()->back()->with('error', 'Booking not found.');
+        }
     }
 }

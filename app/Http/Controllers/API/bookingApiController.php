@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\booking;
+use App\Models\Books;
 
 class bookingApiController extends Controller
 {
@@ -54,6 +55,30 @@ class bookingApiController extends Controller
         "message" => "Could not upload File"
     ], 500);
 }
+}
+
+
+public function search(Request $request)
+{
+    $selectedDate = $request->input('date');
+
+    // Lakukan pencarian berdasarkan tanggal_booking dan ambil data bookings
+    $bookings = Booking::where('tanggal_booking', $selectedDate)->get();
+
+    // Buat array kosong untuk menyimpan stats
+    $stats = [];
+
+    // Loop melalui setiap booking dan tambahkan stats ke dalam array
+    foreach ($bookings as $booking) {
+        $stats[] = $booking->stats;
+    }
+
+    // Buat respons berdasarkan stats yang ditemukan
+    $response = [
+        'stats' => $stats
+    ];
+
+    return response()->json($response);
 }
 
 

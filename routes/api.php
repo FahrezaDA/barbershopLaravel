@@ -30,13 +30,14 @@ Route::post('/postPemesanan', [pemesananController::class, 'postPemesanan']);
 Route::post('/pembayaran', [pembayaranController::class, 'pembayaran']);
 
 Route::post('/postBooking', [bookingApiController::class, 'postBooking']);
-
+Route::get('/searchBooking', [bookingApiController::class, 'search']);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->get('/user-profile', [AuthController::class, 'getUserProfile']);
 Route::get('/search', [UserController::class, 'searchByName']);
 Route::put('/updateUser', [UserController::class, 'update']);
+
 
 Route::middleware('auth')->get('/users', [UserApiController::class, 'getUserData']);
 

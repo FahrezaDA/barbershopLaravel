@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kasir', function (Blueprint $table) {
-            $table->id('id_kasir');
+        Schema::create('kasirs', function (Blueprint $table) {
+            $table->id('kasirID');
             //foreign key
             $table->foreignId('id_booking');
             $table->foreign('id_booking')->references('id_booking')->on('bookings');
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kasir');
+        Schema::dropIfExists('kasirs');
     }
 };

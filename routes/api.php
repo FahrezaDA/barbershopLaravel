@@ -30,7 +30,7 @@ Route::post('/postPemesanan', [pemesananController::class, 'postPemesanan']);
 Route::post('/pembayaran', [pembayaranController::class, 'pembayaran']);
 
 Route::post('/postBooking', [bookingApiController::class, 'postBooking']);
-Route::get('/searchBooking', [bookingApiController::class, 'search']);
+Route::get('/searchBooking', [bookingApiController::class, 'searchBooking']);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);

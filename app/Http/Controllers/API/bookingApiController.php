@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\booking;
-use App\Models\Books;
+use App\Models\Book;
 
 class bookingApiController extends Controller
 {
@@ -22,7 +22,6 @@ class bookingApiController extends Controller
 
     public function postBooking(Request $request){
         $img = $request->input('upload');
-
         $filename = $request->nama .  '.jpg';
         $imagePath = public_path('bukti_transfer/' . $filename);
 
@@ -58,9 +57,9 @@ class bookingApiController extends Controller
 }
 
 
-public function search(Request $request)
+public function searchBooking(Request $request)
 {
-    $selectedDate = $request->input('date');
+    $selectedDate = $request->input('tanggal_booking');
 
     // Lakukan pencarian berdasarkan tanggal_booking dan ambil data bookings
     $bookings = Booking::where('tanggal_booking', $selectedDate)->get();
@@ -70,16 +69,20 @@ public function search(Request $request)
 
     // Loop melalui setiap booking dan tambahkan stats ke dalam array
     foreach ($bookings as $booking) {
-        $stats[] = $booking->stats;
+        $jamBooking = date('H:i', strtotime($booking->jam_booking));
+        $stats[$jamBooking] = $booking->stats;
     }
 
     // Buat respons berdasarkan stats yang ditemukan
     $response = [
-        'stats' => $stats
+        'status1' => $stats['13:00'] ?? "Bisa di Booking",
+        'status2' => $stats['14:00'] ?? "Bisa di Booking",
+        'status3' => $stats['15:00'] ?? "Bisa di Booking"
     ];
 
     return response()->json($response);
 }
+
 
 
 }

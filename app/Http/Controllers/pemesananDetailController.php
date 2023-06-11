@@ -78,6 +78,17 @@ class PemesananDetailController extends Controller
         
                 return redirect()->route('pemesanan')->with('success', 'Pemesanan berhasil diperbarui');
             }
+
+            public function hapus($id)
+    {
+        $karyawan = Karyawan::find($id);
+            if ($karyawan) {
+            $karyawan->delete();
+            return redirect()->back()->with('success', 'Berhasil dihapus.');
+        } else {
+            return redirect()->back()->with('error', ' Not Found.');
+        }
+    }
 }
 
 

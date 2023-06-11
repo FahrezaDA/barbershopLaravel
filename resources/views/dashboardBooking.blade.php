@@ -30,6 +30,8 @@ if (!isset($_SESSION['email'])) {
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('/css/sb-admin-2.css') }}" rel="stylesheet">
@@ -377,9 +379,10 @@ if (!isset($_SESSION['email'])) {
                                                 <td>{{ $item->bukti_tranfer }}</td>
                                                 <td>{{ $item->stast }}</td>
                                                 <td>
-                                                    <a href="{{ route('booking.edit', ['id' => $item['id_booking']]) }}" class="btn btn-primary btn-circle"><i class="fas fa-pen"></i></a>
+                                                    <a href="{{ route('booking.edit', ['id' => $item['id_booking']]) }}" class="btn btn-primary btn-circle"><i class="bx bx-edit-alt"></i></a>
 
-                                                    <a href="{{ route('booking.hapus', ['id' => $item['id_booking']]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('booking.hapus', ['id' => $item['id_booking']]) }}'))"><i class="fas fa-trash"></i></a>
+                                                    <a href="{{ route('booking.hapus', ['id' => $item['id_booking']]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('booking.hapus', ['id' => $item['id_booking']]) }}'))">
+                                                    <i class="bx bxs-trash"></i></a>
                                                 </td>
                                             </tr>
                                             @endforeach

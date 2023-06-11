@@ -105,11 +105,12 @@ Route::delete('/pemesanan/{id}', [PemesananController::class, 'destroy']);
 Route::resource('pemesanan', PemesananController::class);
 Route::get('/pemesanan', [PemesananController::class, 'create'])->name('pemesanan.create');
 Route::post('/pemesanan', [PemesananController::class, 'store'])->name('pemesanan.store');
-Route::get('/pemesanan/{id}', [PemesananController::class, 'show'])->name('pemesanan.show');
-Route::put('/pemesanan/{id}', [PemesananController::class, 'update'])->name('pemesanan.update');
 Route::get('/pemesanan/{id}/edit', [PemesananController::class, 'edit'])->name('pemesanan.edit');
 Route::get('/pemesanan/{id}/hapus', [PemesananController::class, 'hapus'])->name('pemesanan.hapus');
 Route::get('/pemesanan/{id}/cetak', [PemesananController::class, 'cetak'])->name('pemesanan.cetak');
+Route::get('/pemesanan/{id}', [PemesananController::class, 'show'])->name('pemesanan.show');
+Route::put('/pemesanan/{id}', [PemesananController::class, 'update'])->name('pemesanan.update');
+
 
 
 //PEMESANAN DETAIL
@@ -145,7 +146,7 @@ Route::get('karyawan/{id}/edit', [karyawanController::class, 'edit'])->name('kar
 Route::get('/karyawan/{id}/hapus', [karyawanController::class, 'hapus'])->name('karyawan.hapus');
 
 //Pengeluaran
-Route::get('/dashboardPengeluaran/{id}/edit', [dashboardPengeluaranController::class, 'edit'])->name('pengeluaran.edit');
+Route::get('/editPengeluaran', [dashboardPengeluaranController::class, 'edit'])->name('pengeluaran.edit');
 Route::get('/dashboardPengeluaran/{id}/hapus', [dashboardPengeluaranController::class, 'hapus'])->name('pengeluaran.hapus');
 Route::post('/pengeluaran', [PengeluaranController::class, 'create'])->name('pengeluaran.create');
 

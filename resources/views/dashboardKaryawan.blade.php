@@ -34,6 +34,8 @@ if (!isset($_SESSION['email'])) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 
   <!-- Vendor CSS Files -->
   <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -396,9 +398,10 @@ if (!isset($_SESSION['email'])) {
                                                 <td>{{ $item->posisi }}</td>
                                                 <td>{{ $item->gaji }}</td>
                                                 <td>
-                                                    <a href="{{ route('karyawan.edit', ['id' => $item['karyawanID']]) }}" class="btn btn-primary btn-circle"><i class="fas fa-pen"></i></a>
+                                                    <a href="{{ route('karyawan.edit', ['id' => $item['karyawanID']]) }}" class="btn btn-primary btn-circle"><i class="bx bx-edit-alt"></i></a>
 
-                                                    <a href="{{ route('karyawan.hapus', ['id' => $item['karyawanID']]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('karyawan.hapus', ['id' => $item['karyawanID']]) }}'))"><i class="fas fa-trash"></i></a>
+                                                    <a href="{{ route('karyawan.hapus', ['id' => $item['karyawanID']]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('karyawan.hapus', ['id' => $item['karyawanID']]) }}'))">
+                                                    <i class="bx bxs-trash"></i></a>
                                                 </td>
                                             </tr>
                                             @endforeach

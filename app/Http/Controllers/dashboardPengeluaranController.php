@@ -65,35 +65,36 @@ class dashboardPengeluaranController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pengeluaran = Pengeluaran::find($id);
+        return view('editPengeluaran', compact('pengeluaran'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $pengeluaran = Pengeluaran::find($id);
+        $pengeluaran->jenis_pengeluaran = $request->input('txt_jenis_pengeluaran');
+        $pengeluaran->id_fasilitas = $request->input('txt_id_fasilitas');
+        $pengeluaran->jumlah = $request->input('txt_jumlah');
+        $pengeluaran->biaya = $request->input('txt_biaya');
+        $pengeluaran->bukti_nota = $noAntrian;
+        $pengeluaran->tanggal_pengeluaran = $tanggalPengeluaran;
+        $pengeluaran->id_kasir = $request->id_kasir;
+        $pengeluaran->save();
+
+        return redirect()->route('dashboardPengeluaran')->with('success', 'Pengeluaran berhasil diperbarui');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function hapus($id)
     {
+        //mendapatkan ID
         $pengeluaran = Pengeluaran::find($id);
-            if ($pengeluaran) {
-            $pengeluaran->delete();
+        if ($pengeluaran) {
+        $pengeluaran->delete();
+
             return redirect()->back()->with('success', 'Berhasil dihapus.');
         } else {
-            return redirect()->back()->with('error', 'Booking not found.');
+            return redirect()->back()->with('error', ' Not Found.');
         }
+
     }
 }

@@ -57,10 +57,10 @@ class bookingCustomerController extends Controller
             // tambahkan validasi lain yang diperlukan
         ]);
 
-        $nama = $request->nama;
         $buktiTransfer = $request->file('bukti_transfer');
-        $namaFile = $nama . '.' . $buktiTransfer->getClientOriginalExtension();
-        $buktiTransfer->storeAs('bukti_transfer', $namaFile);
+        $filename = $request->nama . '.' . $buktiTransfer->getClientOriginalExtension();
+        $buktiTransfer->move(public_path('bukti_transfer'), $filename);
+
 
         // Simpan data booking ke dalam database
         $booking = new Booking();
@@ -70,7 +70,7 @@ class bookingCustomerController extends Controller
         $booking->harga = $request->harga;
         $booking->tanggal_booking = $request->tanggal_booking;
         $booking->jam_booking = $request->jam_booking;
-        $booking->bukti_transfer = $namaFile;
+        $booking->bukti_transfer = $filename;
         $booking->stats = 'pending';
         $booking->save();
 

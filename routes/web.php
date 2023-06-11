@@ -19,6 +19,7 @@ use App\Http\Controllers\dashboardPengeluaranController;
 use App\Http\Controllers\galeriController;
 use App\Http\Controllers\kontakController;
 use App\Http\Controllers\pengeluaranController;
+use App\Http\Controllers\StrukController;
 use App\Http\Controllers\servicedetails1Controller;
 use App\Http\Controllers\servicedetails2Controller;
 use App\Http\Controllers\servicedetails3Controller;
@@ -41,6 +42,7 @@ Route::post('/register', [LoginController::class, 'register']);
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/bookingUser', [LoginController::class, 'bookingUser'])->name('bookingUser');
 
 
 // Route::get('/login', [LoginController::class, 'Login']);
@@ -99,7 +101,7 @@ Route::get('/pemesananData', [PemesananController::class, 'allData']);
 Route::post('/pemesanan', [PemesananController::class, 'store']);
 Route::post('/postPemesanan',[pemesananController::class, 'postPemesanan']);
 Route::get('/pemesanan/{id}', [PemesananController::class, 'show']);
-Route::put('/pemesanan/{id}', [PemesananController::class, 'update']);
+Route::put('/pemesanan/{id}', [pemesananController::class, 'update'])->name('pemesanan.update');
 Route::delete('/pemesanan/{id}', [PemesananController::class, 'destroy']);
 
 Route::resource('pemesanan', pemesananDetailController::class);
@@ -108,7 +110,7 @@ Route::post('/pemesanan', [pemesananDetailController::class, 'store'])->name('pe
 Route::get('/pemesanan/{id}/edit', [pemesananDetailController::class, 'edit'])->name('pemesanan.edit');
 Route::get('/pemesanan/{id}/hapus', [pemesananDetailController::class, 'hapus'])->name('pemesanan.hapus');
 Route::get('/pemesanan/{id}/cetak', [pemesananDetailController::class, 'cetak'])->name('pemesanan.cetak');
-Route::get('/pemesanan/{id}', [pemesananDetailController::class, 'show'])->name('pemesanan.show');
+Route::get('/pemesanan/{id}', [pemesananDetailController::class, 'view'])->name('pemesanan.view');
 Route::put('/pemesanan/{id}', [pemesananDetailController::class, 'update'])->name('pemesanan.update');
 
 
@@ -136,8 +138,11 @@ Route::get('/booking/{id}/hapus', [dashboardBookingController::class, 'hapus'])-
 Route::get('/bookingCustomer', [bookingCustomerController::class, 'index'])->name('booking.view');
 Route::get('/getHarga', [bookingCustomerController::class, 'getHarga'])->name('bookingCustomer.getHarga');
 Route::post('/booking/store', [bookingCustomerController::class, 'store'])->name('booking.store');
+Route::get('/bookingUser', [bookingCustomerController::class, 'show'])->name('booking.show');
 
 
+//Struk
+Route::get('/receipt/{id}', [StrukController::class, 'printStruk'])->name('receipt.print');
 
 
 //Karyawan

@@ -31,6 +31,8 @@ if (!isset($_SESSION['email'])) {
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('/css/sb-admin-2.css') }}" rel="stylesheet">
@@ -118,7 +120,7 @@ if (!isset($_SESSION['email'])) {
                         <h6 class="collapse-header">admin</h6>
                         <a class="collapse-item" href="{{ route('dashboardKaryawan') }}">Karyawan</a>
                         <a class="collapse-item" href="dashboardUser">User</a>
-                        <a class="collapse-item" href="dashboardPemesanan">Pemesanan</a>
+                        <a class="collapse-item" href="pemesanan">Pemesanan</a>
                         <a class="collapse-item" href="dashboardPengeluaran">Pengeluaran</a>
                         <a class="collapse-item" href="dashboardBooking">Booking</a>
                     </div>
@@ -369,14 +371,14 @@ if (!isset($_SESSION['email'])) {
                             <td>{{ $item->tanggal_pemesanan }}</td>
                             <td>{{ $item->kasirID }}</td>
                             <td>
-                                <a href="{{ route('pemesanan.edit', ['id' => $item['id_pemesanan']]) }}" class="btn btn-primary btn-circle">
-                                    <i class="fas fa-pen"></i>
+                                <a href="{{ route('pemesanan.edit', ['id' => $item->id_pemesanan]) }}" class="btn btn-primary btn-circle">
+                                    <i class='bx bx-edit-alt'></i>
                                 </a>
                                 <a href="{{ route('pemesanan.hapus', ['id' => $item['id_pemesanan']]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('pemesanan.hapus', ['id' => $item['id_pemesanan']]) }}'))">
-                                    <i class="fas fa-trash"></i>
+                                    <i class='bx bxs-trash' ></i>
                                 </a>
                                 <a href="{{ route('pemesanan.cetak', ['id' => $item['id_pemesanan']]) }}" class="btn btn-success btn-circle">
-                                    <i class="fas fa-print"></i>
+                                    <i class='bx bx-printer' ></i>
                                 </a>
                             </td>
                         </tr>
@@ -419,7 +421,7 @@ if (!isset($_SESSION['email'])) {
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.php">Logout</a>
+                    <a class="btn btn-primary" href="login">Logout</a>
                 </div>
             </div>
         </div>

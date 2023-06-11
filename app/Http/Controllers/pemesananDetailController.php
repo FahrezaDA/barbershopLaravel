@@ -64,20 +64,38 @@ class PemesananDetailController extends Controller
                 $kasirs = \App\Models\Kasir::all(); // Mengambil semua data kasir
                 return view('pemesanan.edit', compact('pemesanan', 'kasirs'));
             }
-        
-            public function update(Request $request, $id)
-            {
-                $pemesanan = Pemesanan::find($id);
-                $pemesanan->nama_customer = $request->input('txt_nama_customer');
-                $pemesanan->jenis_pelayanan = $request->input('txt_jenis_pelayanan');
-                $pemesanan->harga = $request->input('txt_harga');
-                $pemesanan->no_antrian = $request->input('txt_no_antrian');
-                $pemesanan->tanggal_pemesanan = $request->input('txt_tanggal_pemesanan');
-                $pemesanan->kasirID = $request->input('txt_kasirID');
-                $pemesanan->save();
-        
-                return redirect()->route('pemesanan')->with('success', 'Pemesanan berhasil diperbarui');
-            }
+
+    public function update(Request $request, $id){
+        // Validasi input jika diperlukan
+        $validatedData = $request->validate([
+            'nama_customer' => 'required',
+            'jenis_pelayanan' => 'required',
+            'harga' => 'required',
+            'no_antrian' => 'required',
+            'tanggal_pemesanan' => 'required',
+
+        ]);
+
+        // Ambil data pemesanan yang akan diperbarui
+        $pemesanan = Pemesanan::find($id);
+
+        // Perbarui nilai kolom-kolom yang sesuai dengan input dari formulir
+        $pemesanan->nama_customer = $request->nama_customer;
+        $pemesanan->jenis_pelayanan = $request->jenis_pelayanan;
+        $pemesanan->harga = $request->harga;
+        $pemesanan->no_antrian = $request->no_antrian;
+        $pemesanan->tanggal_pemesanan = $request->tanggal_pemesanan;
+        $pemesanan->id_kasir = $request->id_kasir;
+
+        // Simpan perubahan
+        $pemesanan->save();
+
+        // Redirect ke halaman yang sesuai atau tampilkan pesan sukses
+        // contoh redirect ke halaman detail pemesanan
+        return view('pemesanan');
+    }
+
+
 }
 
 

@@ -99,7 +99,7 @@ Route::get('/pemesananData', [PemesananController::class, 'allData']);
 Route::post('/pemesanan', [PemesananController::class, 'store']);
 Route::post('/postPemesanan',[pemesananController::class, 'postPemesanan']);
 Route::get('/pemesanan/{id}', [PemesananController::class, 'show']);
-Route::put('/pemesanan/{id}', [PemesananController::class, 'update']);
+Route::put('/pemesanan/{id}', [pemesananController::class, 'update'])->name('pemesanan.update');
 Route::delete('/pemesanan/{id}', [PemesananController::class, 'destroy']);
 
 Route::resource('pemesanan', pemesananDetailController::class);
@@ -108,7 +108,7 @@ Route::post('/pemesanan', [pemesananDetailController::class, 'store'])->name('pe
 Route::get('/pemesanan/{id}/edit', [pemesananDetailController::class, 'edit'])->name('pemesanan.edit');
 Route::get('/pemesanan/{id}/hapus', [pemesananDetailController::class, 'hapus'])->name('pemesanan.hapus');
 Route::get('/pemesanan/{id}/cetak', [pemesananDetailController::class, 'cetak'])->name('pemesanan.cetak');
-Route::get('/pemesanan/{id}', [pemesananDetailController::class, 'show'])->name('pemesanan.show');
+Route::get('/pemesanan/{id}', [pemesananDetailController::class, 'view'])->name('pemesanan.view');
 Route::put('/pemesanan/{id}', [pemesananDetailController::class, 'update'])->name('pemesanan.update');
 
 

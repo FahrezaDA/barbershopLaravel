@@ -9,13 +9,14 @@ class pengeluaran extends Model
 {
     use HasFactory;
 
-    protected $table = 'pengeluaran'; // tabel yang digunakan 
-    protected $primaryKey = 'id_pengeluaran'; 
+    protected $table = 'pengeluarans'; // tabel yang digunakan
+    protected $primaryKey = 'id_pengeluaran';
 
-    
+
     protected $fillable = [
+        'id_pengeluaran',
         'jenis_pengeluaran',
-        'id_fasilitas',
+        'barang',
         'jumlah',
         'biaya',
         'bukti_nota',

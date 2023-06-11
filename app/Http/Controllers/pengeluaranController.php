@@ -8,26 +8,41 @@ use App\Models\Fasilitas;
 
 class pengeluaranController extends Controller
 {
-    public function pengeluaran()
-    {
+    public function view() {
         return view ('pengeluaran');
     }
 
-    public function postPengeluaran(Request $request) {
+    public function store(Request $request) {
+
+
+        $request->validate([
+            'jenis_pengeluaran' => 'required',
+            'barang' => 'required',
+            'jumlah' => 'required',
+            'biaya' => 'required',
+
+            'bukti_nota' => 'required|image|max:4048', // Validasi bahwa file adalah gambar dengan maksimal ukuran 2MB
+            'tanggal_pengeluaran' => 'required',
+            'id_kasir' => 'required',
+            // tambahkan validasi lain yang diperlukan
+        ]);
+
+        $buktiNota = $request->file('bukti_nota');
+        $filename = $request->barang . '.' . $buktiNota->getClientOriginalExtension();
+        $buktiNota->move(public_path('bukti_nota'), $filename);
+
+
         $pengeluaran = new Pengeluaran();
         $pengeluaran->jenis_pengeluaran = $request->jenis_pengeluaran;
-        $pengeluaran->id_fasilitas = $request->id_fasilitas;
+        $pengeluaran->barang = $request->barang;
         $pengeluaran->jumlah = $request->jumlah;
         $pengeluaran->biaya = $request->biaya;
-        $pengeluaran->bukti_nota = $noAntrian;
-        $pengeluaran->tanggal_pengeluaran = $tanggalPengeluaran;
+        $pengeluaran->bukti_nota = $filename;
+        $pengeluaran->tanggal_pengeluaran =$request ->tanggal_pengeluaran;
         $pengeluaran->id_kasir = $request->id_kasir;
         $pengeluaran->save();
 
-        return response()->json([
-            "message" => "Success",
-            "data" => $pemesanan
-        ]);
+        return redirect('dashboardPengeluaran')->with('success', 'Booking berhasil disimpan');
     }
 
 
@@ -45,5 +60,5 @@ class pengeluaranController extends Controller
 
         return view('pemesananDetail.kasirData', compact('kasir'));
     }
-    
+
 }

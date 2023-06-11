@@ -37,7 +37,7 @@
                             <div class="mb-md-5 mt-5 vh-25" style="height: 400px;">
                                 <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                                 <p class="text-white-50 mb-5">Please enter your login and password!</p>
-                                <form class="user" action="{{ route('login') }}" method="POST">
+                                <form class="user" action="{{url('/login') }}" method="POST">
                                     @csrf
                                     <div class="form-outline form-white mb-4">
                                         <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" required>

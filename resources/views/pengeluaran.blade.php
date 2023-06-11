@@ -12,7 +12,7 @@ if( isset($_POST['submit']) ){
     $image_files=$foto;
     $userTanggalPengeluaran = $_POST['txt_tanggal_pengeluaran'];
     $userIdUser = $_POST['txt_id_kasir'];
-    
+
     if($size > 5000000){
         echo "<script>alert('Ukuran gambar terlalu besar');</script>";
     }
@@ -35,7 +35,7 @@ if( isset($_POST['submit']) ){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Register</title>
+    <title> Pengeluaran</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -67,43 +67,43 @@ if( isset($_POST['submit']) ){
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">TAMBAHKAN PENGELUARAN</h1>
                         </div>
-                        <form class="user" action="{{ route('pengeluaran.create') }}" method="POST"
+                        <form class="user" action="{{ route('pengeluaran.store') }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user" id="exampleInputUsername"
-                                    placeholder="Jenis Pengeluaran" name="txt_jenis_pengeluaran">
+                                    placeholder="Jenis Pengeluaran" name="jenis_pengeluaran">
                             </div>
                             <div class="form-group">
-                                <select class="form-control form-select" name="txt_id_fasilitas" id="OptionLevel">
+                                <select class="form-control form-select" name="barang" id="OptionLevel">
                                     <option>Nama Fasilitas</option>
                                     @foreach($fasilitas as $item)
-                                        <option value="{{ $item->id_fasilitas }}">{{ $item->nama_fasilitas }}</option>
+                                        <option value="{{ $item->barang }}">{{ $item->barang }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user" id="exampleInputUsername"
-                                    placeholder="Jumlah" name="txt_jumlah">
+                                    placeholder="Jumlah" name="jumlah">
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user" id="exampleInputUsername"
-                                    placeholder="biaya" name="txt_biaya">
+                                    placeholder="biaya" name="biaya">
                             </div>
                             <div class="form-group">
-                                <p><b>Bukti Pembayaran :</p>
-                                <input placeholder="bukti transfer" type="file"
+                                <p><b>Bukti Nota :</p>
+                                <input placeholder="bukti nota" type="file"
                                     class="form-control form-select" id="exampleInputUsername" name="bukti_nota">
                             </div>
                             <div class="form-group">
                                 <input type="date" class="form-control form-control-user"
-                                    placeholder="Tanggal Pengeluaran" name="txt_tanggal_pengeluaran">
+                                    placeholder="Tanggal Pengeluaran" name="tanggal_pengeluaran">
                             </div>
                             <div class="form-group">
-                                <select class="form-control form-select" name="txt_id_kasir" id="OptionLevel">
+                                <select class="form-control form-select" name="id_kasir" id="OptionLevel">
                                     <option>Pilih Kasir</option>
                                     @foreach($kasir as $item)
-                                        <option value="{{ $item->kasirID }}">{{ $item->username }}</option>
+                                        <option value="{{ $item->id_kasir }}">{{ $item->username }}</option>
                                     @endforeach
                                 </select>
                             </div>

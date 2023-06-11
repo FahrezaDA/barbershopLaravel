@@ -47,32 +47,23 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-
-        $credentials = $request->only('email', 'password');
-
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/');
+            // Authentication passed
+            return redirect()->intended('/dashboardPemesanan');
         } else {
-            return redirect()->back()->with('error', 'Email atau password salah')->withInput();
+            return back()->withErrors(['email' => 'Invalid email or password.']);
         }
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
         Auth::logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
-        return redirect('/');
+        return redirect('/login');
     }
 }
+

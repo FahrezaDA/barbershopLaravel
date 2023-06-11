@@ -43,7 +43,7 @@ if (!isset($_SESSION['email'])) {
   <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    
+
   <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -99,12 +99,12 @@ if (!isset($_SESSION['email'])) {
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-          
+
 
             <!-- Nav Item - Pages Collapse Menu -->
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -130,8 +130,8 @@ if (!isset($_SESSION['email'])) {
             <!-- Nav Item - Charts -->
 
             <!-- Nav Item - Tables -->
-                    
-            </li>  
+
+            </li>
             <li class="nav-item active">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -141,7 +141,7 @@ if (!isset($_SESSION['email'])) {
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">admin</h6>
-                        <a class="collapse-item" href="{{ route('dashboardKaryawan') }}">Karyawan</a>
+                       <a class="collapse-item" href="/karyawan">Karyawan</a>
                         <a class="collapse-item" href="dashboardUser">User</a>
                         <a class="collapse-item" href="pemesanan">Pemesanan</a>
                         <a class="collapse-item" href="dashboardPengeluaran">Pengeluaran</a>
@@ -329,9 +329,9 @@ if (!isset($_SESSION['email'])) {
 
                         <!-- Nav Item - User Information -->
                         @php
-                        
+
                         $route = route('landingpage');
-                        
+
                         @endphp
                         <button onclick="window.location='{{ $route }}'" style="background-color: #4E73DF; color: white; height: 40px; width: 100px; margin: 10px 10px 10px 10px;">
                         <b>Logout</b> </button>
@@ -404,11 +404,11 @@ if (!isset($_SESSION['email'])) {
                                             @endforeach
                                         </tbody>
                                     </thead>
-                                    
-                                    
-                                </div>   
+
+
+                                </div>
                                 </table>
-                                <a href="{{ route('register') }}" class="btn btn-primary">Register</a>
+                                <a href="{{ route('registerUser') }}" class="btn btn-primary">Register</a>
                             </div>
                         </div>
                     </div>

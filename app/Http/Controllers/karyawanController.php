@@ -12,7 +12,7 @@ class KaryawanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function karyawan()
+    public function view()
     {
         return view('dashboardKaryawan');
     }

@@ -38,7 +38,11 @@ use App\Http\Controllers\tentangkamiController;
 |
 */
 Route::post('/register', [LoginController::class, 'register']);
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
 // Route::get('/login', [LoginController::class, 'Login']);
 Route::get('/', [landingPageController::class, 'index']);
 Route::get('/pelayanan', [pelayananController::class, 'pelayanan']);
@@ -55,13 +59,13 @@ Route::get('/registerUser', [registerUserController::class, 'registerUser'])->na
 Route::post('/registerUser/store', [registerUserController::class, 'store'])->name('registerUser.store');
 
 Route::get('/dashboardPengeluaran', [dashboardPengeluaranController::class, 'dashboardPengeluaran'])->name('dashboardPengeluaran');
-Route::get('/pengeluaran', [pengeluaranController::class, 'pengeluaran'])->name('pengeluaran');
+Route::get('/pengeluaran', [pengeluaranController::class, 'view'])->name('pengeluaran');
 
 
 //blom ada API
 // Route::post('/bookingCustomer', [bookingCustomerController::class, 'bookingCustomer'])->name('bookingCustomer');
 Route::post('/registerUser', [registerUserController::class, 'registerUser'])->name('registerUser');
-Route::post('/pengeluaran', [pengeluaranController::class, 'pengeluaran'])->name('pengeluaran');
+Route::post('/pengeluaran/store', [pengeluaranController::class, 'store'])->name('pengeluaran.store');
 
 
 
@@ -135,10 +139,11 @@ Route::post('/booking/store', [bookingCustomerController::class, 'store'])->name
 
 
 //Karyawan
-Route::get('/karyawan', [karyawanController::class, 'karyawan'])->name('dashboardKaryawan');
+Route::get('/karyawan', [karyawanController::class, 'view'])->name('karyawan.view');
 Route::get('/karyawan/index', [karyawanController::class, 'index'])->name('dashboardKarwayan.index');
 Route::get('karyawan/{id}/edit', [karyawanController::class, 'edit'])->name('karyawan.edit');
 Route::get('/karyawan/{id}/hapus', [karyawanController::class, 'hapus'])->name('karyawan.hapus');
+
 //Pengeluaran
 Route::get('/dashboardPengeluaran/{id}/edit', [dashboardPengeluaranController::class, 'edit'])->name('pengeluaran.edit');
 Route::get('/dashboardPengeluaran/{id}/hapus', [dashboardPengeluaranController::class, 'hapus'])->name('pengeluaran.hapus');
@@ -151,10 +156,10 @@ Route::get('dashboardUser/{id}/hapus', [dashboardUserController::class, 'hapus']
 
 
 //LOGIN REGISTER
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-// Route::get('/register', function () {
+// Route::get('/login', function () {
+//     return view('login');
+// })->name('login');
+// // Route::get('/register', function () {
 //     return view('register');
 // })->name('register');
 Route::view('/error', 'error')->name('error');

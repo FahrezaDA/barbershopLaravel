@@ -58,6 +58,26 @@ class PemesananDetailController extends Controller
     return view('pemesanan')->with('message', 'Data customer berhasil ditambahkan.');
 }
 
+    public function edit($id)
+            {
+                $pemesanan = Pemesanan::find($id);
+                $kasirs = \App\Models\Kasir::all(); // Mengambil semua data kasir
+                return view('pemesanan.edit', compact('pemesanan', 'kasirs'));
+            }
+        
+            public function update(Request $request, $id)
+            {
+                $pemesanan = Pemesanan::find($id);
+                $pemesanan->nama_customer = $request->input('txt_nama_customer');
+                $pemesanan->jenis_pelayanan = $request->input('txt_jenis_pelayanan');
+                $pemesanan->harga = $request->input('txt_harga');
+                $pemesanan->no_antrian = $request->input('txt_no_antrian');
+                $pemesanan->tanggal_pemesanan = $request->input('txt_tanggal_pemesanan');
+                $pemesanan->kasirID = $request->input('txt_kasirID');
+                $pemesanan->save();
+        
+                return redirect()->route('pemesanan')->with('success', 'Pemesanan berhasil diperbarui');
+            }
 }
 
 

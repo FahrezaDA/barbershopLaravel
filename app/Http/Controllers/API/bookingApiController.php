@@ -62,7 +62,7 @@ public function searchBooking(Request $request)
     $selectedDate = $request->input('tanggal_booking');
 
     // Lakukan pencarian berdasarkan tanggal_booking dan ambil data bookings
-    $bookings = Booking::where('tanggal_booking', $selectedDate)->get();
+    $bookings= Booking::where('tanggal_booking', $selectedDate)->get();
 
     // Buat array kosong untuk menyimpan stats
     $stats = [];

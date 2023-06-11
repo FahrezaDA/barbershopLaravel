@@ -118,11 +118,12 @@ Route::get('/pemesanan/create', [PemesananDetailController::class, 'create'])->n
 Route::post('/pemesanan/store', [PemesananDetailController::class, 'store'])->name('pemesanan.store');
 Route::get('/pemesananDetail', [PemesananDetailController::class,'create'])->name('pemesanan.create');
 Route::post('/pemesananDetail/store', [pemesananDetailController::class, 'store'])->name('pemesananDetail.store');
+Route::get('/pemesanan', [pemesananDetailController::class, 'view']);
 
 //PEMBAYARAN
 Route::get('/pembayaran', [pembayaranController::class, 'pembayaran']);
 
-Route::get('/pemesanan', [pemesananController::class, 'pemesanan']);
+// Route::get('/pemesanan', [pemesananController::class, 'pemesanan']);
 // Route::get('/booking', [bookingController::class, 'booking']);
 
 
@@ -151,6 +152,7 @@ Route::get('/dashboardPengeluaran/{id}/hapus', [dashboardPengeluaranController::
 Route::post('/pengeluaran', [PengeluaranController::class, 'create'])->name('pengeluaran.create');
 
 //User
+Route::get('/dashboardUser', [dashboardUserController::class, 'dashboardUser']);
 Route::get('dashboardUser/index', [dashboardUserController::class, 'index'])->name('user.index');
 Route::get('dashboardUser/{id}/edit', [dashboardUserController::class, 'edit'])->name('user.edit');
 Route::get('dashboardUser/{id}/hapus', [dashboardUserController::class, 'hapus'])->name('user.hapus');

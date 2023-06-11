@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id('id_booking');
             // foreign key
-            $table->foreignId('id_user');
+            $table->foreignId('id_user')->nullable()->default(null);
             $table->foreign('id_user')->references('id_user')->on('users');
-            $table->foreignId('id_karyawan');
+            $table->foreignId('id_karyawan')->nullable()->default(null);
             $table->foreign('id_karyawan')->references('id_karyawan')->on('karyawans');
             $table->string('nama');
             $table->integer('no_telpon');

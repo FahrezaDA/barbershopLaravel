@@ -9,6 +9,11 @@ use App\Models\Pemesanan;
 
 class PemesananDetailController extends Controller
 {
+
+    public function view(){
+        return view('pemesanan');
+
+    }
     public function create()
     {
         $pelayanan = \App\Models\Pelayanan::all();

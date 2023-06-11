@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id('id_pelayanan');
             $table->string('jenis_pelayanan');
             // foreign key
-            $table->foreignId('id_booking');
+            $table->foreignId('id_booking')->nullable()->default(null);
             $table->foreign('id_booking')->references('id_booking')->on('bookings');
-            $table->foreignId('id_karyawan');
+            $table->foreignId('id_karyawan')->nullable()->default(null);
             $table->foreign('id_karyawan')->references('id_karyawan')->on('karyawans');
 
 

@@ -374,9 +374,10 @@ if (!isset($_SESSION['email'])) {
                                                 <td>{{ $item->tanggal_pengeluaran }}</td>
                                                 <td>{{ $item->id_kasir}}</td>
                                                 <td>
-                                                    <a href="{{ route('pengeluaran.edit', ['id' => $item['id_pengeluaran']]) }}" class="btn btn-primary btn-circle"><i class="fas fa-pen"></i></a>
+                                                    <a href="{{ route('editPengeluaran', ['id' => $item->'id_pengeluaran') }}" class="btn btn-primary btn-circle"><i class="bx bx-edit-alt"></i></a>
 
-                                                    <a href="{{ route('pengeluaran.hapus', ['id' => $item['id_pengeluaran']]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('pengeluaran.hapus', ['id' => $item['id_pengeluaran']]) }}'))"><i class="fas fa-trash"></i></a>
+                                                    <a href="{{ route('pengeluaran.hapus', ['id' => $item['id_pengeluaran']]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('pengeluaran.hapus', ['id' => $item['id_pengeluaran']]) }}'))">
+                                                    <i class="bx bxs-trash"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach

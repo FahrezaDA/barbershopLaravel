@@ -101,7 +101,7 @@ Route::delete('/pemesanan/{id}', [PemesananController::class, 'destroy']);
 Route::resource('pemesanan', PemesananController::class);
 Route::get('/pemesanan', [PemesananController::class, 'create'])->name('pemesanan.create');
 Route::post('/pemesanan', [PemesananController::class, 'store'])->name('pemesanan.store');
-Route::get('/pemesanan/edit', [PemesananController::class, 'edit'])->name('pemesanan.edit');
+Route::get('/pemesanan/{id}/edit', [PemesananController::class, 'edit'])->name('pemesanan.edit');
 Route::get('/pemesanan/{id}/hapus', [PemesananController::class, 'hapus'])->name('pemesanan.hapus');
 Route::get('/pemesanan/{id}/cetak', [PemesananController::class, 'cetak'])->name('pemesanan.cetak');
 Route::get('/pemesanan/{id}', [PemesananController::class, 'show'])->name('pemesanan.show');

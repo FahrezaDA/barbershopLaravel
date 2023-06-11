@@ -10,14 +10,14 @@ class DataBooking extends Model
     use HasFactory;
 
 
-    protected $table = 'data_booking'; // tabel yang digunakan 
-    protected $primaryKey = 'id_data_booking'; 
+    protected $table = 'booking_detail'; // tabel yang digunakan
+    protected $primaryKey = 'id_dBooking';
 
-    
+
     protected $fillable = [
         'jam',
         'stats'
     ];
 
-    
+
 }

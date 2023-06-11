@@ -59,7 +59,7 @@ Route::get('/pengeluaran', [pengeluaranController::class, 'pengeluaran'])->name(
 
 
 //blom ada API
-Route::post('/bookingCustomer', [bookingCustomerController::class, 'bookingCustomer'])->name('bookingCustomer');
+// Route::post('/bookingCustomer', [bookingCustomerController::class, 'bookingCustomer'])->name('bookingCustomer');
 Route::post('/registerUser', [registerUserController::class, 'registerUser'])->name('registerUser');
 Route::post('/pengeluaran', [pengeluaranController::class, 'pengeluaran'])->name('pengeluaran');
 
@@ -118,13 +118,20 @@ Route::post('/pemesananDetail/store', [pemesananDetailController::class, 'store'
 Route::get('/pembayaran', [pembayaranController::class, 'pembayaran']);
 
 Route::get('/pemesanan', [pemesananController::class, 'pemesanan']);
-Route::get('/booking', [bookingController::class, 'booking']);
+// Route::get('/booking', [bookingController::class, 'booking']);
 
 
 //BOOKING
 Route::get('/booking/index', [dashboardBookingController::class, 'index'])->name('booking.index');
 Route::get('booking/{id}/edit', [dashboardBookingController::class, 'edit'])->name('booking.edit');
 Route::get('/booking/{id}/hapus', [dashboardBookingController::class, 'hapus'])->name('booking.hapus');
+
+
+Route::get('/bookingCustomer', [bookingCustomerController::class, 'index'])->name('booking.view');
+Route::get('/getHarga', [bookingCustomerController::class, 'getHarga'])->name('bookingCustomer.getHarga');
+Route::post('/booking/store', [bookingCustomerController::class, 'store'])->name('booking.store');
+
+
 
 
 //Karyawan

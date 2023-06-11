@@ -4,18 +4,26 @@ namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Models\Booking;
-
+use App\Models\Pelayanan;
 
 class bookingCustomerController extends Controller
 {
 
-    public function bookingCustomer() {
+    public function view() {
         return view ('bookingCustomer');
     }
-   
+
+    public function getHarga(Request $request)
+    {
+        $jenisPelayanan = $request->jenis_pelayanan;
+
+        $harga = Pelayanan::where('jenis_pelayanan', $jenisPelayanan)->value('harga');
+
+        return response()->json(['harga' => $harga]);
+    }
 
 
-    public function index() 
+    public function index()
     {
         $data = booking::all(); // Mengambil semua data pengguna dari tabel booking
 
@@ -34,28 +42,44 @@ class bookingCustomerController extends Controller
     }
 
 
-    public function postBooking(Request $request){
+    public function store(Request $request)
+    {
+        // Validasi input dari request jika diperlukan
+        $request->validate([
+            'nama' => 'required',
+            'no_telpon' => 'required',
+            'jenis_pelayanan' => 'required',
+            'harga' => 'required',
+            'tanggal_booking' => 'required',
+            'jam_booking' => 'required',
+            'bukti_transfer' => 'required|image|max:4048', // Validasi bahwa file adalah gambar dengan maksimal ukuran 2MB
 
-      // Membuat objek Pemesanan baru
-      $booking = new Booking();
-      $booking->id_booking = $request->id_booking;
-      $booking->id_user = $request->id_user;
-      $booking->id_karyawan = $request->id_karyawan;
-      $booking->nama = $request->nama_customer;
-      $booking->no_telpon = $request->no_telpon;
-      $booking->jenis_pelayanan = $request->jenis_pelayanan;
-      $booking->harga = $request->harga;
-      $booking->tanggal_booking = $request -> $tanggal_booking;
-      $booking->jam_booking = $request -> $jam_booking;
-      $booking->bukti_transfer = $request -> $buktiTransfer;
-      $booking->stats = $request -> $stats;
-      $booking->save();
+            // tambahkan validasi lain yang diperlukan
+        ]);
 
-      return response()->json([
-          "message" => "Success",
-          "data" => $pemesanan
-      ]);
+        $nama = $request->nama;
+        $buktiTransfer = $request->file('bukti_transfer');
+        $namaFile = $nama . '.' . $buktiTransfer->getClientOriginalExtension();
+        $buktiTransfer->storeAs('bukti_transfer', $namaFile);
+
+        // Simpan data booking ke dalam database
+        $booking = new Booking();
+        $booking->nama = $request->nama;
+        $booking->no_telpon = $request->no_telpon;
+        $booking->jenis_pelayanan = $request->jenis_pelayanan;
+        $booking->harga = $request->harga;
+        $booking->tanggal_booking = $request->tanggal_booking;
+        $booking->jam_booking = $request->jam_booking;
+        $booking->bukti_transfer = $namaFile;
+        $booking->stats = 'pending';
+        $booking->save();
+
+        // Redirect atau lakukan tindakan lain setelah penyimpanan
+
+        // Contoh redirect ke halaman utama
+        return redirect('bookingCustomer')->with('success', 'Booking berhasil disimpan');
     }
+
 
 
 }

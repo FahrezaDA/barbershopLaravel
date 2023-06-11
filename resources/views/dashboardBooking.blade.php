@@ -78,12 +78,12 @@ if (!isset($_SESSION['email'])) {
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-          
+
 
             <!-- Nav Item - Pages Collapse Menu -->
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -109,8 +109,8 @@ if (!isset($_SESSION['email'])) {
             <!-- Nav Item - Charts -->
 
             <!-- Nav Item - Tables -->
-                    
-            </li>  
+
+            </li>
             <li class="nav-item active">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -307,13 +307,13 @@ if (!isset($_SESSION['email'])) {
 
                         <!-- Nav Item - User Information -->
                         @php
-                        
+
                         $route = route('landingpage');
-                        
+
                         @endphp
                         <button onclick="window.location='{{ $route }}'" style="background-color: #4E73DF; color: white; height: 40px; width: 100px; margin: 10px 10px 10px 10px;">
                         <b>Logout</b> </button>
-                        
+
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
@@ -386,7 +386,7 @@ if (!isset($_SESSION['email'])) {
                                         </tbody>
                                     </thead>
                                 </table>
-                                <a href="/booking" type="submit" name="register" class="btn btn-primary">Tambah</a>
+                                <a href="/bookingCustomer" type="submit" name="register" class="btn btn-primary">Tambah</a>
                             </div>
                         </div>
                     </div>

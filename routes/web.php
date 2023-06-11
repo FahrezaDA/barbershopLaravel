@@ -139,8 +139,6 @@ Route::get('/karyawan', [karyawanController::class, 'karyawan'])->name('dashboar
 Route::get('/karyawan/index', [karyawanController::class, 'index'])->name('dashboardKarwayan.index');
 Route::get('karyawan/{id}/edit', [karyawanController::class, 'edit'])->name('karyawan.edit');
 Route::get('/karyawan/{id}/hapus', [karyawanController::class, 'hapus'])->name('karyawan.hapus');
-
-
 //Pengeluaran
 Route::get('/dashboardPengeluaran/{id}/edit', [dashboardPengeluaranController::class, 'edit'])->name('pengeluaran.edit');
 Route::get('/dashboardPengeluaran/{id}/hapus', [dashboardPengeluaranController::class, 'hapus'])->name('pengeluaran.hapus');

@@ -46,4 +46,6 @@ class pengeluaranController extends Controller
         return view('pemesananDetail.kasirData', compact('kasir'));
     }
     
+
+
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -54,16 +55,15 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed
-            return redirect()->intended('/pemesanan');
+            if (auth()->user()->lvl !=3) {
+                return redirect('/dashboardBooking');
+            } else {
+                return redirect('/bookingUser');
+            }
         } else {
             return back()->withErrors(['email' => 'Invalid email or password.']);
         }
     }
 
-    public function logout()
-    {
-        Auth::logout();
-        return redirect('/login');
-    }
 }
 

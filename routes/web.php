@@ -41,6 +41,7 @@ Route::post('/register', [LoginController::class, 'register']);
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/bookingUser', [LoginController::class, 'bookingUser'])->name('bookingUser');
 
 
 // Route::get('/login', [LoginController::class, 'Login']);
@@ -136,6 +137,7 @@ Route::get('/booking/{id}/hapus', [dashboardBookingController::class, 'hapus'])-
 Route::get('/bookingCustomer', [bookingCustomerController::class, 'index'])->name('booking.view');
 Route::get('/getHarga', [bookingCustomerController::class, 'getHarga'])->name('bookingCustomer.getHarga');
 Route::post('/booking/store', [bookingCustomerController::class, 'store'])->name('booking.store');
+Route::get('/bookingUser', [bookingCustomerController::class, 'show'])->name('booking.show');
 
 
 

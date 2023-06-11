@@ -13,6 +13,10 @@ class bookingCustomerController extends Controller
         return view ('bookingCustomer');
     }
 
+    public function show(){
+        return view ('dashboardUserBooking');
+    }
+
     public function getHarga(Request $request)
     {
         $jenisPelayanan = $request->jenis_pelayanan;

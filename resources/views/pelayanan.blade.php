@@ -38,7 +38,7 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
     <div id="logo">
-    <a href="index.php"><img src="{{ asset('image/logo.png') }}" alt="image" height="60" width="200"></a>
+    <a href="/"><img src="{{ asset('image/logo.png') }}" alt="image" height="60" width="200"></a>
     </div>
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -50,7 +50,7 @@
           <li><a href="/tentangkami">Tentang Kami </a></li>
           <li><a href="/galeri">Galeri </a></li>
           <li><a href="/kontak">Kontak</a></li>
-          <li><a href="dashboardPemesanan.php">Dashboard </a></li>
+          <li><a href="/bookingCustomer">Dashboard </a></li>
           <li><a href="/login">Login</a></li>
         </ul>
       </nav><!-- .navbar -->

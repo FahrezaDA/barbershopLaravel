@@ -47,7 +47,7 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
     <div id="logo">
-    <a href="index.php"><img src="{{ asset('image/BarbershopLogo.png') }}" alt="image" height="60" width="200"></a>
+    <a href="landingPage"><img src="{{ asset('image/BarbershopLogo.png') }}" alt="image" height="60" width="200"></a>
     </div>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>

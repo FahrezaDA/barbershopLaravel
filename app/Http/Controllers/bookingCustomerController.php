@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Models\Booking;
 use App\Models\Pelayanan;
-
+use Carbon\Carbon;
 class bookingCustomerController extends Controller
 {
 
@@ -43,43 +43,48 @@ class bookingCustomerController extends Controller
 
 
     public function store(Request $request)
-    {
-        // Validasi input dari request jika diperlukan
-        $request->validate([
-            'nama' => 'required',
-            'no_telpon' => 'required',
-            'jenis_pelayanan' => 'required',
-            'harga' => 'required',
-            'tanggal_booking' => 'required',
-            'jam_booking' => 'required',
-            'bukti_transfer' => 'required|image|max:4048', // Validasi bahwa file adalah gambar dengan maksimal ukuran 2MB
+{
+    // Validasi input dari request jika diperlukan
+    $request->validate([
+        'nama' => 'required',
+        'no_telpon' => 'required',
+        'jenis_pelayanan' => 'required',
+        'harga' => 'required',
+        'tanggal_booking' => 'required',
+        'jam_booking' => 'required',
+        'bukti_transfer' => 'required|image|max:4048', // Validasi bahwa file adalah gambar dengan maksimal ukuran 2MB
+        // tambahkan validasi lain yang diperlukan
+    ]);
 
-            // tambahkan validasi lain yang diperlukan
-        ]);
+    // ...
 
-        $buktiTransfer = $request->file('bukti_transfer');
-$filename = $request->nama . '.jpg'; // Mengatur nama file dengan ekstensi ".jpg"
-$buktiTransfer->move(public_path('bukti_transfer'), $filename);
+   // Ambil data booking dari database
+   $bookings = Booking::all();
 
+   // Ubah format tanggal dari 'Y-m-d' ke 'd-m-Y'
+   foreach ($bookings as $booking) {
+       $booking->tanggal_booking = Carbon::createFromFormat('Y-m-d', $booking->tanggal_booking)->format('d-m-Y');
+   }
 
+    // ...
 
-        // Simpan data booking ke dalam database
-        $booking = new Booking();
-        $booking->nama = $request->nama;
-        $booking->no_telpon = $request->no_telpon;
-        $booking->jenis_pelayanan = $request->jenis_pelayanan;
-        $booking->harga = $request->harga;
-        $booking->tanggal_booking = $request->tanggal_booking;
-        $booking->jam_booking = $request->jam_booking;
-        $booking->bukti_transfer = $filename;
-        $booking->stats = 'pending';
-        $booking->save();
+    // Simpan data booking ke dalam database
+    $booking = new Booking();
+    $booking->nama = $request->nama;
+    $booking->no_telpon = $request->no_telpon;
+    $booking->jenis_pelayanan = $request->jenis_pelayanan;
+    $booking->harga = $request->harga;
+    $booking->tanggal_booking = $tanggal_booking; // Menggunakan format tanggal yang sudah diubah
+    $booking->jam_booking = $request->jam_booking;
+    $booking->bukti_transfer = $filename;
+    $booking->stats = 'pending';
+    $booking->save();
 
-        // Redirect atau lakukan tindakan lain setelah penyimpanan
+    // ...
 
-        // Contoh redirect ke halaman utama
-        return redirect('booking')->with('success', 'Booking berhasil disimpan');
-    }
+    // Contoh redirect ke halaman utama
+    return redirect('booking')->with('success', 'Booking berhasil disimpan');
+}
 
 
 

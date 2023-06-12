@@ -54,11 +54,20 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed
-            return redirect()->intended('/pemesanan');
+            if (Auth::user()->lvl != 3) {
+                return view('/pemesanan');
+            } else {
+                return view('/bookingCustomer');
+            }
         } else {
             return back()->withErrors(['email' => 'Invalid email or password.']);
         }
     }
+
+
+
+
+
 
     public function logout()
     {

@@ -88,7 +88,9 @@ if( isset($_POST['register']) ){
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="exampleInputUsername" placeholder="harga" name="harga">
+                                    <label for="harga">Harga:</label>
+                                    <input type="text" name="harga">
+
                                 </div>
 
                                 <div class="form-group">

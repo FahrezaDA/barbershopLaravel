@@ -28,6 +28,7 @@
     $pelayanan = \App\Models\Pelayanan::all();
     $dataBookings = \App\Models\DataBooking::all(); // Mengganti nama variabel menjadi $dataBookings
     $booking = \App\Models\Booking::find($id);
+
     @endphp
 
     <div class="container">

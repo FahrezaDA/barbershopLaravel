@@ -77,7 +77,7 @@ class bookingCustomerController extends Controller
         // Redirect atau lakukan tindakan lain setelah penyimpanan
 
         // Contoh redirect ke halaman utama
-        return redirect('bookingCustomer')->with('success', 'Booking berhasil disimpan');
+        return redirect('booking')->with('success', 'Booking berhasil disimpan');
     }
 
 

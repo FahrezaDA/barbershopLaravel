@@ -1,49 +1,3 @@
-<?php
-
-session_start();
-if (!isset($_SESSION['email'])) {
-    $_SESSION['msg'] = 'anda harus login untuk mengakses halaman ini';
-    header('Location: login.php');
-}
-
-
-if( isset($_POST['register']) ){
-    $foto = $_FILES['bukti_transfer']['name'];
-    $temp = $_FILES['bukti_transfer']['tmp_name'];
-    $size = $_FILES['bukti_transfer']['size'];
-    $nama = $_POST['txt_nama'];
-    $no_telpon = $_POST['txt_no_telpon'];
-    $jenis_pelayanan = $_POST['txt_jenis_pelayanan'];
-    $harga = $_POST['txt_harga'];
-    $tanggal_booking = $_POST['txt_tanggal_booking'];
-    $jam = $_POST['txt_jam'];
-    $image_files=$foto;
-    $status=$_POST['txt_status'];
-
-    if($size > 5000000){
-        echo "<script>alert('Ukuran gambar terlalu besar');</script>";
-    }
-    $q = mysqli_query($koneksi, "SELECT*FROM booking WHERE jam_booking='$jam' AND tanggal_booking='$tanggal_booking' ");
-
-    $cek = mysqli_num_rows($q);
-
-    copy($temp, "img/fileBooking/" . $image_files);
-    if($cek==0 ){
-        $query = "INSERT INTO booking VALUES(null, '$nama', '$no_telpon','$jenis_pelayanan','$harga', '$tanggal_booking','$jam','$foto','wait')";
-         $result = mysqli_query($koneksi, $query);
-        header('Location: bookingCustomer.php');
-        if($query){
-            $alert = "<div class='alert alert-success'> anda berhasil </div>";
-        }
-    }
-else {
-    $alert = "<div class='alert alert-danger'> JAM ATAU HARGA SALAH </div>";
-}
-    // query memasukkan data
-}
-date_default_timezone_set('Asia/Jakarta');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,13 +11,13 @@ date_default_timezone_set('Asia/Jakarta');
 
     <title>Tambah Booking</title>
 
-    <!-- Custom fonts for this template-->
+    <!-- Custom fonts for this template -->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-    <!-- Custom styles for this template-->
+    <!-- Custom styles for this template -->
     <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
 
 </head>
@@ -87,7 +41,7 @@ date_default_timezone_set('Asia/Jakarta');
                                 <h1 class="h4 text-gray-900 mb-4">Booking</h1>
                             </div>
                             <form class="user" action="{{ route('booking.store') }}" method="POST" enctype="multipart/form-data">
-                            @csrf
+                                @csrf
 
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" id="exampleInputUsername"
@@ -107,13 +61,12 @@ date_default_timezone_set('Asia/Jakarta');
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                <label for="harga">Harga:</label>
-                                <input type="text" name="harga">
+                                    <label for="harga">Harga:</label>
+                                    <input type="text" name="harga">
 
-                                </select>
                                 </div>
                                 <div class="form-group">
-                                <input type="date" class="form-control form-control-user" id="exampleInputUsername"
+                                    <input type="date" class="form-control form-control-user" id="exampleInputUsername"
                                         placeholder="<?php echo date('d-m-Y');?>" value="<?php echo date('d-m-Y');?>" name="tanggal_booking"  >
                                 </div>
                                 <div class="form-group">
@@ -150,41 +103,62 @@ date_default_timezone_set('Asia/Jakarta');
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
 
-    <!-- Bootstrap core JavaScript-->
+
+    <div class="modal" id="imageModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Gambar</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImage" src="" alt="Gambar" style="width: 100%;">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript -->
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
-    <script>
-    $(document).ready(function() {
-        // Menangani perubahan pada select jenis pelayanan
-        $('select[name="jenis_pelayanan"]').on('change', function() {
-            var jenisPelayanan = $(this).val(); // Mendapatkan jenis pelayanan yang dipilih
-            $.ajax({
-                url: '{{ route("bookingCustomer.getHarga") }}',
-                type: 'GET',
-                data: { jenis_pelayanan: jenisPelayanan },
-                success: function(response) {
-                    $('#harga').text( response.harga);
-                    $('input[name="harga"]').val(response.harga); // Mengisi nilai input hidden dengan harga
-                },
-                error: function() {
-                    // Penanganan kesalahan jika diperlukan
-                }
-            });
-        });
-    });
-</script>
-    <!-- Core plugin JavaScript-->
+    <!-- Core plugin JavaScript -->
     <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
-    <!-- Custom scripts for all pages-->
+    <!-- Custom scripts for all pages -->
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
 
+    <!-- Bootstrap modal -->
+    <div class="modal fade" id="proofModal" tabindex="-1" aria-labelledby="proofModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="proofModalLabel">Transfer Proof</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="" id="proofImage" class="img-fluid" alt="Transfer Proof">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Show transfer proof image in modal when clicked
+            $('.view-proof').click(function() {
+                var imagePath = $(this).data('image-path');
+                $('#proofImage').attr('src', imagePath);
+                $('#proofModal').modal('show');
+            });
+        });
+    </script>
 
 </body>
 

@@ -1,12 +1,4 @@
-<?php
 
-session_start();
-if (!isset($_SESSION['email'])) {
-    $_SESSION['msg'] = 'anda harus login untuk mengakses halaman ini';
-    header('Location: login.php');
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -367,21 +359,27 @@ if (!isset($_SESSION['email'])) {
                                             <th>Aksi</th>
                                         </tr>
                                         <tbody>
-                                            @foreach($data as $item)
+                                            @foreach($data as $data)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $item->nama }}</td>
-                                                <td>{{ $item->no_telpon }}</td>
-                                                <td>{{ $item->jenis_pelayanan }}</td>
-                                                <td>{{ $item->harga }}</td>
-                                                <td>{{ $item->tanggal_booking }}</td>
-                                                <td>{{ $item->jam_booking }}</td>
-                                                <td>{{ $item->bukti_tranfer }}</td>
-                                                <td>{{ $item->stats }}</td>
-                                                <td>
-                                                    <a href="{{ route('booking.edit', ['id' => $item['id_booking']]) }}" class="btn btn-primary btn-circle"><i class="bx bx-edit-alt"></i></a>
+                                                <td>{{ $data->nama }}</td>
+                                                <td>{{ $data->no_telpon }}</td>
+                                                <td>{{ $data->jenis_pelayanan }}</td>
+                                                <td>{{ $data->harga }}</td>
+                                                <td>{{ $data->tanggal_booking }}</td>
+                                                <td>{{ $data->jam_booking }}</td>
+                                                                                                <!-- Bagian iterasi foreach -->
 
-                                                    <a href="{{ route('booking.hapus', ['id' => $item['id_booking']]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('booking.hapus', ['id' => $item['id_booking']]) }}'))">
+                                                    <td><button  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal{{$data->id_booking}}">
+
+                                                Lihat</button></td>
+
+
+                                                <td>{{ $data->stats }}</td>
+                                                <td>
+                                                    <a href="{{ route('booking.edit', ['id' => $data['id_booking']]) }}" class="btn btn-primary btn-circle"><i class="bx bx-edit-alt"></i></a>
+
+                                                    <a href="{{ route('booking.hapus', ['id' => $data['id_booking']]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('booking.hapus', ['id' => $data['id_booking']]) }}'))">
                                                     <i class="bx bxs-trash"></i></a>
                                                 </td>
                                             </tr>
@@ -411,6 +409,31 @@ if (!isset($_SESSION['email'])) {
         <i class="fas fa-angle-up"></i>
     </a>
 
+    <div class="modal fade" id="myModal{{ $data->id_booking }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel" align="center">BUKTI TRANSFER</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                @php
+                    $imagePath = public_path('bukti_transfer/'.$data->nama.'.jpg');
+                @endphp
+
+                @if (file_exists($imagePath))
+                    <img src="{{ asset('bukti_transfer/'.$data->nama.'.jpg') }}" width="100%" height="650px" class="img-responsive">
+                @else
+                    <p>Gambar tidak ditemukan.</p>
+                @endif
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -430,6 +453,27 @@ if (!isset($_SESSION['email'])) {
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+<div class="modal fade" id="buktiTransferModal" tabindex="-1" aria-labelledby="buktiTransferModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="buktiTransferModalLabel">Bukti Transfer</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Konten modal di sini -->
+        <!-- Anda dapat menampilkan gambar bukti transfer atau informasi lainnya -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 
     <!-- Optional JavaScript -->

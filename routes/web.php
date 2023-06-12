@@ -121,6 +121,7 @@ Route::post('/pemesanan/store', [PemesananDetailController::class, 'store'])->na
 Route::get('/pemesananDetail', [PemesananDetailController::class,'create'])->name('pemesanan.create');
 Route::post('/pemesananDetail/store', [pemesananDetailController::class, 'store'])->name('pemesananDetail.store');
 Route::get('/pemesanan', [pemesananDetailController::class, 'view']);
+Route::get('/pemesanan', [pemesananDetailController::class, 'view'])->middleware('check.login');
 
 //PEMBAYARAN
 Route::get('/pembayaran', [pembayaranController::class, 'pembayaran']);

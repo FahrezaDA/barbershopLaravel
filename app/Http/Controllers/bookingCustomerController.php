@@ -58,8 +58,9 @@ class bookingCustomerController extends Controller
         ]);
 
         $buktiTransfer = $request->file('bukti_transfer');
-        $filename = $request->nama . '.' . $buktiTransfer->getClientOriginalExtension();
-        $buktiTransfer->move(public_path('bukti_transfer'), $filename);
+$filename = $request->nama . '.jpg'; // Mengatur nama file dengan ekstensi ".jpg"
+$buktiTransfer->move(public_path('bukti_transfer'), $filename);
+
 
 
         // Simpan data booking ke dalam database

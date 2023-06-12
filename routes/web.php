@@ -132,6 +132,9 @@ Route::get('/pembayaran', [pembayaranController::class, 'pembayaran']);
 Route::get('/booking/index', [dashboardBookingController::class, 'index'])->name('booking.index');
 Route::get('booking/{id}/edit', [dashboardBookingController::class, 'edit'])->name('booking.edit');
 Route::get('/booking/{id}/hapus', [dashboardBookingController::class, 'hapus'])->name('booking.hapus');
+Route::put('booking/{id}', [dashboardBookingController::class, 'update'])->name('booking.update');
+Route::get('booking', [dashboardBookingController::class, 'view']);
+// Route::put('/pemesanan/{id}', [pemesananDetailController::class, 'update'])->name('pemesanan.update');
 
 
 Route::get('/bookingCustomer', [bookingCustomerController::class, 'index'])->name('booking.view');

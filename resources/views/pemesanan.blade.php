@@ -122,7 +122,7 @@ if (!isset($_SESSION['email'])) {
                         <a class="collapse-item" href="dashboardUser">User</a>
                         <a class="collapse-item" href="pemesanan">Pemesanan</a>
                         <a class="collapse-item" href="dashboardPengeluaran">Pengeluaran</a>
-                        <a class="collapse-item" href="dashboardBooking">Booking</a>
+                        <a class="collapse-item" href="/booking">Booking</a>
                         <a class="collapse-item" href="/dashboardKaryawan">Karyawan</a>
                         <a class="collapse-item" href="/dashboardUser">User</a>
                         <a class="collapse-item" href="/pemesanan">Pemesanan</a>

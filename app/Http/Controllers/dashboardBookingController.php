@@ -17,7 +17,7 @@ class dashboardBookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function dashboardBooking()
+    public function view()
     {
         return view('dashboardBooking');
     }
@@ -89,7 +89,7 @@ class dashboardBookingController extends Controller
      */
     public function store(Request $request)
     {
-        
+
     }
 
     /**
@@ -109,43 +109,46 @@ class dashboardBookingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    
-    
-     public function editBooking($id)
+
+
+     public function edit($id)
      {
         $booking = Booking::find($id);
         return view('booking.edit', compact('booking'));
     }
-    
-    public function updateBooking(Request $request, $id)
-    {
-        $booking = Booking::find($id);
-        if ($booking) {
-            $booking->nama = $request->input('txt_nama');
-            $booking->jenis_pelayanan = $request->input('txt_jenis_pelayanan');
-            $booking->harga = $request->input('txt_harga');
-            $booking->tanggal_booking = $request->input('txt_tanggal_booking');
-            $booking->jam_booking = $request->input('txt_jam');
-            $booking->stats = $request->input('txt_status');
-        
-        // Lakukan pengecekan dan pemrosesan berkas jika ada perubahan pada bukti transfer
-        if ($request->hasFile('bukti_transfer')) {
-            $file = $request->file('bukti_transfer');
-            $fileName = $file->getClientOriginalName();
-            $fileSize = $file->getSize();
-            // Lakukan pengolahan file sesuai kebutuhan (misalnya, menyimpan di folder tertentu atau mengubah nama file)
-            // ...
-            $booking->bukti_transfer = $fileName;
-        }
-        
-        $booking->save();
-        return redirect()->route('dashboardBooking')->with('success', 'Booking berhasil diperbarui');
-    } else {
-        return redirect()->route('dashboardBooking')->with('error', 'Booking tidak ditemukan');
-    }
-}
 
-    
+    public function update(Request $request, $id){
+        // Validasi input jika diperlukan
+        // $validatedData = $request->validate([
+        //     'nama_customer' => 'required',
+        //     'jenis_pelayanan' => 'required',
+        //     'harga' => 'required',
+        //     'no_antrian' => 'required',
+        //     'tanggal_pemesanan' => 'required',
+
+        // ]);
+
+        // Ambil data pemesanan yang akan diperbarui
+        $booking= Booking::find($id);
+
+        // Perbarui nilai kolom-kolom yang sesuai dengan input dari formulir
+        $booking->nama = $request->nama;
+        $booking->no_telpon = $request->no_telpon;
+        $booking->jenis_pelayanan = $request->jenis_pelayanan;
+        $booking->harga = $request->harga;
+        $booking->tanggal_booking = $request->tanggal_booking;
+        $booking->jam_booking = $request->jam_booking;
+
+        // Simpan perubahan
+        $booking->save();
+
+        // Redirect ke halaman yang sesuai atau tampilkan pesan sukses
+        // contoh redirect ke halaman detail pemesanan
+        return view('dashboardBooking');
+    }
+
+
+
 
     /**
      * Update the specified resource in storage.
@@ -154,10 +157,7 @@ class dashboardBookingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+
 
     /**
      * Remove the specified resource from storage.
@@ -176,5 +176,5 @@ class dashboardBookingController extends Controller
         }
     }
 
-    
+
 }

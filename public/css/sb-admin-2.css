@@ -10876,11 +10876,16 @@ a:focus {
     justify-content: center;
     align-items: center;
     }
-    
+
 .bg-login-image {
   background: #000;
   background-position: center;
   background-size: cover;
+}
+
+.back-login{
+    background-color: rgba(0, 0, 0, 10);
+    padding: 1.25rem;
 }
 
 .bg-register-image {

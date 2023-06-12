@@ -371,13 +371,13 @@ if (!isset($_SESSION['email'])) {
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->nama }}</td>
-                                                <td>{{ $item->jenis_pelayanan }}</td>
                                                 <td>{{ $item->no_telpon }}</td>
+                                                <td>{{ $item->jenis_pelayanan }}</td>
                                                 <td>{{ $item->harga }}</td>
                                                 <td>{{ $item->tanggal_booking }}</td>
                                                 <td>{{ $item->jam_booking }}</td>
                                                 <td>{{ $item->bukti_tranfer }}</td>
-                                                <td>{{ $item->stast }}</td>
+                                                <td>{{ $item->stats }}</td>
                                                 <td>
                                                     <a href="{{ route('booking.edit', ['id' => $item['id_booking']]) }}" class="btn btn-primary btn-circle"><i class="bx bx-edit-alt"></i></a>
 

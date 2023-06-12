@@ -40,38 +40,38 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">EDIT PEMESANAN</h1>
                             </div>
-                            <form method="POST" action="{{ route('pemesanan.update', ['pemesanan' => $pemesanan->id_pemesanan]) }}">
+                            <form class="user" action="{{ route('pemesanan.edit', ['id' => $id]) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
                                     <input type="hidden" class="form-control form-control-user" id="exampleInputUsername"
-                                        placeholder="ID pemesanan" name="id_pemesanan" value="{{ $pemesanan->id_pemesanan}}">
+                                        placeholder="ID pemesanan" name="txt_id" value="{{ $pemesanan->id }}">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" id="exampleInputUsername"
-                                        placeholder="Nama Customer" name="nama_customer" value="{{ $pemesanan->nama_customer }}">
+                                        placeholder="Nama Customer" name="txt_nama_customer" value="{{ $pemesanan->nama_customer }}">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" id="exampleInputUsername"
-                                        placeholder="Jenis Pelayanan" name="jenis_pelayanan" value="{{ $pemesanan->jenis_pelayanan }}">
+                                        placeholder="Jenis Pelayanan" name="txt_jenis_pelayanan" value="{{ $pemesanan->jenis_pelayanan }}">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Harga" name="harga" value="{{ $pemesanan->harga }}">
+                                        placeholder="Harga" name="txt_harga" value="{{ $pemesanan->harga }}">
                                 </div>
                                 <div class="form-group">
                                     <input type="number" class="form-control form-control-user" id="exampleInputPassword"
-                                        placeholder="No Antrian" name="no_antrian" value="{{ $pemesanan->no_antrian }}">
+                                        placeholder="No Antrian" name="txt_no_antrian" value="{{ $pemesanan->no_antrian }}">
                                 </div>
                                 <div class="form-group">
                                     <input type="date" class="form-control form-control-user" id="exampleInputPassword"
-                                        placeholder="Tanggal Pemesanan" name="tanggal_pemesanan" value="{{ $pemesanan->tanggal_pemesanan }}">
+                                        placeholder="Tanggal Pemesanan" name="txt_tanggal_pemesanan" value="{{ $pemesanan->tanggal_pemesanan }}">
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control form-select" name="id_kasir">
+                                    <select class="form-control form-select" name="txt_kasirID">
                                         <option value="">Pilih Kasir</option>
                                         @foreach($kasirs as $kasir)
-                                            <option value="{{ $kasir->id_kasir}}" @if($kasir->kasirID == $pemesanan->id_kasir) selected @endif>
+                                            <option value="{{ $kasir->kasirID }}" @if($kasir->kasirID == $pemesanan->kasirID) selected @endif>
                                                 {{ $kasir->username }}
                                             </option>
                                         @endforeach

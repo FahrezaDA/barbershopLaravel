@@ -19,6 +19,7 @@ use App\Http\Controllers\dashboardPengeluaranController;
 use App\Http\Controllers\galeriController;
 use App\Http\Controllers\kontakController;
 use App\Http\Controllers\pengeluaranController;
+use App\Http\Controllers\StrukController;
 use App\Http\Controllers\servicedetails1Controller;
 use App\Http\Controllers\servicedetails2Controller;
 use App\Http\Controllers\servicedetails3Controller;
@@ -143,6 +144,8 @@ Route::post('/booking/store', [bookingCustomerController::class, 'store'])->name
 Route::get('/bookingUser', [bookingCustomerController::class, 'show'])->name('booking.show');
 
 
+//Struk
+Route::get('/receipt/{id}', [StrukController::class, 'printStruk'])->name('receipt.print');
 
 
 //Karyawan

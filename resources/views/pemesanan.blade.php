@@ -382,7 +382,7 @@ if (!isset($_SESSION['email'])) {
                                 <a href="{{ route('pemesanan.hapus', ['id' => $item['id_pemesanan']]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('pemesanan.hapus', ['id' => $item['id_pemesanan']]) }}'))">
                                     <i class='bx bxs-trash' ></i>
                                 </a>
-                                <a href="{{ route('pemesanan.cetak', ['id' => $item['id_pemesanan']]) }}" class="btn btn-success btn-circle">
+                                <a href="{{ route('receipt.print', ['id' => $item['id_pemesanan']]) }}" class="btn btn-success btn-circle">
                                     <i class='bx bx-printer' ></i>
                                 </a>
                             </td>

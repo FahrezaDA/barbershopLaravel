@@ -4489,7 +4489,7 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #000000;
   background-clip: border-box;
   border: 1px solid #e3e6f0;
   border-radius: 0.35rem;
@@ -4525,7 +4525,6 @@ input[type="button"].btn-block {
 .card-body {
   flex: 1 1 auto;
   min-height: 1px;
-  padding: 1.25rem;
 }
 
 .card-title {
@@ -10876,7 +10875,7 @@ a:focus {
     justify-content: center;
     align-items: center;
     }
-    
+
 .bg-login-image {
   background: #000;
   background-position: center;

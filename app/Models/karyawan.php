@@ -11,7 +11,7 @@ class karyawan extends Model
 
 
     protected $table = 'karyawans'; // tabel yang digunakan 
-    protected $primaryKey = 'karyawanID'; 
+    protected $primaryKey = 'id_karyawan'; 
 
     
     protected $fillable = [

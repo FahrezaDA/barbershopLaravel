@@ -98,6 +98,9 @@
                             <div class="text-center">
                                 <a class="small" href="{{ route('login') }}"></a>
                             </div>
+                            <div class="text-center">
+                                <a class="small" href="/">Kembali</a>
+                            </div>
                         </div>
                         <p><b><i>Jika ada masalah silahkan hubungi admin : </br>(jamila : 081222334411)</i></b></p>
                     </div>

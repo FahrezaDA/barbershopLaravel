@@ -24,13 +24,15 @@ if (!isset($_SESSION['email'])) {
   <link rel="stylesheet" href="{{ asset('assets2/DataTables/DataTables-1.13.1/css/dataTables.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets2/DataTables/Buttons-2.3.3/css/buttons.bootstrap4.min.css') }}">
 
-    <title>DASHBOARD Pengeluaran</title>
+    <title>DASHBOARD PENGELUARAN</title>
 
     <!-- Custom fonts for this template -->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
@@ -53,7 +55,7 @@ if (!isset($_SESSION['email'])) {
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -153,7 +155,7 @@ if (!isset($_SESSION['email'])) {
 
                     <!-- Topbar Search -->
                     <div id="logo">
-                    <a href="/"><img src="{{ asset('assets/img/projects/gambar.png') }}" alt="image" height="60" width="200"></a>
+                    <a href="/"><img src="{{ asset('image/BarbershopLogo.png') }}" alt="image" height="60" width="200"></a>
                     </div>
 
                     <!-- Topbar Navbar -->
@@ -374,7 +376,7 @@ if (!isset($_SESSION['email'])) {
                                                 <td>{{ $item->tanggal_pengeluaran }}</td>
                                                 <td>{{ $item->id_kasir}}</td>
                                                 <td>
-                                                    <a href="{{ route('editPengeluaran', ['id' => $item->'id_pengeluaran') }}" class="btn btn-primary btn-circle"><i class="bx bx-edit-alt"></i></a>
+                                                    <a href="{{ route('editPengeluaran', ['id' => $item->id_pengeluaran]) }}" class="btn btn-primary btn-circle"><i class="bx bx-edit-alt"></i></a>
 
                                                     <a href="{{ route('pengeluaran.hapus', ['id' => $item['id_pengeluaran']]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('pengeluaran.hapus', ['id' => $item['id_pengeluaran']]) }}'))">
                                                     <i class="bx bxs-trash"></i></a>

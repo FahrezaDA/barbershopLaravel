@@ -35,11 +35,8 @@ if( isset($_POST['submit']) ){
     <meta name="description" content="">
     <meta name="author" content="">
 
-<<<<<<< Updated upstream
-    <title> Pengeluaran</title>
-=======
     <title>Pengeluaran</title>
->>>>>>> Stashed changes
+
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">

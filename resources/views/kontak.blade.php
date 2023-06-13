@@ -50,7 +50,7 @@
           <li><a href="/tentangkami">Tentang Kami </a></li>
           <li><a href="/galeri">Galeri </a></li>
           <li><a href="/kontak" class="active">Kontak</a></li>
-          <li><a href="/bookingCustomer">Dashboard</a></li>
+          <li><a href="/login">Dashboard</a></li>
           <li><a href="/login">Login</a></li>
         </ul>
       </nav><!-- .navbar -->

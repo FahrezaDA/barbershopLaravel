@@ -239,7 +239,7 @@ if (!isset($_SESSION['email'])) {
                                     </thead>
                                 </table>
 
-                                <a href="/booking" type="submit" name="register" class="btn btn-primary">Tambah</a>
+                                <a href="/bookingCustomer" type="submit" name="register" class="btn btn-primary">Tambah</a>
                             </div>
                         </div>
                     </div>

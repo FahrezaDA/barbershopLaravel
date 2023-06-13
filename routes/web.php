@@ -15,6 +15,7 @@ use App\Http\Controllers\bookingCustomerController;
 use App\Http\Controllers\dashboardUserController;
 use App\Http\Controllers\dashboardBookingController;
 use App\Http\Controllers\registerUserController;
+use App\Http\Controllers\registerKaryawanController;
 use App\Http\Controllers\dashboardPengeluaranController;
 use App\Http\Controllers\galeriController;
 use App\Http\Controllers\kontakController;
@@ -59,6 +60,9 @@ Route::get('/dashboardBooking', [dashboardBookingController::class, 'dashboardBo
 
 Route::get('/registerUser', [registerUserController::class, 'registerUser'])->name('registerUser');
 Route::post('/registerUser/store', [registerUserController::class, 'store'])->name('registerUser.store');
+
+Route::get('/registerKaryawan', [registerKaryawanController::class, 'registerKaryawan'])->name('registerKaryawan');
+Route::post('/registerKaryawan/store', [registerKaryawanController::class, 'store'])->name('registerKaryawan.store');
 
 Route::get('/dashboardPengeluaran', [dashboardPengeluaranController::class, 'dashboardPengeluaran'])->name('dashboardPengeluaran');
 Route::get('/pengeluaran', [pengeluaranController::class, 'view'])->name('pengeluaran');
@@ -131,7 +135,7 @@ Route::get('/pembayaran', [pembayaranController::class, 'pembayaran']);
 
 
 //BOOKING
-Route::get('/booking/index', [dashboardBookingController::class, 'index'])->name('booking.index');
+Route::get('/dashboardBooking', [dashboardBookingController::class, 'view'])->name('booking.view');
 Route::get('booking/{id}/edit', [dashboardBookingController::class, 'edit'])->name('booking.edit');
 Route::get('/booking/{id}/hapus', [dashboardBookingController::class, 'hapus'])->name('booking.hapus');
 Route::put('booking/{id}', [dashboardBookingController::class, 'update'])->name('booking.update');
@@ -156,7 +160,7 @@ Route::get('karyawan/{id}/edit', [karyawanController::class, 'edit'])->name('kar
 Route::get('/karyawan/{id}/hapus', [karyawanController::class, 'hapus'])->name('karyawan.hapus');
 
 //Pengeluaran
-Route::get('/pengeluaran/{id}/edit', [dashboardPengeluaranController::class, 'edit'])->name('pengeluaran.edit');
+Route::get('/editPengeluaran', [dashboardPengeluaranController::class, 'edit'])->name('editPengeluaran');
 Route::get('/dashboardPengeluaran/{id}/hapus', [dashboardPengeluaranController::class, 'hapus'])->name('pengeluaran.hapus');
 Route::post('/pengeluaran', [PengeluaranController::class, 'create'])->name('pengeluaran.create');
 

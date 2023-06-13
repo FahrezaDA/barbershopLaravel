@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('no_telpon');
             $table->string('email');
             $table->string('posisi');
-            $table->string('Gaji');
+            $table->string('gaji');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('karyawan');
+        Schema::dropIfExists('karyawans');
     }
 };

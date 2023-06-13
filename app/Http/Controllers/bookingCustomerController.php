@@ -68,13 +68,18 @@ class bookingCustomerController extends Controller
 
     // ...
 
+     // Mengambil file bukti transfer
+     $file = $request->file('bukti_transfer');
+     $filename = $file->getClientOriginalName();
+     $file->move(public_path('bukti_transfer'), $filename);
+
     // Simpan data booking ke dalam database
     $booking = new Booking();
     $booking->nama = $request->nama;
     $booking->no_telpon = $request->no_telpon;
     $booking->jenis_pelayanan = $request->jenis_pelayanan;
     $booking->harga = $request->harga;
-    $booking->tanggal_booking = $tanggal_booking; // Menggunakan format tanggal yang sudah diubah
+    $booking->tanggal_booking = $request->tanggal_booking;    // Menggunakan format tanggal yang sudah diubah
     $booking->jam_booking = $request->jam_booking;
     $booking->bukti_transfer = $filename;
     $booking->stats = 'pending';

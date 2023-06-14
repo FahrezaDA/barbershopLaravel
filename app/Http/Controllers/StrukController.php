@@ -4,20 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pemesanan;
-use PDF;
+use App\Models\Booking;
+
 
 class StrukController extends Controller
 {
-    public function printStruk($id)
+    public function strukPemesanan($id)
     {
         $pemesanan = Pemesanan::findOrFail($id);
 
-        $data = [
-            'pemesanan' => $pemesanan
-        ];
-
-        $pdf = PDF::loadView('printStruk', $data);
-
-        return $pdf->download('printStruk.pdf');
+        return view('strukPemesanan', ['pemesanan' => $pemesanan]);
     }
+
+
+    public function strukBooking($id)
+    {
+        $booking = Booking::findOrFail($id);
+
+        return view('strukBooking', ['booking' => $booking]);
+    }
+
+
 }

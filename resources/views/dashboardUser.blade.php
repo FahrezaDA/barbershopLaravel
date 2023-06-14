@@ -141,7 +141,7 @@ if (!isset($_SESSION['email'])) {
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">admin</h6>
-                        <a class="collapse-item" href="/dasboardKaryawan">Karyawan</a>
+                        <a class="collapse-item" href="/karyawan">Karyawan</a>
                         <a class="collapse-item" href="/dashboardUser">User</a>
                         <a class="collapse-item" href="/pemesanan">Pemesanan</a>
                         <a class="collapse-item" href="/dashboardPengeluaran">Pengeluaran</a>
@@ -380,8 +380,6 @@ if (!isset($_SESSION['email'])) {
                                             <th>Alamat</th>
                                             <th>No.Telpon</th>
                                             <th>Email</th>
-
-                                            <th>Jabatan</th>
                                             <th>Level</th>
 
                                             <th>Aksi</th>
@@ -390,12 +388,10 @@ if (!isset($_SESSION['email'])) {
                                             @foreach($data as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $item->nama_user }}</td>
+                                                <td>{{ $item->nama }}</td>
                                                 <td>{{ $item->alamat }}</td>
-                                                <td>{{ $item->no_telpon }}</td>
+                                                <td>{{ $item->no_telepon }}</td>
                                                 <td>{{ $item->email }}</td>
-
-                                                <td>{{ $item->jabatan }}</td>
                                                 <td>{{ $item->lvl }}</td>
                                                 <td>
                                                     <a href="{{ route('user.edit', ['id' => $item['id_user']]) }}" class="btn btn-primary btn-circle"><i class="bx bx-edit-alt"></i></a>

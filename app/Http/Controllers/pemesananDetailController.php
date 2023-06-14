@@ -81,9 +81,9 @@ class PemesananDetailController extends Controller
 
             public function hapus($id)
     {
-        $karyawan = Karyawan::find($id);
-            if ($karyawan) {
-            $karyawan->delete();
+        $pemesanan = Pemesanan::find($id);
+            if ($pemesanan) {
+            $pemesanan->delete();
             return redirect()->back()->with('success', 'Berhasil dihapus.');
         } else {
             return redirect()->back()->with('error', ' Not Found.');

@@ -99,15 +99,6 @@ Route::get('/servicedetails4', [servicedetails4Controller::class, 'servicedetail
 Route::get('/servicedetails5', [servicedetails5Controller::class, 'servicedetails5']);
 
 //PEMESANAN
-Route::get('/pemesanan', [PemesananController::class, 'pemesanan']);
-Route::get('/pemesanan', [PemesananController::class, 'index']);
-Route::get('/pemesananData', [PemesananController::class, 'allData']);
-Route::post('/pemesanan', [PemesananController::class, 'store']);
-Route::post('/postPemesanan',[pemesananController::class, 'postPemesanan']);
-Route::get('/pemesanan/{id}', [PemesananController::class, 'show']);
-Route::put('/pemesanan/{id}', [pemesananController::class, 'update'])->name('pemesanan.update');
-Route::delete('/pemesanan/{id}', [PemesananController::class, 'destroy']);
-
 Route::resource('pemesanan', pemesananDetailController::class);
 Route::get('/pemesanan', [pemesananDetailController::class, 'create'])->name('pemesanan.create');
 Route::post('/pemesanan', [pemesananDetailController::class, 'store'])->name('pemesanan.store');
@@ -150,7 +141,8 @@ Route::get('/bookingUser', [bookingCustomerController::class, 'show'])->name('bo
 
 
 //Struk
-Route::get('/receipt/{id}', [StrukController::class, 'printStruk'])->name('receipt.print');
+Route::get('/receipt/{id}', [StrukController::class, 'strukPemesanan'])->name('receipt.print');
+Route::get('/booking/{id}', [StrukController::class, 'strukBooking'])->name('booking.print');
 
 
 //Karyawan

@@ -41,7 +41,7 @@
                                 <h1 class="h4 text-gray-900 mb-4">EDIT PEMESANAN</h1>
                             </div>
                             <form class="user" action="{{ route('pemesanan.edit', ['id' => $id]) }}" method="POST">
-                                @csrf
+                                
                                 @method('PUT')
                                 <div class="form-group">
                                     <input type="hidden" class="form-control form-control-user" id="exampleInputUsername"

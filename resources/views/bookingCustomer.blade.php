@@ -175,13 +175,7 @@ if (!isset($_SESSION['email'])) {
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                             </div>
                         </li>
-                        @php
                         
-                        $route = route('login');
-                        
-                        @endphp
-                        <button onclick="window.location='{{ $route }}'" style="background-color: #4E73DF; color: white; height: 40px; width: 120px; margin: 10px 10px 10px 10px;">
-                        <b>Login Admin</b> </button>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
@@ -240,6 +234,8 @@ if (!isset($_SESSION['email'])) {
                                 </table>
 
                                 <a href="/bookingCustomer" type="submit" name="register" class="btn btn-primary">Tambah</a>
+                                <a href="/login" type="submit" name="register" class="btn btn-danger">Kembali</a>
+
                             </div>
                         </div>
                     </div>

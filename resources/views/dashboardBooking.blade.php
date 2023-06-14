@@ -380,7 +380,9 @@
                                                     <a href="{{ route('booking.edit', ['id' => $data['id_booking']]) }}" class="btn btn-primary btn-circle"><i class="bx bx-edit-alt"></i></a>
 
                                                     <a href="{{ route('booking.hapus', ['id' => $data['id_booking']]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('booking.hapus', ['id' => $data['id_booking']]) }}'))">
-                                                    <i class="bx bxs-trash"></i></a>
+                                                        <i class="bx bxs-trash"></i></a>
+                                                    <a href="{{ route('booking.print', ['id' => $data['id_booking']]) }}" class="btn btn-success btn-circle">
+                                                        <i class='bx bx-printer' ></i></a>
                                                 </td>
                                             </tr>
                                             @endforeach

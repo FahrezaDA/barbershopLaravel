@@ -26,6 +26,7 @@
         $id = request()->route('pemesanan');
         $pemesanan = \App\Models\Pemesanan::find($id);
         $kasirs = \App\Models\Kasir::all();
+        $pelayanan = \App\Models\Pelayanan::all();
     @endphp
 
     <div class="container">
@@ -52,12 +53,19 @@
                                         placeholder="Nama Customer" name="txt_nama_customer" value="{{ $pemesanan->nama_customer }}">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="exampleInputUsername"
-                                        placeholder="Jenis Pelayanan" name="txt_jenis_pelayanan" value="{{ $pemesanan->jenis_pelayanan }}">
+                                    <select type="text" placeholder="Pilih Daftar Sebagai"
+                                        class="form-control form-select" name="jenis_pelayanan" id="jenis_pelayanan">
+                                        <option>Pilih Pelayanan</option>
+                                        @foreach($pelayanan as $item)
+                                            <option value="{{ $item->jenis_pelayanan }}" @if($pemesanan->jenis_pelayanan == $item->jenis_pelayanan) selected @endif>
+                                                {{ $item->jenis_pelayanan }}
+                                            </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Harga" name="txt_harga" value="{{ $pemesanan->harga }}">
+                                    <label for="harga">Harga:</label>
+                                    <input type="text" id="harga" class="form-control form-control-user" name="harga" value="{{ old('harga', $pemesanan->harga) }}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <input type="number" class="form-control form-control-user" id="exampleInputPassword"
@@ -90,7 +98,27 @@
         </div>
 
     </div>
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
 
+<script>
+    $(document).ready(function() {
+        // Menangani perubahan pada select jenis pelayanan
+        $('#jenis_pelayanan').on('change', function() {
+            var jenisPelayanan = $(this).val(); // Mendapatkan jenis pelayanan yang dipilih
+            $.ajax({
+                url: '{{ route("bookingCustomer.getHarga") }}',
+                type: 'GET',
+                data: { jenis_pelayanan: jenisPelayanan },
+                success: function(response) {
+                    $('#harga').val(response.harga); // Mengisi nilai input harga dengan harga yang diterima
+                },
+                error: function() {
+                    // Penanganan kesalahan jika diperlukan
+                }
+            });
+        });
+    });
+</script>
     <!-- Bootstrap core JavaScript -->
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

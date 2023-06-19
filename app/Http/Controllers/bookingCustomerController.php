@@ -16,10 +16,9 @@ class bookingCustomerController extends Controller
     public function getHarga(Request $request)
     {
         $jenisPelayanan = $request->jenis_pelayanan;
+        $pelayanan = Pelayanan::where('jenis_pelayanan', $jenisPelayanan)->first();
 
-        $harga = Pelayanan::where('jenis_pelayanan', $jenisPelayanan)->value('harga');
-
-        return response()->json(['harga' => $harga]);
+        return response()->json(['harga' => $pelayanan->harga]);
     }
 
 

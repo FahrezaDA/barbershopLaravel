@@ -80,7 +80,7 @@ if( isset($_POST['register']) ){
                                 </div>
                                 <div class="form-group">
                                     <select type="text" placeholder="Pilih Daftar Sebagai"
-                                        class="form-control form-select" name="jenis_pelayanan" id="OptionLevel">
+                                        class="form-control form-select" name="jenis_pelayanan" id="jenis_pelayanan">
                                         <option>Pilih Pelayanan</option>
                                         @foreach($pelayanan as $item)
                                             <option value="{{ $item->jenis_pelayanan }}">{{ $item->jenis_pelayanan }}</option>
@@ -89,7 +89,7 @@ if( isset($_POST['register']) ){
                                 </div>
                                 <div class="form-group">
                                     <label for="harga">Harga:</label>
-                                    <input type="text" name="harga">
+                                    <input type="text" name="harga" id="harga">
 
                                 </div>
 
@@ -157,7 +157,26 @@ if( isset($_POST['register']) ){
     </div>
 </body>
 </div>
-
+<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+<script>
+    $(document).ready(function() {
+        // Menangani perubahan pada select jenis pelayanan
+        $('#jenis_pelayanan').on('change', function() {
+            var jenisPelayanan = $(this).val(); // Mendapatkan jenis pelayanan yang dipilih
+            $.ajax({
+                url: '{{ route("bookingCustomer.getHarga") }}',
+                type: 'GET',
+                data: { jenis_pelayanan: jenisPelayanan },
+                success: function(response) {
+                    $('#harga').val(response.harga); // Mengisi nilai input harga dengan harga yang diterima
+                },
+                error: function() {
+                    // Penanganan kesalahan jika diperlukan
+                }
+            });
+        });
+    });
+</script>
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

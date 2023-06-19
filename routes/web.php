@@ -101,6 +101,7 @@ Route::get('/servicedetails5', [servicedetails5Controller::class, 'servicedetail
 //PEMESANAN
 Route::resource('pemesanan', pemesananDetailController::class);
 Route::get('/pemesanan', [pemesananDetailController::class, 'create'])->name('pemesanan.create');
+// Route::get('/pemesanan', [pemesananDetailController::class, 'show'])->name('pemesanan.show');
 Route::post('/pemesanan', [pemesananDetailController::class, 'store'])->name('pemesanan.store');
 Route::get('/pemesanan/{id}/edit', [pemesananDetailController::class, 'edit'])->name('pemesanan.edit');
 Route::get('/pemesanan/{id}/hapus', [pemesananDetailController::class, 'hapus'])->name('pemesanan.hapus');
@@ -116,7 +117,7 @@ Route::get('/pemesanan/create', [PemesananDetailController::class, 'create'])->n
 Route::post('/pemesanan/store', [PemesananDetailController::class, 'store'])->name('pemesanan.store');
 Route::get('/pemesananDetail', [PemesananDetailController::class,'create'])->name('pemesanan.create');
 Route::post('/pemesananDetail/store', [pemesananDetailController::class, 'store'])->name('pemesananDetail.store');
-Route::get('/pemesananView', [pemesananDetailController::class, 'view'])->name('pemesanan.view');
+// Route::get('/pemesananView', [pemesananDetailController::class, 'view'])->name('pemesanan.view');
 Route::get('/pemesanan', [pemesananDetailController::class, 'view'])->middleware('check.login');
 
 //PEMBAYARAN

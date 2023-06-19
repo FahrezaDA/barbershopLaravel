@@ -27,6 +27,8 @@
     $pelayanan = \App\Models\Pelayanan::all();
     $kasir = \App\Models\Kasir::all();
     $DataBooking = \App\Models\DataBooking::all();
+
+
 @endphp
     <div class="container">
 
@@ -53,7 +55,7 @@
                                 </div>
                                 <div class="form-group">
                                     <select type="text" placeholder="Pilih Daftar Sebagai"
-                                        class="form-control form-select" name="jenis_pelayanan" id="OptionLevel">
+                                        class="form-control form-select" name="jenis_pelayanan" id="jenis_pelayanan">
                                         <option>Pilih Pelayanan</option>
                                         @foreach($pelayanan as $item)
                                             <option value="{{ $item->jenis_pelayanan }}">{{ $item->jenis_pelayanan }}</option>
@@ -61,10 +63,13 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="harga">Harga:</label>
-                                    <input type="text" name="harga">
+    <label for="harga">Harga:</label>
+    <input type="text" id="harga" class="form-control form-control-user" name="harga" readonly>
+</div>
 
-                                </div>
+
+
+
                                 <div class="form-group">
                                     <input type="date" class="form-control form-control-user" id="exampleInputUsername"
                                         placeholder="<?php echo date('d-m-Y');?>" value="<?php echo date('d-m-Y');?>" name="tanggal_booking"  >
@@ -123,6 +128,30 @@
     </div>
   </div>
 </div>
+<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+<script>
+
+    $(document).ready(function() {
+        // Menangani perubahan pada select jenis pelayanan
+        $('#jenis_pelayanan').on('change', function() {
+            var jenisPelayanan = $(this).val(); // Mendapatkan jenis pelayanan yang dipilih
+            $.ajax({
+                url: '{{ route("bookingCustomer.getHarga") }}',
+                type: 'GET',
+                data: { jenis_pelayanan: jenisPelayanan },
+                success: function(response) {
+                    $('#harga').val(response.harga); // Mengisi nilai input harga dengan harga yang diterima
+                },
+                error: function() {
+                    // Penanganan kesalahan jika diperlukan
+                }
+            });
+        });
+    });
+</script>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
     <!-- Bootstrap core JavaScript -->

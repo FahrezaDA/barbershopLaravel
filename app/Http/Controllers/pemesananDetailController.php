@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Pelayanan;
 use App\Models\Kasir;
 use App\Models\Pemesanan;
-
+use Illuminate\Support\Facades\Validator;
 class pemesananDetailController extends Controller
 {
 

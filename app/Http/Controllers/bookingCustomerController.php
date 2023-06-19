@@ -42,53 +42,51 @@ class bookingCustomerController extends Controller
 
 
     public function store(Request $request)
-{
-    // Validasi input dari request jika diperlukan
-    $request->validate([
-        'nama' => 'required',
-        'no_telpon' => 'required',
-        'jenis_pelayanan' => 'required',
-        'harga' => 'required',
-        'tanggal_booking' => 'required',
-        'jam_booking' => 'required',
-        'bukti_transfer' => 'required|image|max:4048', // Validasi bahwa file adalah gambar dengan maksimal ukuran 2MB
-        // tambahkan validasi lain yang diperlukan
-    ]);
+    {
+        // Validasi input dari request jika diperlukan
+        $request->validate([
+            'nama' => 'required',
+            'no_telpon' => 'required',
+            'jenis_pelayanan' => 'required',
+            'harga' => 'required',
+            'tanggal_booking' => 'required',
+            'jam_booking' => 'required',
+            'bukti_transfer' => 'required|image|max:4048', // Validasi bahwa file adalah gambar dengan maksimal ukuran 2MB
+            // tambahkan validasi lain yang diperlukan
+        ]);
 
-    // ...
+        // Mengambil file bukti transfer
+        $file = $request->file('bukti_transfer');
+        $filename = $file->getClientOriginalName();
+        $file->move(public_path('bukti_transfer'), $filename);
 
-   // Ambil data booking dari database
-   $bookings = Booking::all();
+        // Ubah format tanggal dari 'd/m/Y' ke 'd-m-Y'
+        // try {
+        //     $tanggal_booking = Carbon::createFromFormat('d/m/Y', str_replace('/', '-', $request->tanggal_booking))->format('d-m-Y');
+        // } catch (\Exception $e) {
+        //     // Tampilkan pesan kesalahan atau log pesan kesalahan
+        //     echo "Error formatting date: " . $e->getMessage();
+        //     return; // Hentikan eksekusi lebih lanjut jika terjadi kesalahan
+        // }
 
-   // Ubah format tanggal dari 'Y-m-d' ke 'd-m-Y'
-   foreach ($bookings as $booking) {
-       $booking->tanggal_booking = Carbon::createFromFormat('Y-m-d', $booking->tanggal_booking)->format('d-m-Y');
-   }
+        // Simpan data booking ke dalam database
+        $booking = new Booking();
+        $booking->nama = $request->nama;
+        $booking->no_telpon = $request->no_telpon;
+        $booking->jenis_pelayanan = $request->jenis_pelayanan;
+        $booking->harga = $request->harga;
+        $booking->tanggal_booking = $request->tanggal_booking; // Menggunakan format tanggal yang sudah diubah
+        $booking->jam_booking = $request->jam_booking;
+        $booking->bukti_transfer = $filename;
+        $booking->stats = 'pending';
+        $booking->save();
 
-    // ...
+        // ...
 
-     // Mengambil file bukti transfer
-     $file = $request->file('bukti_transfer');
-     $filename = $file->getClientOriginalName();
-     $file->move(public_path('bukti_transfer'), $filename);
+        // Contoh redirect ke halaman utama
+        return redirect('booking')->with('success', 'Booking berhasil disimpan');
+    }
 
-    // Simpan data booking ke dalam database
-    $booking = new Booking();
-    $booking->nama = $request->nama;
-    $booking->no_telpon = $request->no_telpon;
-    $booking->jenis_pelayanan = $request->jenis_pelayanan;
-    $booking->harga = $request->harga;
-    $booking->tanggal_booking = $request->tanggal_booking;    // Menggunakan format tanggal yang sudah diubah
-    $booking->jam_booking = $request->jam_booking;
-    $booking->bukti_transfer = $filename;
-    $booking->stats = 'pending';
-    $booking->save();
-
-    // ...
-
-    // Contoh redirect ke halaman utama
-    return redirect('booking')->with('success', 'Booking berhasil disimpan');
-}
 
 
 

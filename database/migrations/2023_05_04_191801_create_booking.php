@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('id_booking');
             // foreign key
             $table->foreignId('id_user')->nullable()->default(null);
-            $table->foreign('id_user')->references('id_user')->on('users');
+            $table->foreign('id_pelayanan')->references('id_pelayanan')->on('pelayanans');
             $table->foreignId('id_karyawan')->nullable()->default(null);
             $table->foreign('id_karyawan')->references('id_karyawan')->on('karyawans');
             $table->string('nama');

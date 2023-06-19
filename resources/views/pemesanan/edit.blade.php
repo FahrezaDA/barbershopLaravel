@@ -27,6 +27,7 @@
         $pemesanan = \App\Models\Pemesanan::find($id);
         $kasirs = \App\Models\Kasir::all();
         $pelayanan = \App\Models\Pelayanan::all();
+        $karyawans = \App\Models\Karyawan::all();
     @endphp
 
     <div class="container">
@@ -46,11 +47,11 @@
                                 @method('PUT')
                                 <div class="form-group">
                                     <input type="hidden" class="form-control form-control-user" id="exampleInputUsername"
-                                        placeholder="ID pemesanan" name="txt_id" value="{{ $pemesanan->id_pemesanan}}">
+                                        placeholder="ID pemesanan" name="id" value="{{ $pemesanan->id_pemesanan}}">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="exampleInputUsername"
-                                        placeholder="Nama Customer" name="txt_nama_customer" value="{{ $pemesanan->nama_customer }}">
+                                    <input type="text" class="form-control form-control-user" id="nama_customer"
+                                        placeholder="Nama Customer" name="nama_customer" value="{{ $pemesanan->nama_customer}}">
                                 </div>
                                 <div class="form-group">
                                     <select type="text" placeholder="Pilih Daftar Sebagai"
@@ -73,18 +74,19 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="date" class="form-control form-control-user" id="exampleInputPassword"
-                                        placeholder="Tanggal Pemesanan" name="txt_tanggal_pemesanan" value="{{ $pemesanan->tanggal_pemesanan }}">
+                                        placeholder="Tanggal Pemesanan" name="tanggal_pemesanan" value="{{ $pemesanan->tanggal_pemesanan }}">
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control form-select" name="txt_kasirID">
-                                        <option value="">Pilih Kasir</option>
-                                        @foreach($kasirs as $kasir)
-                                            <option value="{{ $kasir->kasirID }}" @if($kasir->kasirID == $pemesanan->kasirID) selected @endif>
-                                                {{ $kasir->username }}
+                                    <select class="form-control form-select" name="id_karyawan">
+                                        <option value="">Pilih Karyawan</option>
+                                        @foreach($karyawans as $karyawan)
+                                            <option value="{{ $karyawan->id_karyawan }}" @if($karyawan->id_karyawan == $pemesanan->id_karyawan) selected @endif>
+                                                {{ $karyawan->nama_karyawan }}
                                             </option>
                                         @endforeach
                                     </select>
                                 </div>
+
                                 <button type="submit" name="update" class="btn btn-primary btn-user btn-block">TAMBAHKAN</button>
                             </form>
                             <hr>

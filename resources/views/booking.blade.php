@@ -72,8 +72,10 @@
 
                                 <div class="form-group">
                                     <input type="date" class="form-control form-control-user" id="exampleInputUsername"
-                                        placeholder="<?php echo date('d-m-Y');?>" value="<?php echo date('d-m-Y');?>" name="tanggal_booking"  >
+                                        placeholder="<?php echo date('d-m-Y');?>" value="<?php echo date('d-m-Y');?>" name="tanggal_booking" id="tanggal_booking"  >
                                 </div>
+
+
                                 <div class="form-group">
                                     <select type="text" placeholder="Pilih Daftar Sebagai"
                                         class="form-control form-select" name="jam_booking" id="OptionLevel">

@@ -33,13 +33,13 @@ class bookingApiController extends Controller
       // Membuat objek Pemesanan baru
       $booking = new Booking();
       $booking->id_booking = $request->id_booking;
-      $booking->id_karyawan = "1";
+   $booking->id_karyawan = "11";
       $booking->nama = $request->nama;
       $booking->no_telpon = $request->no_telpon;
       $booking->jenis_pelayanan = $request->jenis_pelayanan;
       $booking->harga = $request->harga;
-      $booking->tanggal_booking = $request -> tanggal_booking;
-      $booking->jam_booking = $request -> jam_booking;
+      $booking->tanggal_booking = $request ->tanggal_booking;
+      $booking->jam_booking = $request ->jam_booking;
       $booking->bukti_transfer = $filename;
     //   $booking->bukti_transfer = $request -> bukti_transfer;
        $booking->stats = "pending";

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\booking;
 use App\Models\Book;
+use Illuminate\Support\Facades\Validator;
+
 
 class bookingApiController extends Controller
 {
@@ -31,7 +33,7 @@ class bookingApiController extends Controller
       // Membuat objek Pemesanan baru
       $booking = new Booking();
       $booking->id_booking = $request->id_booking;
-      $booking->id_karyawan = $request->id_karyawan;
+      $booking->id_karyawan = "1";
       $booking->nama = $request->nama;
       $booking->no_telpon = $request->no_telpon;
       $booking->jenis_pelayanan = $request->jenis_pelayanan;

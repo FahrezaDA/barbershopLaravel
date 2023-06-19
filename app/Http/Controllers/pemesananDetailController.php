@@ -7,13 +7,14 @@ use App\Models\Pelayanan;
 use App\Models\Kasir;
 use App\Models\Pemesanan;
 
-class PemesananDetailController extends Controller
+class pemesananDetailController extends Controller
 {
 
-    public function view(){
+    public function show(){
         return view('pemesanan');
 
     }
+
     public function create()
     {
         $pelayanan = \App\Models\Pelayanan::all();
@@ -64,7 +65,7 @@ class PemesananDetailController extends Controller
                 $kasirs = \App\Models\Kasir::all(); // Mengambil semua data kasir
                 return view('pemesanan.edit', compact('pemesanan', 'kasirs'));
             }
-        
+
             public function update(Request $request, $id)
             {
                 $pemesanan = Pemesanan::find($id);
@@ -73,10 +74,10 @@ class PemesananDetailController extends Controller
                 $pemesanan->harga = $request->input('txt_harga');
                 $pemesanan->no_antrian = $request->input('txt_no_antrian');
                 $pemesanan->tanggal_pemesanan = $request->input('txt_tanggal_pemesanan');
-                $pemesanan->kasirID = $request->input('txt_kasirID');
+                $pemesanan->id_kasir = $request->input('txt_kasirID');
                 $pemesanan->save();
-        
-                return redirect()->route('pemesanan')->with('success', 'Pemesanan berhasil diperbarui');
+
+                return view('pemesananView');
             }
 
             public function hapus($id)

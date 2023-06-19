@@ -40,12 +40,12 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">EDIT PEMESANAN</h1>
                             </div>
-                            <form class="user" action="{{ route('pemesanan.edit', ['id' => $id]) }}" method="POST">
-                                
+                            <form class="user" action="{{ route('pemesanan.update', ['id' => $pemesanan->id_pemesanan]) }}" method="POST">
+                            @csrf
                                 @method('PUT')
                                 <div class="form-group">
                                     <input type="hidden" class="form-control form-control-user" id="exampleInputUsername"
-                                        placeholder="ID pemesanan" name="txt_id" value="{{ $pemesanan->id }}">
+                                        placeholder="ID pemesanan" name="txt_id" value="{{ $pemesanan->id_pemesanan}}">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" id="exampleInputUsername"

@@ -390,7 +390,7 @@ if (!isset($_SESSION['email'])) {
                                             @foreach($data as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $item->karyawanID }}</td>
+                                                <td>{{ $item->id_karyawan }}</td>
                                                 <td>{{ $item->nama_karyawan }}</td>
                                                 <td>{{ $item->alamat }}</td>
                                                 <td>{{ $item->no_telpon }}</td>
@@ -398,9 +398,9 @@ if (!isset($_SESSION['email'])) {
                                                 <td>{{ $item->posisi }}</td>
                                                 <td>{{ $item->gaji }}</td>
                                                 <td>
-                                                    <a href="{{ route('karyawan.edit', ['id' => $item['karyawanID']]) }}" class="btn btn-primary btn-circle"><i class="bx bx-edit-alt"></i></a>
+                                                    <a href="{{ route('karyawan.edit', ['id' => $item['id_karyawan']]) }}" class="btn btn-primary btn-circle"><i class="bx bx-edit-alt"></i></a>
 
-                                                    <a href="{{ route('karyawan.hapus', ['id' => $item['karyawanID']]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('karyawan.hapus', ['id' => $item['karyawanID']]) }}'))">
+                                                    <a href="{{ route('karyawan.hapus', ['id' => $item['id_karyawan']]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('karyawan.hapus', ['id' => $item['id_karyawan']]) }}'))">
                                                     <i class="bx bxs-trash"></i></a>
                                                 </td>
                                             </tr>

@@ -8,7 +8,7 @@ use App\Http\Controllers\PelayananController;
 use App\Http\Controllers\pembayaranController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PemesananController;
-use App\Http\Controllers\PemesananDetailController;
+use App\Http\Controllers\pemesananDetailController;
 use App\Http\Controllers\bookingController;
 use App\Http\Controllers\karyawanController;
 use App\Http\Controllers\bookingCustomerController;
@@ -105,8 +105,9 @@ Route::post('/pemesanan', [pemesananDetailController::class, 'store'])->name('pe
 Route::get('/pemesanan/{id}/edit', [pemesananDetailController::class, 'edit'])->name('pemesanan.edit');
 Route::get('/pemesanan/{id}/hapus', [pemesananDetailController::class, 'hapus'])->name('pemesanan.hapus');
 Route::get('/pemesanan/{id}/cetak', [pemesananDetailController::class, 'cetak'])->name('pemesanan.cetak');
-Route::get('/pemesanan/{id}', [pemesananDetailController::class, 'view'])->name('pemesanan.view');
-Route::put('/pemesanan/{id}', [pemesananDetailController::class, 'update'])->name('pemesanan.update');
+Route::get('/pemesanan/{id}', [pemesananDetailController::class, 'view'])->name('pemesananview');
+Route::put('pemesanan/{id}', [pemesananDetailController::class, 'update'])->name('pemesanan.update');
+
 
 
 
@@ -115,7 +116,7 @@ Route::get('/pemesanan/create', [PemesananDetailController::class, 'create'])->n
 Route::post('/pemesanan/store', [PemesananDetailController::class, 'store'])->name('pemesanan.store');
 Route::get('/pemesananDetail', [PemesananDetailController::class,'create'])->name('pemesanan.create');
 Route::post('/pemesananDetail/store', [pemesananDetailController::class, 'store'])->name('pemesananDetail.store');
-Route::get('/pemesanan', [pemesananDetailController::class, 'view']);
+Route::get('/pemesananView', [pemesananDetailController::class, 'view'])->name('pemesanan.view');
 Route::get('/pemesanan', [pemesananDetailController::class, 'view'])->middleware('check.login');
 
 //PEMBAYARAN

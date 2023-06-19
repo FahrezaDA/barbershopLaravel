@@ -41,6 +41,37 @@ class KaryawanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+     public function edit($id)
+    {
+        $karyawan = Karyawan::findOrFail($id);
+
+        return view('karyawan.edit', compact('karyawan'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'txt_nama_karyawan' => 'required',
+            'txt_alamat' => 'required',
+            'txt_no_telpon' => 'required',
+            'txt_email' => 'required|email',
+            'txt_posisi' => 'required',
+            'txt_gaji' => 'required|numeric',
+        ]);
+
+        $karyawan = Karyawan::findOrFail($id);
+        $karyawan->nama_karyawan = $request->txt_nama_karyawan;
+        $karyawan->alamat = $request->txt_alamat;
+        $karyawan->no_telpon = $request->txt_no_telpon;
+        $karyawan->email = $request->txt_email;
+        $karyawan->posisi = $request->txt_posisi;
+        $karyawan->gaji = $request->txt_gaji;
+        $karyawan->save();
+        return redirect()->route('dashboardKaryawan');
+    }
+
+
     public function store(Request $request)
     {
         //
@@ -57,29 +88,7 @@ class KaryawanController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
+    
     /**
      * Remove the specified resource from storage.
      *

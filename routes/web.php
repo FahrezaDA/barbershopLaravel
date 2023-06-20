@@ -28,6 +28,8 @@ use App\Http\Controllers\servicedetails4Controller;
 use App\Http\Controllers\servicedetails5Controller;
 use App\Http\Controllers\servicedetailsController;
 use App\Http\Controllers\tentangkamiController;
+use App\Http\Controllers\dashboardUtamaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +58,7 @@ Route::get('/adada', [pembayaranController::class, 'index']);
 Route::get('/bookingCustomer', [bookingCustomerController::class, 'bookingCustomer'])->name('bookingCustomer');
 Route::get('/dashboardUser', [dashboardUserController::class, 'dashboardUser'])->name('dashboardUser');
 Route::get('/dashboardBooking', [dashboardBookingController::class, 'dashboardBooking'])->name('dashboardBooking');
+Route::get('/dashboardUtama', [dashboardUtamaController::class, 'dashboardUtama'])->name('dashboardUtama');
 
 
 Route::get('/registerUser', [registerUserController::class, 'registerUser'])->name('registerUser');

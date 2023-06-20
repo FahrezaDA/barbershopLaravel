@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('harga');
             $table->string('no_antrian');
             $table->string('tanggal_pemesanan');
-            $table->foreignId('id_kasir')->nullable()->default(null);
-            $table->foreign('id_kasir')->references('id_kasir')->on('kasirs');
+            $table->foreignId('id_karyawan')->nullable()->default(null);
+            $table->foreign('id_karyawan')->references('id_karyawan')->on('karyawans');
 
             $table->timestamps();
         });

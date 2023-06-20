@@ -116,8 +116,8 @@ Route::get('/pemesanan/create', [PemesananDetailController::class, 'create'])->n
 Route::post('/pemesanan/store', [PemesananDetailController::class, 'store'])->name('pemesanan.store');
 Route::get('/pemesananDetail', [PemesananDetailController::class,'create'])->name('pemesanan.create');
 Route::post('/pemesananDetail/store', [pemesananDetailController::class, 'store'])->name('pemesananDetail.store');
-Route::get('/pemesananView', [pemesananDetailController::class, 'view'])->name('pemesanan.view');
-Route::get('/pemesanan', [pemesananDetailController::class, 'view'])->middleware('check.login');
+Route::get('/pemesanan', [pemesananDetailController::class, 'show'])->name('dashboardPemesanan');
+Route::get('/pemesananView', [pemesananDetailController::class, 'view'])->middleware('check.login');
 
 //PEMBAYARAN
 Route::get('/pembayaran', [pembayaranController::class, 'pembayaran']);

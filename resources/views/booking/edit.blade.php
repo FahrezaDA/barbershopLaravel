@@ -91,7 +91,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <select class="form-control form-select" name="id_kasir">
+                                    <select class="form-control form-select" name="stats" id="stats">
                                         <option value="">Status</option>
                                         @foreach($dataBookings as $dataBooking)
                                             <option value="{{ $dataBooking->stats }}" @if($booking->stats == $dataBooking->stats) selected @endif>
@@ -100,7 +100,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <select class="form-control form-select" name="id_kasir">
                                         <option value="">Pilih Kasir</option>
                                         @foreach($kasirs as $kasir)
@@ -109,7 +109,7 @@
                                             </option>
                                         @endforeach
                                     </select>
-                                </div>
+                                </div> -->
                                 <button type="submit" name="update" class="btn btn-primary btn-user btn-block">TAMBAHKAN</button>
                             </form>
 

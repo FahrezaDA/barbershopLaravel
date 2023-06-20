@@ -137,7 +137,8 @@ class dashboardBookingController extends Controller
         $booking->jenis_pelayanan = $request->jenis_pelayanan;
         $booking->harga = $request->harga;
         $booking->tanggal_booking = $request->tanggal_booking;
-        $booking->jam_booking = $request->jam_booking;
+       // $booking->jam_booking = $request->jam_booking;
+        $booking->stats=$request->stats;
 
         // Simpan perubahan
         $booking->save();

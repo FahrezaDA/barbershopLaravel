@@ -19,6 +19,18 @@
     <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
 
 </head>
+<body>
+
+
+@php
+        $id = request()->route('pemesanan');
+        $pemesanan = \App\Models\Pemesanan::find($id);
+        $kasirs = \App\Models\Kasir::all();
+        $pelayanan = \App\Models\Pelayanan::all();
+        $karyawans = \App\Models\Karyawan::all();
+        $pengeluaran = \App\Models\Pengeluaran::all();
+    @endphp
+
 
 <div class="container">
 
@@ -35,25 +47,22 @@
                         <form class="user" action="pengeluaran.edit" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
+
                             <div class="form-group">
-                                <input type="hidden" class="form-control form-control-user" id="exampleInputUsername"
-                                    placeholder="ID pemesanan" name="txt_id" value="{{ $id }}">
+                                <input type="text" class="form-control form-control-user" id="exampleInputUsername"
+                                    placeholder="Jenis Pengeluaran" name="jenis_pengeluaran" value="{{ $userJenis }}">
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user" id="exampleInputUsername"
-                                    placeholder="Jenis Pengeluaran" name="txt_jenis_pengeluaran" value="{{ $userJenis }}">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="exampleInputUsername"
-                                    placeholder="Jenis Pelayanan" name="txt_id_fasilitas" value="{{ $userFasilitas }}">
+                                    placeholder="Jenis Pelayanan" name="id_fasilitas" value="{{ $pengeluaran->jenis_pengeluaran }}">
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user" id="exampleInputEmail"
-                                    placeholder="Harga" name="txt_jumlah" value="{{ $userJumlah }}">
+                                    placeholder="Harga" name="jumlah" value="{{ $pengeluaran->jumlah }}">
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user" id="exampleInputPassword"
-                                    placeholder="No Antrian" name="txt_biaya" value="{{ $userBiaya }}">
+                                    placeholder="No Antrian" name="biaya" value="{{ $pengeluaran -> biaya}}">
                             </div>
                             <div class="form-group">
                                 <input type="file" class="form-control form-control-user" id="exampleInputPassword"
@@ -61,11 +70,11 @@
                             </div>
                             <div class="form-group">
                                 <input type="date" class="form-control form-control-user" id="exampleInputPassword"
-                                    placeholder="Tanggal Pemesanan" name="txt_tanggal_pengeluaran" value="{{ $userPengeluaran }}">
+                                    placeholder="Tanggal Pemesanan" name="tanggal_pengeluaran" value="{{ $pengeluaran -> tanggal_pengeluaran }}">
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user" id="exampleInputPassword"
-                                    placeholder="ID Pelayanan" name="txt_kasir" value="{{ $userKasir }}">
+                                    placeholder="ID Pelayanan" name="id_karyawan" value="{{ $pengeluaran->id_karyawan }}">
                             </div>
                             <button type="submit" name="update" class="btn btn-primary btn-user btn-block"> UPDATE </button>
                         </form>

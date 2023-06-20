@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\pengeluaran;
+use App\Models\Pengeluaran;
 
 
 class dashboardPengeluaranController extends Controller
@@ -66,7 +66,7 @@ class dashboardPengeluaranController extends Controller
     public function edit($id)
     {
         $pengeluaran = Pengeluaran::find($id);
-        return view('editPengeluaran', compact('pengeluaran'));
+        return view('pengeluaran.edit', compact('pengeluaran'));
     }
 
     public function update(Request $request, $id)

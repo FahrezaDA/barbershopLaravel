@@ -55,6 +55,7 @@ if( isset($_POST['submit']) ){
 @php
     $fasilitas = \App\Models\Fasilitas::all();
     $kasir = \App\Models\Kasir::all();
+    $karyawan =\App\Models\Karyawan::all();
 @endphp
 
 <div class="container">
@@ -103,10 +104,10 @@ if( isset($_POST['submit']) ){
                                     placeholder="Tanggal Pengeluaran" name="tanggal_pengeluaran">
                             </div>
                             <div class="form-group">
-                                <select class="form-control form-select" name="id_kasir" id="OptionLevel">
+                                <select class="form-control form-select" name="id_karyawan" id="OptionLevel">
                                     <option>Pilih Kasir</option>
-                                    @foreach($kasir as $item)
-                                        <option value="{{ $item->id_kasir }}">{{ $item->username }}</option>
+                                    @foreach($karyawan as $item)
+                                        <option value="{{ $item->id_karyawan }}">{{ $item->nama_karyawan }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -115,7 +116,7 @@ if( isset($_POST['submit']) ){
                         </form>
                         <hr>
                         <div class="text-center">
-                            <a class="small" href="/login">Already have an account? Login!</a>
+                            <a class="small" href="/dashboardPengeluaran">Kembali</a>
                         </div>
                     </div>
                 </div>

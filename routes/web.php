@@ -157,6 +157,7 @@ Route::get('karyawan/{id}/edit', [karyawanController::class, 'edit'])->name('kar
 Route::put('karyawan/{id}', [karyawanController::class, 'update'])->name('karyawan.update');
 
 //Pengeluaran
+Route::get('pengeluaran/{id}/edit', [dashboardPengeluaranController::class, 'edit'])->name('pengeluaran.edit');
 Route::get('/editPengeluaran', [dashboardPengeluaranController::class, 'edit'])->name('editPengeluaran');
 Route::get('/dashboardPengeluaran/{id}/hapus', [dashboardPengeluaranController::class, 'hapus'])->name('pengeluaran.hapus');
 Route::post('/pengeluaran', [PengeluaranController::class, 'create'])->name('pengeluaran.create');

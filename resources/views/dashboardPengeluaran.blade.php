@@ -76,12 +76,12 @@ if (!isset($_SESSION['email'])) {
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-          
+
 
             <!-- Nav Item - Pages Collapse Menu -->
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -107,8 +107,8 @@ if (!isset($_SESSION['email'])) {
             <!-- Nav Item - Charts -->
 
             <!-- Nav Item - Tables -->
-                    
-            </li>  
+
+            </li>
             <li class="nav-item active">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -306,9 +306,9 @@ if (!isset($_SESSION['email'])) {
 
                         <!-- Nav Item - User Information -->
                         @php
-                        
+
                         $route = route('landingpage');
-                        
+
                         @endphp
                         <button onclick="window.location='{{ $route }}'" style="background-color: #4E73DF; color: white; height: 40px; width: 100px; margin: 10px 10px 10px 10px;">
                         <b>Logout</b> </button>
@@ -363,7 +363,7 @@ if (!isset($_SESSION['email'])) {
 
                                         </tr>
                                     </thead>
-                                    
+
                                     <tbody>
                                         @foreach($data as $item)
                                             <tr>
@@ -376,7 +376,7 @@ if (!isset($_SESSION['email'])) {
                                                 <td>{{ $item->tanggal_pengeluaran }}</td>
                                                 <td>{{ $item->id_kasir}}</td>
                                                 <td>
-                                                    <a href="{{ route('editPengeluaran', ['id' => $item->id_pengeluaran]) }}" class="btn btn-primary btn-circle"><i class="bx bx-edit-alt"></i></a>
+                                                    <a href="{{ route('pengeluaran.edit', ['id' => $item->id_pengeluaran]) }}" class="btn btn-primary btn-circle"><i class="bx bx-edit-alt"></i></a>
 
                                                     <a href="{{ route('pengeluaran.hapus', ['id' => $item['id_pengeluaran']]) }}" class="btn btn-danger btn-circle" onclick="confirmModal('{{ route('pengeluaran.hapus', ['id' => $item['id_pengeluaran']]) }}'))">
                                                     <i class="bx bxs-trash"></i></a>
@@ -384,8 +384,8 @@ if (!isset($_SESSION['email'])) {
                                             </tr>
                                         @endforeach
                                     </tbody>
-                                            
-                                    
+
+
                                 </table>
                                 <a href="/pengeluaran" type="submit" name="submit" class="btn btn-primary">Tambah</a>
                             </div>
@@ -403,7 +403,7 @@ if (!isset($_SESSION['email'])) {
 
     </div>
     <!-- End of Page Wrapper -->
-    
+
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>

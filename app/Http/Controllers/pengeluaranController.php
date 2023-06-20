@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\pengeluaran;
 use App\Models\Fasilitas;
+use App\Models\Karyawan;
 
 class pengeluaranController extends Controller
 {
@@ -39,7 +40,7 @@ class pengeluaranController extends Controller
         $pengeluaran->biaya = $request->biaya;
         $pengeluaran->bukti_nota = $filename;
         $pengeluaran->tanggal_pengeluaran =$request ->tanggal_pengeluaran;
-        $pengeluaran->id_kasir = $request->id_kasir;
+        $pengeluaran->id_karyawan = $request->id_karyawan;
         $pengeluaran->save();
 
         return redirect('dashboardPengeluaran')->with('success', 'Booking berhasil disimpan');

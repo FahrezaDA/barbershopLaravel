@@ -14,13 +14,13 @@ class pengeluaran extends Model
 
 
     protected $fillable = [
-        'id_pengeluaran',
+
         'jenis_pengeluaran',
         'barang',
         'jumlah',
         'biaya',
         'bukti_nota',
         'tanggal_pengeluaran',
-        'id_kasir'
+        'id_karyawan'
     ];
 }

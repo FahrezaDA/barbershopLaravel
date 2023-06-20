@@ -10886,6 +10886,7 @@ a:focus {
 .back-login{
     background-color: rgba(0, 0, 0, 10);
     padding: 1.25rem;
+    margin-top: 0;
 }
 
 .bg-register-image {

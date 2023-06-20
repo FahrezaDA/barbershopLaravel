@@ -24,13 +24,16 @@ class pengeluaranController extends Controller
 
             'bukti_nota' => 'required|image|max:4048', // Validasi bahwa file adalah gambar dengan maksimal ukuran 2MB
             'tanggal_pengeluaran' => 'required',
-            'id_kasir' => 'required',
+
             // tambahkan validasi lain yang diperlukan
         ]);
 
-        $buktiNota = $request->file('bukti_nota');
-        $filename = $request->barang . '.' . $buktiNota->getClientOriginalExtension();
-        $buktiNota->move(public_path('bukti_nota'), $filename);
+        $file = $request->file('bukti_nota');
+        $jenisPengeluaran = $request->jenis_pengeluaran;
+        $filename = $jenisPengeluaran . '.' . $file->getClientOriginalExtension();
+        $file->move(public_path('bukti_nota'), $filename);
+
+
 
 
         $pengeluaran = new Pengeluaran();

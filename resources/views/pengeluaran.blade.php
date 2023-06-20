@@ -95,10 +95,10 @@ if( isset($_POST['submit']) ){
                                     placeholder="biaya" name="biaya">
                             </div>
                             <div class="form-group">
-                                <p><b>Bukti Nota :</p>
-                                <input placeholder="bukti nota" type="file"
-                                    class="form-control form-select" id="exampleInputUsername" name="bukti_nota">
-                            </div>
+                                    <p><b>Bukti Nota :</P>
+                                    <input  placeholder="bukti nota" type="file" class="form-control form-select" id="bukti_nota"
+                                        name="bukti_nota">
+                                </div>
                             <div class="form-group">
                                 <input type="date" class="form-control form-control-user"
                                     placeholder="Tanggal Pengeluaran" name="tanggal_pengeluaran">

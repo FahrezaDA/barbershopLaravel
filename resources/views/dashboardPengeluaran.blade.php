@@ -45,7 +45,7 @@ if (!isset($_SESSION['email'])) {
 <body id="page-top">
 
     @php
-        $data = \App\Models\pengeluaran::all();
+        $data = \App\Models\Pengeluaran::all();
     @endphp
 
     <!-- Page Wrapper -->
@@ -372,7 +372,10 @@ if (!isset($_SESSION['email'])) {
                                                 <td>{{ $item->id_fasilitas }}</td>
                                                 <td>{{ $item->jumlah }}</td>
                                                 <td>{{ $item->biaya }}</td>
-                                                <td>{{ $item-> bukti_nota}}</td>
+                                                <td><button  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal{{$item->id_pengeluaran}}">
+
+                                                Lihat</button></td>
+
                                                 <td>{{ $item->tanggal_pengeluaran }}</td>
                                                 <td>{{ $item->id_kasir}}</td>
                                                 <td>
@@ -408,7 +411,30 @@ if (!isset($_SESSION['email'])) {
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+    <div class="modal fade" id="myModal{{ $item->id_pengeluaran }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel" align="center">BUKTI NOTA</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                @php
+                    $imagePath = public_path('bukti_nota/'.$item->jenis_pengeluaran.'.jpg');
+                @endphp
 
+                @if (file_exists($imagePath))
+                    <img src="{{ asset('bukti_nota/'.$item->jenis_pengeluaran.'.jpg') }}" width="100%" height="650px" class="img-responsive">
+                @else
+                    <p>Gambar tidak ditemukan.</p>
+                @endif
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">

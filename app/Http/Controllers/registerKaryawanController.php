@@ -44,15 +44,15 @@ class registerKaryawanController extends Controller
         ]);
 
         $karyawan = new  Karyawan();
-        $karyawan->nama_karyawan = $request->nama;
+        $karyawan->nama_karyawan = $request->nama_karyawan;
         $karyawan->alamat = $request->alamat;
-        $karyawan->no_telepon = $request->no_telpon;
+        $karyawan->no_telpon = $request->no_telpon;
         $karyawan->email = $request->email;
         $karyawan->posisi = $request->posisi;
         $karyawan->gaji = $request->gaji;
         $karyawan->save();
 
-        return redirect('/dashboardKaryawan')->with('success', 'tambah karyawan berhasil. Silakan login.');
+        return redirect('/karyawan')->with('success', 'tambah karyawan berhasil. Silakan login.');
     }
 
     /**

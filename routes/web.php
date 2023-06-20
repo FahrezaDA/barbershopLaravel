@@ -28,6 +28,8 @@ use App\Http\Controllers\servicedetails4Controller;
 use App\Http\Controllers\servicedetails5Controller;
 use App\Http\Controllers\servicedetailsController;
 use App\Http\Controllers\tentangkamiController;
+use App\Http\Controllers\dashboardUtamaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +58,7 @@ Route::get('/adada', [pembayaranController::class, 'index']);
 Route::get('/bookingCustomer', [bookingCustomerController::class, 'bookingCustomer'])->name('bookingCustomer');
 Route::get('/dashboardUser', [dashboardUserController::class, 'dashboardUser'])->name('dashboardUser');
 Route::get('/dashboardBooking', [dashboardBookingController::class, 'dashboardBooking'])->name('dashboardBooking');
+Route::get('/dashboardUtama', [dashboardUtamaController::class, 'dashboardUtama'])->name('dashboardUtama');
 
 
 Route::get('/registerUser', [registerUserController::class, 'registerUser'])->name('registerUser');
@@ -101,7 +104,6 @@ Route::get('/servicedetails5', [servicedetails5Controller::class, 'servicedetail
 //PEMESANAN
 Route::resource('pemesanan', pemesananDetailController::class);
 Route::get('/pemesanan', [pemesananDetailController::class, 'create'])->name('pemesanan.create');
-// Route::get('/pemesanan', [pemesananDetailController::class, 'show'])->name('pemesanan.show');
 Route::post('/pemesanan', [pemesananDetailController::class, 'store'])->name('pemesanan.store');
 Route::get('/pemesanan/{id}/edit', [pemesananDetailController::class, 'edit'])->name('pemesanan.edit');
 Route::get('/pemesanan/{id}/hapus', [pemesananDetailController::class, 'hapus'])->name('pemesanan.hapus');
@@ -117,8 +119,8 @@ Route::get('/pemesanan/create', [PemesananDetailController::class, 'create'])->n
 Route::post('/pemesanan/store', [PemesananDetailController::class, 'store'])->name('pemesanan.store');
 Route::get('/pemesananDetail', [PemesananDetailController::class,'create'])->name('pemesanan.create');
 Route::post('/pemesananDetail/store', [pemesananDetailController::class, 'store'])->name('pemesananDetail.store');
-// Route::get('/pemesananView', [pemesananDetailController::class, 'view'])->name('pemesanan.view');
-Route::get('/pemesanan', [pemesananDetailController::class, 'view'])->middleware('check.login');
+Route::get('/pemesanan', [pemesananDetailController::class, 'show'])->name('dashboardPemesanan');
+Route::get('/pemesananView', [pemesananDetailController::class, 'view'])->middleware('check.login');
 
 //PEMBAYARAN
 Route::get('/pembayaran', [pembayaranController::class, 'pembayaran']);
@@ -148,10 +150,11 @@ Route::get('/booking/{id}', [StrukController::class, 'strukBooking'])->name('boo
 
 
 //Karyawan
-Route::get('/karyawan', [karyawanController::class, 'view'])->name('karyawan.view');
+Route::get('/karyawan', [karyawanController::class, 'view'])->name('dashboardKaryawan');
 Route::get('/karyawan/index', [karyawanController::class, 'index'])->name('dashboardKarwayan.index');
-Route::get('karyawan/{id}/edit', [karyawanController::class, 'edit'])->name('karyawan.edit');
 Route::get('/karyawan/{id}/hapus', [karyawanController::class, 'hapus'])->name('karyawan.hapus');
+Route::get('karyawan/{id}/edit', [karyawanController::class, 'edit'])->name('karyawan.edit');
+Route::put('karyawan/{id}', [karyawanController::class, 'update'])->name('karyawan.update');
 
 //Pengeluaran
 Route::get('/editPengeluaran', [dashboardPengeluaranController::class, 'edit'])->name('editPengeluaran');
@@ -163,6 +166,8 @@ Route::get('/dashboardUser', [dashboardUserController::class, 'dashboardUser']);
 Route::get('dashboardUser/index', [dashboardUserController::class, 'index'])->name('user.index');
 Route::get('dashboardUser/{id}/edit', [dashboardUserController::class, 'edit'])->name('user.edit');
 Route::get('dashboardUser/{id}/hapus', [dashboardUserController::class, 'hapus'])->name('user.hapus');
+Route::put('dashboardUser/{id}/edit', [dashboardUserController::class, 'update'])->name('user.update');
+
 
 
 //LOGIN REGISTER

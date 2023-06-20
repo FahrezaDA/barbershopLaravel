@@ -34,7 +34,7 @@
             <tr>
                 <td>Kasir</td>
                 <td>:</td>
-                <td>{{ $pemesanan->kasirID }}</td>
+                <td>{{ $pemesanan->id_karyawan }}</td>
             </tr>
             <tr>
                 <td>Customer</td>

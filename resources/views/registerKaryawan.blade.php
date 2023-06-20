@@ -36,33 +36,33 @@
                                 @csrf
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" id="exampleInputUsername"
-                                        placeholder="Nama" name="txt_name">
+                                        placeholder="Nama" name="nama_karyawan">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" id="exampleInputUsername"
-                                        placeholder="Alamat" name="txt_alamat">
+                                        placeholder="Alamat" name="alamat">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" id="exampleInputUsername"
-                                        placeholder="No Telpon" name="txt_no_telpon">
+                                        placeholder="No Telpon" name="no_telpon">
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email " name="txt_email">
+                                        placeholder="Email " name="email">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" id="exampleInputUsername"
-                                        placeholder="Posisi" name="txt_posisi">
+                                        placeholder="Posisi" name="posisi">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" id="exampleInputUsername"
-                                        placeholder="Gaji" name="txt_gaji">
+                                        placeholder="Gaji" name="gaji">
                                 </div>
                                 <button type="submit" name="submit" class="btn btn-primary btn-user btn-block">Tambah Karyawan</button>
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="/karyawan">Already have an account? Login!</a>
+                                <a class="small" href="/karyawan">Kembali</a>
                             </div>
                         </div>
                     </div>

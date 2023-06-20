@@ -97,7 +97,7 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="dashboardUtama.php">Charts</a>
+                        <a class="collapse-item" href="/dashboardUtama">Charts</a>
 
 
             <!-- Nav Item - Charts -->

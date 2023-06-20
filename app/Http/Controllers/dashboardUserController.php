@@ -47,9 +47,11 @@ class dashboardUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return view('user.edit', compact('user'));
     }
 
     /**
@@ -58,21 +60,28 @@ class dashboardUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'txt_id_user' => 'required',
+            'txt_nama' => 'required',
+            'txt_alamat' => 'required',
+            'txt_no_telepon' => 'required',
+            'txt_email' => 'required|email',
+            'txt_password' => 'required',
+            'txt_lvl' => 'required',
+        ]);
+
+        $user = User::findOrFail($id);
+        $user->nama = $request->txt_nama;
+        $user->alamat = $request->txt_alamat;
+        $user->no_telepon = $request->txt_no_telepon;
+        $user->email = $request->txt_email;
+        $user->password = $request->txt_password;
+        $user->lvl = $request->txt_lvl;
+        $user->save();
+
+        return redirect()->route('user.index');
     }
 
     /**

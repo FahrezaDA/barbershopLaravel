@@ -356,7 +356,7 @@ if (!isset($_SESSION['email'])) {
                             <th>Harga</th>
                             <th>No Antrian</th>
                             <th>Tanggal Pemesanan</th>
-                            <th>ID Kasir</th>
+                            <th>Karyawan</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -369,7 +369,7 @@ if (!isset($_SESSION['email'])) {
                             <td>{{ $item->harga }}</td>
                             <td>{{ $item->no_antrian }}</td>
                             <td>{{ $item->tanggal_pemesanan }}</td>
-                            <td>{{ $item->kasirID }}</td>
+                            <td>{{ $item->id_karyawan }}</td>
                             <td>
                                 <a href="{{ route('pemesanan.edit', ['id' => $item->id_pemesanan]) }}" class="btn btn-primary btn-circle">
                                     <i class='bx bx-edit-alt'></i>

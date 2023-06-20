@@ -30,8 +30,10 @@ class pengeluaranController extends Controller
 
         $file = $request->file('bukti_nota');
         $jenisPengeluaran = $request->jenis_pengeluaran;
-        $filename = $jenisPengeluaran . '.' . $file->getClientOriginalExtension();
+        $extension = $file->getClientOriginalExtension(); // Mendapatkan ekstensi file yang diunggah
+        $filename = $jenisPengeluaran . '.jpg';
         $file->move(public_path('bukti_nota'), $filename);
+
 
 
 

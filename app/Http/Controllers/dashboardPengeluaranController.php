@@ -78,7 +78,7 @@ class dashboardPengeluaranController extends Controller
         $pengeluaran->biaya = $request->input('txt_biaya');
         $pengeluaran->bukti_nota = $noAntrian;
         $pengeluaran->tanggal_pengeluaran = $tanggalPengeluaran;
-        $pengeluaran->id_kasir = $request->id_kasir;
+        $pengeluaran->id_karyawan = $request->id_karyawan;
         $pengeluaran->save();
 
         return redirect()->route('dashboardPengeluaran')->with('success', 'Pengeluaran berhasil diperbarui');

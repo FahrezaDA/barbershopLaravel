@@ -72,10 +72,7 @@
                                     <input type="number" class="form-control form-control-user" id="exampleInputPassword"
                                         placeholder="No Antrian" name="txt_no_antrian" value="{{ $pemesanan->no_antrian }}">
                                 </div>
-                                <div class="form-group">
-                                    <input type="date" class="form-control form-control-user" id="exampleInputPassword"
-                                        placeholder="Tanggal Pemesanan" name="tanggal_pemesanan" value="{{ $pemesanan->tanggal_pemesanan }}">
-                                </div>
+
                                 <div class="form-group">
                                     <select class="form-control form-select" name="id_karyawan">
                                         <option value="">Pilih Karyawan</option>

@@ -73,7 +73,7 @@ class pemesananDetailController extends Controller
                 $pemesanan->jenis_pelayanan = $request->input('jenis_pelayanan');
                 $pemesanan->harga = $request->input('harga');
                 $pemesanan->no_antrian = $request->input('txt_no_antrian');
-                $pemesanan->tanggal_pemesanan = $request->input('tanggal_pemesanan');
+
                 $pemesanan->id_karyawan = $request->input('id_karyawan');
                 $pemesanan->save();
 

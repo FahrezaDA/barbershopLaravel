@@ -7,6 +7,9 @@
     </style>
 </head>
 <body>
+    @php
+$pemesanan = \App\Models\Pemesanan::all();
+@endphp
     <center>
         <table style='width:350px; font-size:12pt; font-family:calibri; border-collapse: collapse;' border='0'>
             <tr>
@@ -53,7 +56,7 @@
             </tr>
             <tr>
                 <td>Tanggal</td>
-                <td>:</td>
+                <td>: </td>
                 <td>{{ $pemesanan->tanggal_pemesanan }}</td>
             </tr>
             <tr>
@@ -75,14 +78,15 @@
     </center>
 
     <center>
-        <table>
-            <tr>
-                <td>Total Bayar</td>
-                <td>:</td>
-                <td>{{ $pemesanan->harga }}</td>
-            </tr>
-        </table>
-    </center>
+    <table>
+        <tr>
+            <td>Total Bayar</td>
+            <td>:</td>
+            <td>Rp {{ $pemesanan->harga }}</td>
+        </tr>
+    </table>
+</center>
+
 
     <br>
 

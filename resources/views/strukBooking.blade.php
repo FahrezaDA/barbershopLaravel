@@ -44,7 +44,7 @@
             <tr>
                 <td>Harga</td>
                 <td>:</td>
-                <td>{{ $booking->harga }}</td>
+                <td>Rp.{{ $booking->harga }}</td>
             </tr>
             <tr>
                 <td>Tanggal Booking</td>
@@ -73,7 +73,7 @@
             <tr>
                 <td>Total Bayar</td>
                 <td>:</td>
-                <td>{{ $booking->harga }}</td>
+                <td>Rp.{{ $booking->harga }}</td>
             </tr>
         </table>
     </center>

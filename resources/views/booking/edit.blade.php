@@ -80,15 +80,18 @@
                                         placeholder="Tanggal Booking" name="tanggal_booking"
                                         value="{{ $booking->tanggal_booking }}">
                                 </div>
-                                <div class="form-group">
-                                    <select type="text" placeholder="Pilih Daftar Sebagai"
-                                        class="form-control form-select" name="jam_booking" id="OptionLevel">
-                                        <option>Pilih Jam</option>
-                                        @foreach($dataBookings as $item)
-                                            <option value="{{ $item->jam }}">{{ $item->jam }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                             <div class="form-group">
+    <select type="text" placeholder="Pilih Daftar Sebagai" class="form-control form-select" name="jam_booking" id="OptionLevel">
+        <option>Pilih Jam</option>
+        @foreach($dataBookings as $item)
+            @if($item->jam === $booking->jam_booking)
+                <option value="{{ $item->jam }}" selected>{{ $item->jam }}</option>
+            @else
+                <option value="{{ $item->jam }}">{{ $item->jam }}</option>
+            @endif
+        @endforeach
+    </select>
+</div>
 
                                 <div class="form-group">
                                     <select class="form-control form-select" name="stats" id="stats">

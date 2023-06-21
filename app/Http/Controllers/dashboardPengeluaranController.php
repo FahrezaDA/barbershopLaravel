@@ -65,21 +65,36 @@ class dashboardPengeluaranController extends Controller
      */
     public function edit($id)
     {
-        $pengeluaran = Pengeluaran::find($id);
+        $pengeluaran = Pengeluaran::findOrFail($id);
         return view('pengeluaran.edit', compact('pengeluaran'));
     }
 
     public function update(Request $request, $id)
     {
-        $pengeluaran = Pengeluaran::find($id);
-        $pengeluaran->jenis_pengeluaran = $request->input('txt_jenis_pengeluaran');
-        $pengeluaran->id_fasilitas = $request->input('txt_id_fasilitas');
-        $pengeluaran->jumlah = $request->input('txt_jumlah');
-        $pengeluaran->biaya = $request->input('txt_biaya');
-        $pengeluaran->bukti_nota = $noAntrian;
-        $pengeluaran->tanggal_pengeluaran = $tanggalPengeluaran;
-        $pengeluaran->id_karyawan = $request->id_karyawan;
+        $this->validate($request, [
+            'txt_id_pengeluaran' => 'required',
+            'txt_jenis_pengeluaran' => 'required',
+            'txt_id_fasilitas' => 'required',
+            'txt_jumlah' => 'required',
+            'txt_biaya' => 'required|numeric',
+            'txt_bukti_nota' => 'required',
+            'txt_tanggal_pengeluaran' => 'required',
+            'txt_id_karyawan' => 'required',
+
+        ]);
+
+
+        $pengeluaran = Pengeluaran::findOrFail($id);
+        $pengeluaran->id_pengeluaran = $request->txt_id_pengeluaran;
+        $pengeluaran->jenis_pengeluaran = $request->txt_jenis_pengeluaran;
+        $pengeluaran->id_fasilitas = $request->txt_id_fasilitas;
+        $pengeluaran->jumlah = $request->txt_jumlah;
+        $pengeluaran->biaya = $request->txt_biaya;
+        $pengeluaran->bukti_nota = $request->txt_bukti_nota;
+        $pengeluaran->tanggal_pengeluaran = $request->txt_tanggalPengeluaran;
+        $pengeluaran->id_karyawan = $request->txt_id_karyawan;
         $pengeluaran->save();
+
 
         return redirect()->route('dashboardPengeluaran')->with('success', 'Pengeluaran berhasil diperbarui');
     }

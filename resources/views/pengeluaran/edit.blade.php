@@ -22,14 +22,7 @@
 <body>
 
 
-@php
-        $id = request()->route('pemesanan');
-        $pemesanan = \App\Models\Pemesanan::find($id);
-        $kasirs = \App\Models\Kasir::all();
-        $pelayanan = \App\Models\Pelayanan::all();
-        $karyawans = \App\Models\Karyawan::all();
-        $pengeluaran = \App\Models\Pengeluaran::all();
-    @endphp
+
 
 
 <div class="container">
@@ -41,53 +34,54 @@
                 <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
                 <div class="col-lg-7">
                     <div class="p-5">
-                        <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">EDIT PENGELUARAN</h1>
-                        </div>
-                        <form class="user" action="pengeluaran.edit" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            @method('PUT')
+                    <div class="text-center">
+                        <h1 class="h4 text-gray-900 mb-4">EDIT PENGELUARAN</h1>
+                    </div>
+                
+                    <form method="POST" action="{{ route('pengeluaran.update') }}">
+                        @csrf
+                        @method('PUT')
+                        
 
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="exampleInputUsername"
-                                    placeholder="Jenis Pengeluaran" name="jenis_pengeluaran" value="{{ $userJenis }}">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="exampleInputUsername"
-                                    placeholder="Jenis Pelayanan" name="id_fasilitas" value="{{ $pengeluaran->jenis_pengeluaran }}">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="exampleInputEmail"
-                                    placeholder="Harga" name="jumlah" value="{{ $pengeluaran->jumlah }}">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="exampleInputPassword"
-                                    placeholder="No Antrian" name="biaya" value="{{ $pengeluaran -> biaya}}">
-                            </div>
-                            <div class="form-group">
-                                <input type="file" class="form-control form-control-user" id="exampleInputPassword"
-                                    placeholder="Nota" name="bukti_nota" value="{{ $foto }}">
-                            </div>
-                            <div class="form-group">
-                                <input type="date" class="form-control form-control-user" id="exampleInputPassword"
-                                    placeholder="Tanggal Pemesanan" name="tanggal_pengeluaran" value="{{ $pengeluaran -> tanggal_pengeluaran }}">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="exampleInputPassword"
-                                    placeholder="ID Pelayanan" name="id_karyawan" value="{{ $pengeluaran->id_karyawan }}">
-                            </div>
-                            <button type="submit" name="update" class="btn btn-primary btn-user btn-block"> UPDATE </button>
-                        </form>
-                        <hr>
-                        <div class="text-center">
-                            <a class="small" href="/login">Already have an account? Login!</a>
+                        <div class="form-group">
+                            <label for="txt_jenis_pengeluaran">Jenis Pengeluaran</label>
+                            <input type="text" class="form-control" id="txt_jenis_pengeluaran" name="txt_jenis_pengeluaran" value="{{ $pengeluaran->txt_jenis_pengeluaran }}" required>
                         </div>
+                        <div class="form-group">
+                            <label for="txt_id_fasilitas">Id Fasilitas</label>
+                            <input type="text" class="form-control" id="txt_id_fasilitas" name="txt_id_fasilitas" value="{{ $pengeluaran->id_fasilitas }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="txt_jumlah">Jumlah</label>
+                            <input type="text" class="form-control" id="txt_jumlah" name="txt_jumlah" value="{{ $pengeluaran->jumlah }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="txt_biaya">Biaya</label>
+                            <input type="text" class="form-control" id="txt_biaya" name="txt_biaya" value="{{ $pengeluaran->biaya }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="txt_bukti_nota">Bukti Nota</label>
+                            <input type="file" class="form-control" id="txt_bukti_nota" name="txt_bukti_nota">
+                        </div>
+                        <div class="form-group">
+                            <label for="txt_tanggal_pengeluaran">Tanggal Pengeluaran</label>
+                            <input type="date" class="form-control" id="txt_tanggal_pengeluaran" name="txt_tanggal_pengeluaran" value="{{ $pengeluaran->tanggal_pengeluaran }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="txt_id_karyawan">Karyawan</label>
+                            <input type="text" class="form-control" id="txt_id_karyawan" name="txt_id_karyawan" value="{{ $pengeluaran->id_karyawan }}" required>
+                        </div>
+                        <button type="submit" name="update" class="btn btn-primary btn-user btn-block">UPDATE</button>
+                    </form>
+                
+                    <hr>
+                    <div class="text-center">
+                        <a class="small" href="/login">Already have an account? Login!</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 
     <!-- Bootstrap core JavaScript -->

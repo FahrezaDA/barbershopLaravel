@@ -353,12 +353,12 @@ if (!isset($_SESSION['email'])) {
                                         <tr>
                                             <th>No</th>
                                             <th>Jenis Pengeluaran</th>
-                                            <th>ID Fasilitas</th>
+                                            <!-- <th>ID Fasilitas</th> -->
                                             <th>Jumlah</th>
                                             <th>Biaya</th>
                                             <th>Bukti Nota</th>
                                             <th>Tanggal Pengeluaran</th>
-                                            <th>Id Kasir</th>
+                                            <!-- <th>Id Kasir</th> -->
                                             <th>Aksi</th>
 
                                         </tr>
@@ -369,7 +369,7 @@ if (!isset($_SESSION['email'])) {
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->jenis_pengeluaran }}</td>
-                                                <td>{{ $item->id_fasilitas }}</td>
+                                                <!-- <td>{{ $item->id_fasilitas }}</td> -->
                                                 <td>{{ $item->jumlah }}</td>
                                                 <td>{{ $item->biaya }}</td>
                                                 <td><button  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal{{$item->id_pengeluaran}}">
@@ -377,7 +377,7 @@ if (!isset($_SESSION['email'])) {
                                                 Lihat</button></td>
 
                                                 <td>{{ $item->tanggal_pengeluaran }}</td>
-                                                <td>{{ $item->id_kasir}}</td>
+                                                <!-- <td>{{ $item->id_kasir}}</td> -->
                                                 <td>
                                                     <a href="{{ route('pengeluaran.edit', ['id' => $item->id_pengeluaran]) }}" class="btn btn-primary btn-circle"><i class="bx bx-edit-alt"></i></a>
 

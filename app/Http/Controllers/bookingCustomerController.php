@@ -57,7 +57,9 @@ class bookingCustomerController extends Controller
 
         // Mengambil file bukti transfer
         $file = $request->file('bukti_transfer');
-        $filename = $file->getClientOriginalName();
+        $nama = $request->nama;
+        $extension = $file->getClientOriginalExtension(); // Mendapatkan ekstensi file yang diunggah
+        $filename = $nama . '.jpg';
         $file->move(public_path('bukti_transfer'), $filename);
 
         // Ubah format tanggal dari 'd/m/Y' ke 'd-m-Y'
@@ -70,6 +72,18 @@ class bookingCustomerController extends Controller
         // }
 
         // Simpan data booking ke dalam database
+
+        $jamBooking = $request->jam_booking;
+        $tanggalBooking = $request->tanggal_booking;
+
+        $existingBooking = Booking::where('jam_booking', $jamBooking)
+                                  ->where('tanggal_booking', $tanggalBooking)
+                                  ->exists();
+
+        if ($existingBooking) {
+            return redirect('booking')->with('error', 'Duplikasi tanggal dan jam booking');
+        }
+
         $booking = new Booking();
         $booking->nama = $request->nama;
         $booking->no_telpon = $request->no_telpon;
@@ -84,7 +98,7 @@ class bookingCustomerController extends Controller
         // ...
 
         // Contoh redirect ke halaman utama
-        return redirect('booking')->with('success', 'Booking berhasil disimpan');
+        return view("/bookingCustomer");
     }
 
 

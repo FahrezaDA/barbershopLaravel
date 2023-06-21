@@ -462,23 +462,13 @@ if (!isset($_SESSION['email'])) {
 
     <div class="col-xl-8 col-lg-7">
 
-        <!-- Area Chart -->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Pemesanan</h6>
-            </div>
-            <div class="card-body">
-                <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
-                </div>
-            </div>
-        </div>
-
+        
 
     </div>
 
     <!-- script -->
     <script>
+/*
     var ctx = document.getElementById("myAreaChart").getContext('2d');
     var myAreaChart = new Chart(ctx, {
         type: 'line',
@@ -531,6 +521,7 @@ if (!isset($_SESSION['email'])) {
             }
         }
     });
+
 </script>
 
 

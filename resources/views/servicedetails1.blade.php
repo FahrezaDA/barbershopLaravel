@@ -113,7 +113,7 @@
                     Beberapa model gaya rambut ini juga meniru gaya rambut pria dewasa yang akan menambah kepercayaan diri anak.
                   </p>
                   <br>
-                  <button onclick="window.location='http:http://cutluck.wsmif3a.id/booking.php' "style="background-color: #4E73DF; color: white; height: 35px; width: 150px;">
+                  <button onclick="window.location='/bookingCustomer' "style="background-color: #4E73DF; color: white; height: 35px; width: 150px;">
                   <b>Booking</b>
                   </button>
                 </li>

@@ -112,7 +112,7 @@
                      di bagian atas yang indah. Gaya ini tentu memberikan pesona pria yang menarik hingga mudah mendapat perhatian wanita.
                   </p>
                   <br>
-                  <button onclick="window.location='http://localhost/php/repo-barbershop/barbershopPro/booking.php' "style="background-color: #4E73DF; color: white; height: 35px; width: 150px;">
+                  <button onclick="window.location='/bookingCustomer' "style="background-color: #4E73DF; color: white; height: 35px; width: 150px;">
                   <b>Booking</b>
                   </button>
                 </li>
